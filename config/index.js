@@ -17,7 +17,7 @@ const localIp = () => {
 function getHost() {
   return {
     localdev: localIp()[0],
-    development: '192.168.11.60' // 开发环境
+    development: localIp()[0] // 开发环境
   }[ENV]
 }
 
