@@ -30,10 +30,7 @@
     "build-analyse": "npm run build-dll && webpack --config webpack/webpack.prod.conf.js",
     "test": "jest --colors --coverage --forceExit --expand",
     "test-watch": "jest --colors --coverage --forceExit --expand --watch",
-    "test-update": "jest --updateSnapshot",
-    "precommit-msg": "echo Pre-commit checking...please wait && exit 0",
-    "precommit": "npm run precommit-msg && npm run lint",
-    "commitmsg": "validate-commit-msg"
+    "test-update": "jest --updateSnapshot"
   },
   "husky": {
     "hooks": {
