@@ -74,7 +74,6 @@
   "module": "es/index.js",
   "dependencies": {
     "classnames": "^2.2.5",
-    "husky": "^1.3.1",
     "normalize.css": "^7.0.0",
     "react-spring": "^8.0.18",
     "warning": "^4.0.3"
@@ -106,6 +105,7 @@
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
     "jest": "^21.2.1",
     "jsdom": "^11.4.0",
     "lint-staged": "^8.1.5",
