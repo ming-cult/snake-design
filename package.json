@@ -1,0 +1,162 @@
+{
+  "name": "snake-design",
+  "version": "0.0.1",
+  "description": "基于 hooks 搭建的 PC 端组件库",
+  "homepage": "https://github.com/front-swordsman/snake-design",
+  "keywords": [
+    "hooks",
+    "react",
+    "component",
+    "components",
+    "ui",
+    "typescript",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/front-swordsman/snake-design"
+  },
+  "bugs": {
+    "url": "https://github.com/front-swordsman/snake-design/issues"
+  },
+  "typings": "./types/index.d.ts",
+  "license": "MIT",
+  "main": "dist/snake-design.js",
+  "scripts": {
+    "start": "better-npm-run watch-client",
+    "build": "better-npm-run build-snake-design",
+    "build-docs": "better-npm-run gen-docs",
+    "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
+    "build-analyse": "better-npm-run webpack-analyse",
+    "test": "jest --colors --coverage --forceExit --expand",
+    "test-watch": "jest --colors --coverage --forceExit --expand --watch",
+    "test-update": "jest --updateSnapshot",
+    "lint": "tslint ./components/**/*.tsx",
+    "lint-fix": "tslint ./components**/*.tsx --fix",
+    "precommit-msg": "echo Pre-commit checking...please wait && exit 0",
+    "precommit": "npm run precommit-msg && npm run lint",
+    "commitmsg": "validate-commit-msg"
+  },
+  "betterScripts": {
+    "watch-client": {
+      "command": "npm run build-dll && webpack-dev-server --progress --config ./webpack/webpack.dev.conf.js --colors",
+      "env": {
+        "UV_THREADPOOL_SIZE": 100,
+        "NODE_PATH": "./docs",
+        "NODE_ENV": "localdev"
+      }
+    },
+    "gen-docs": {
+      "command": "npm run build-dll && webpack --config webpack/docs.config.js",
+      "env": {
+        "UV_THREADPOOL_SIZE": 100,
+        "NODE_PATH": "./docs",
+        "NODE_ENV": "production"
+      }
+    },
+    "build-snake-design": {
+      "command": "tsc -p tsconfig.lib.json && webpack --config webpack/webpack.prod.conf.js",
+      "env": {
+        "UV_THREADPOOL_SIZE": 100,
+        "NODE_PATH": "./docs",
+        "NODE_ENV": "production"
+      }
+    },
+    "webpack-analyse": {
+      "command": "npm run build-dll && webpack --config webpack/webpack.prod.conf.js",
+      "env": {
+        "NODE_ENV": "analyse"
+      }
+    }
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/scssStub.js",
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/scssStub.js",
+      "^components(.*)$": "<rootDir>/components$1"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/__mocks__/setup.ts",
+    "testRegex": "(/__test__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "mapCoverage": true,
+    "globals": {
+      "ts-jest": {
+        "skipBabel": true
+      }
+    }
+  },
+  "module": "es/index.js",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "normalize.css": "^7.0.0",
+    "react-transition-group": "^2.2.1",
+    "typescript": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/classnames": "^2.2.3",
+    "@types/enzyme": "^3.1.5",
+    "@types/enzyme-adapter-react-16": "^1.0.1",
+    "@types/enzyme-to-json": "^1.5.0",
+    "@types/jest": "^20.0.8",
+    "@types/marked": "^0.3.0",
+    "@types/prismjs": "^1.9.0",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
+    "@types/react-hot-loader": "^3.0.5",
+    "@types/react-router-dom": "^4.0.7",
+    "@types/react-transition-group": "^2.0.6",
+    "@types/webpack-env": "^1.13.2",
+    "better-npm-run": "^0.1.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.28.7",
+    "ejs": "^2.5.7",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.1.2",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "jsdom": "^11.4.0",
+    "marked": "^0.3.6",
+    "node-sass": "^4.5.3",
+    "open-browser-webpack-plugin": "^0.0.5",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.6",
+    "prismjs": "^1.9.0",
+    "qrcode.react": "^0.7.2",
+    "raw-loader": "^0.5.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-router-dom": "^4.2.2",
+    "sass-lint": "^1.11.1",
+    "sass-loader": "^6.0.6",
+    "sinon": "^4.0.1",
+    "style-loader": "^0.18.2",
+    "ts-jest": "^21.0.1",
+    "ts-loader": "^2.3.6",
+    "tslint": "^5.7.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "tslint-react": "^3.2.0",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "url-loader": "^0.5.9",
+    "validate-commit-msg": "^2.12.1",
+    "webpack": "^3.5.6",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-parallel-uglify-plugin": "^1.0.0"
+  }
+}

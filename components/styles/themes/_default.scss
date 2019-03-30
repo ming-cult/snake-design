@@ -1,0 +1,48 @@
+@import "../color";
+
+$fontFamily: PingFangSC-Regular,
+HelveticaNeue,
+HiraginoSansGB-W3,
+Helvetica,
+Arial,
+MicrosoftYaHei;
+
+// primary and accent
+$primaryColor: #1f9ec8; // 主色
+$secondaryColor: $fullWhite; // 次级颜色
+$accentColor: $apricotOrange; // 强调色
+
+// textColor or borderColor
+$textColor: $darkGray;
+$secondaryTextColor: $gray;
+$alternateTextColor: $fullWhite;
+$borderColor: $lightGray;
+
+// background
+$backgroundColor: $bgGray;
+$dialogBackgroundColor: $fullWhite; // dialogs or cards
+$btnLightBackgroundColor: $lightOrange;
+$btnMinBackgroundColor: $minOrange;
+
+// animate
+$easeOutFunction: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutFunction: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+// ICON-FONTS
+$icon-font-prefix: dicon;
+
+/* colors,待调整，waiting...... */
+$colorPrimary: #b81e13; // 主色调
+$colorError: #fc352b; // 重要/错误
+$colorWarning: #ffa800; // 提示/警告
+// font colors
+$colorFontInfo: #000; // 信息
+$colorFontTitle: #333; // 标题
+$colorFontTerm: #666; // 条件
+$colorFontNormal: #929292; // 选择
+// border colors
+$colorBorderTip: #b2b2b2; // 输入框提示
+$colorBorder: #e5e5e5; // 线条颜色
+// background colors
+$colorBgpage: #f2f1f0; // 页面背景
+$colorBgdialog: #fafafa; // 弹窗标题背景

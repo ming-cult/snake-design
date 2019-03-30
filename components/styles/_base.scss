@@ -1,0 +1,29 @@
+@import './themes/_default.scss';
+[class^=snake-design]{
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+}
+
+body{
+  font-family: $fontFamily;
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+pre{
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+}

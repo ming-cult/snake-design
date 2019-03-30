@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "snake-design",
+    "script": "./server/index.js",
+    "cwd": "/home/appdev/deploy/apps/snake-design",
+    "instances": 1,
+    "exec_mode": "cluster",
+    "watch": false,
+    "env_dev": {
+      "NODE_ENV": "development"
+    }
+  }]
+}
