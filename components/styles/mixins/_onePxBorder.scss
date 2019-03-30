@@ -1,0 +1,110 @@
+@import '../themes/default';
+
+%_onepxElement {
+  content: '';
+  position: absolute;
+}
+
+%_onepxTopBottom {
+  @extend %_onepxElement;
+  left: 0;
+  right: 0;
+}
+
+%_onepxLeftRight {
+  @extend %_onepxElement;
+  top: 0;
+  bottom: 0;
+}
+
+// 媒体查询dpr设置边框粗细
+@mixin setDprBorder($direction: tb) {
+  @for $i from 1 through 4 {
+    @media screen and (-webkit-min-device-pixel-ratio: $i) {
+      @if($direction == tb){
+        transform: scaleY(1 / $i);
+      } @else if($direction == lr) {
+        transform: scaleX(1 / $i);
+      } @else if($direction == full) {
+        transform: scale(1 / $i);
+      }
+    }
+  }
+}
+
+/*
+ * 一像素边框
+ * $direction: 边框方向，默认底边框
+ * $style: 线条样式，默认solid
+ * $color: 边框颜色
+ */
+@mixin one-px-border($direction: bottom, $style: solid, $color: $colorBorder) {
+  position: relative;
+  $border: 1px $style $color;
+  @if ($direction == bottom) {
+    &:after {
+      @extend %_onepxTopBottom;
+      @include setDprBorder(tb);
+      border-top: $border;
+      bottom: 0;
+    }
+  } @else if ($direction == top) {
+    &:before {
+      @extend %_onepxTopBottom;
+      @include setDprBorder(tb);
+      border-top: $border;
+      top: 0;
+    }
+  } @else if ($direction == left) {
+    &:before {
+      @extend %_onepxLeftRight;
+      @include setDprBorder(lr);
+      border-left: $border;
+      left: 0;
+    }
+  } @else if ($direction == right) {
+    &:after {
+      @extend %_onepxLeftRight;
+      @include setDprBorder(lr);
+      border-left: $border;
+      right: 0;
+    }
+  }
+}
+
+// 默认下边框
+%one-px-border{
+  @include one-px-border();
+}
+
+/**
+ * 四边一像素边框
+ * $color: 颜色
+ * $style: 线条样式,默认solid
+ * $radius: 圆角
+ */
+@mixin full-px-border($color: $colorBorder, $style: solid, $radius: 0){
+  position: relative;
+  z-index: 1;
+  &:before{
+    @extend %_onepxElement;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    border: 1px $style $color;
+    transform-origin: top left;
+    @for $i from 1 through 4 {
+      @media screen and (-webkit-min-device-pixel-ratio: $i) {
+        width: 100% * $i;
+        height: 100% * $i;
+        transform: scale(1 / $i);
+        @if($radius != 0) {
+          border-radius: $radius * $i;
+        }
+      }
+    }
+  }
+}
+%full-px-border{
+  @include full-px-border();
+}

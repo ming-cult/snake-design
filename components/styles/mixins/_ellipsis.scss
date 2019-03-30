@@ -1,0 +1,28 @@
+// 文字溢出省略，仅webkit支持多行
+@mixin ellipsis($lines) {
+  @if ($lines == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+		-webkit-line-clamp:$lines;
+    overflow: hidden;
+    text-overflow: ellipsis;
+		word-break:break-all;
+  }
+}
+// 后置省略
+// xxx...
+%ellipsis{
+  @include ellipsis(1);
+}
+
+// 前置省略
+// ...xxxxxx
+%ellipsis-reverse{
+  @include ellipsis(1);
+  direction: rtl;
+  unicode-bidi: plaintext;
+}

@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "outDir": "./build/",
+      "preserveConstEnums": true,
+      "removeComments": true,
+      "target": "ES5",
+      "allowJs": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "noUnusedLocals": true,
+      "baseUrl": ".",
+      "typeRoots": [
+        "./types",
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es2015",
+        "es2016",
+        "es2017",
+        "dom"
+      ],
+      "paths": {
+        "components/*": ["./components/*"],
+        "types/*": ["./types/*"],
+        "layout/*": ["./layout/*"],
+        "routes/*": ["./routes/*"],
+        "static/*": ["./static/*"]
+      }
+    },
+    "files": [
+      "types/index.d.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+    "include": [
+      "docs"
+    ]
+}

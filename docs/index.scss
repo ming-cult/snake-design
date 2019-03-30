@@ -1,0 +1,243 @@
+@import 'components/styles/index';
+@import 'components/styles/mixins/onePxBorder';
+@import 'components/styles/mixins/depth';
+@import 'components/styles/mixins/ellipsis';
+
+@mixin linear-gradient($color1, $color2) {
+  background-color: $color1;
+  background-image: linear-gradient($color1, $color2);
+}
+
+body{
+  -webkit-overflow-scrolling:touch;
+}
+
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track-piece{background:transparent;border-radius:6px;}
+::-webkit-scrollbar-thumb:vertical{height: 5px;background:transparent;border-radius:6px;}
+::-webkit-scrollbar-thumb:horizontal{width: 5px;background:#ccc;border-radius:6px;}
+*{
+  &:hover{
+    &::-webkit-scrollbar-thumb:vertical{ background: #999;}
+  }
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  .snake-design-doc-container,
+  .snake-design-doc-header{
+    .container{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1366px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  }
+
+  // PC站头部
+  .snake-design-doc-header{
+    height: 82px;
+    width: 100%;
+    @include one-px-border();
+    .container{
+      align-items: center;
+    }
+    .logo {
+      padding: 20px;
+      color: $primaryColor;
+      font-size: 1.5rem;
+    }
+    .tabs{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      a {
+        padding: 10px 0px;
+        margin-right: 50px;
+        position: relative;
+        color: $primaryColor;
+        :not(.gitlab){
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $primaryColor;
+            content: '';
+            opacity: 0.2;
+            transition: opacity 0.3s, height 0.3s;
+          }
+        }
+      }
+
+      & a::after {
+        top: 100%;
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        transform: translateY(-10px);
+      }
+
+      & a span:first-child {
+        z-index: 2;
+        display: block;
+        font-weight: 300;
+      }
+
+      & a span:last-child {
+        z-index: 1;
+        display: block;
+        position: absolute;
+        padding: 12px 0 0 0;
+        color: $primaryColor;
+        text-shadow: none;
+        text-transform: none;
+        font-style: italic;
+        font-size: 0.75rem;
+        font-weight: bold;
+        font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        transform: translateY(-100%);
+      }
+
+      & a:hover::before,
+      & a:focus::before {
+        height: 6px;
+      }
+
+      & a:hover::before,
+      & a:hover::after,
+      & a:focus::before,
+      & a:focus::after {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      & a:hover span:last-child,
+      & a:focus span:last-child {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  // PC站主体内容
+  .snake-design-doc-container{
+    flex: 1;
+    position: relative;
+    height: 0;
+    margin-top: 20px;
+    overflow: auto;
+    // 左侧导航
+    .snake-design-doc-nav{
+      background: #FFF;
+      margin: 0px 12px;
+      white-space: nowrap;
+      min-width: 240px;
+      padding: 20px;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      &:hover{
+        &::-webkit-scrollbar-thumb:vertical{ background: #999;}
+      }
+      .each-section{
+        header{
+          line-height: 40px;
+          font-size: 16px;
+        }
+        .sub{
+          padding-left: 0px;
+          margin: 0px;
+          a{
+            display: block;
+            line-height: 40px;
+            font-size: 14px;
+            margin: 0px;
+            padding-left: 20px;
+            position: relative;
+            color: #666;
+            transition: color .3s ease;
+            @extend %ellipsis;
+            &:hover{
+              color: $primaryColor;
+            }
+            &:after{
+              content: "";
+              width: 4px;
+              height: 100%;
+              position: absolute;
+              right: 0;
+              background-color: transparent;
+              transition: all .5s $easeOutFunction;
+            }
+            &.sub-active{
+              color: $primaryColor;
+              &::after{
+                background-color: currentColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .snake-design-doc-content{
+      flex-grow: 1;
+      overflow: auto;
+    }
+  }
+}
+
+.snake-design-app-container{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $backgroundColor;
+  .qr-code{
+    position: fixed;
+    z-index: 99;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: $fullWhite;
+    text-align: center;
+    p{
+      color: $fullWhite;
+    }
+  }
+}
+.snake-design-app-components{
+  flex: 1;
+  height: 0;
+  overflow: auto;
+}
+
+// 一个代码片段展示
+.code-example{
+  border: 1px solid $borderColor;
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 10px;
+  transition: box-shadow .3s ease;
+  &:hover{
+    @include depth(1);
+  }
+
+  .code-demo {
+    display: flex;
+    max-height: 667px;
+    >pre{
+      flex: 1;
+    }
+  }
+}

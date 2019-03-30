@@ -1,0 +1,78 @@
+@import '../styles/mixins/onePxBorder';
+$_pddTop: 12px;
+$_pddLeft: 15px;
+.snake-design-panel {
+  color: $colorFontTerm;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &-header{
+    @include one-px-border(top);
+    padding: $_pddTop $_pddLeft;
+    background: #fff;
+  }
+  &-body{
+    @include one-px-border(top);
+    @include one-px-border(bottom);
+    background: #fff;
+  }
+  &-footer{
+    @include one-px-border(bottom);
+    padding: $_pddTop $_pddLeft;
+    background: #fff;
+  }
+  &-addons{
+    font-size: 12px;
+    padding: $_pddTop $_pddLeft $_pddTop - 2px;
+  }
+  &-item {
+    padding: $_pddTop $_pddLeft;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:not(:last-child) {
+      @include one-px-border(bottom);
+      &:after{
+        left: $_pddLeft;
+      }
+    }
+    &-inner{
+      display: inline-flex;
+      flex: 1;
+      width: 100%;
+      &-row{
+        flex-direction: row;
+      }
+      &-column{
+        flex-direction: column;
+      }
+    }
+    &-leftIcon,
+    &-leftAddon{
+      margin-right: 10px;
+    }
+    &-rightAddon{
+      margin: 0 6px;
+    }
+    &-rightIcon{
+      line-height: 1;
+    }
+  }
+  // 触摸反馈
+  &-feedback:active {
+    background: #f5f5f5;
+  }
+
+  // 对齐方式
+  &-align__{
+    &stretch{
+      align-items:stretch;
+    }
+    &center{
+      align-items: center;
+    }
+    &end{
+      align-items: flex-end;
+    }
+  }
+}
