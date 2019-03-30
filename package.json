@@ -38,7 +38,9 @@
     "commitmsg": "validate-commit-msg"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
   },
   "jest": {
     "moduleFileExtensions": [
