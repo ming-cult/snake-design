@@ -96,8 +96,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "normalize.css": "^7.0.0",
-    "react-transition-group": "^2.2.1",
-    "typescript": "^3.4.1"
+    "react-transition-group": "^2.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
@@ -151,6 +150,7 @@
     "tslint": "^5.7.0",
     "tslint-eslint-rules": "^4.1.1",
     "tslint-react": "^3.2.0",
+    "typescript": "^3.4.1",
     "uglifyjs-webpack-plugin": "^1.1.4",
     "url-loader": "^0.5.9",
     "validate-commit-msg": "^2.12.1",

@@ -48,6 +48,7 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 yarn-error.log
+yarn.lock
 
 jest_0
 

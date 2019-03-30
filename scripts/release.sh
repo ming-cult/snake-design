@@ -21,11 +21,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # commit
   git add -A
   git commit -m "feat(build): $VERSION"
-  npm version $VERSION --message "feat(release): $VERSION"
+  npm version $VERSION --message "feat: $VERSION"
 
   # publish
   git push origin refs/tags/v$VERSION
   git push
-  npm config set registry http://60.191.68.46:7001/
   npm publish
 fi
