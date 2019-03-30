@@ -31,16 +31,25 @@
     "test": "jest --colors --coverage --forceExit --expand",
     "test-watch": "jest --colors --coverage --forceExit --expand --watch",
     "test-update": "jest --updateSnapshot",
-    "lint": "tslint ./components/**/*.tsx",
-    "lint-fix": "tslint ./components**/*.tsx --fix",
     "precommit-msg": "echo Pre-commit checking...please wait && exit 0",
     "precommit": "npm run precommit-msg && npm run lint",
     "commitmsg": "validate-commit-msg"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "components/**/*.tsx": [
+      "prettier --write",
+      "tslint --config tslint.json --fix",
+      "git add"
+    ],
+    "components/**/*.scss": [
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
   },
   "jest": {
     "moduleFileExtensions": [
@@ -70,7 +79,8 @@
     "classnames": "^2.2.5",
     "husky": "^1.3.1",
     "normalize.css": "^7.0.0",
-    "react-spring": "^8.0.18"
+    "react-spring": "^8.0.18",
+    "warning": "^4.0.3"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
@@ -101,11 +111,13 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^21.2.1",
     "jsdom": "^11.4.0",
+    "lint-staged": "^8.1.5",
     "marked": "^0.3.6",
     "node-sass": "^4.5.3",
     "open-browser-webpack-plugin": "^0.0.5",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.6",
+    "prettier": "^1.16.4",
     "prismjs": "^1.9.0",
     "raw-loader": "^0.5.1",
     "react": "^16.8.0",
@@ -115,6 +127,9 @@
     "sass-loader": "^6.0.6",
     "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.5.4",
     "ts-jest": "^24.0.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.7.0",
@@ -124,7 +139,6 @@
     "uglifyjs-webpack-plugin": "^1.1.4",
     "url-loader": "^0.5.9",
     "validate-commit-msg": "^2.12.1",
-    "warning": "^4.0.3",
     "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-cli": "^3.3.0",
