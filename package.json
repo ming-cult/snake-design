@@ -23,11 +23,11 @@
   "license": "MIT",
   "main": "dist/snake-design.js",
   "scripts": {
-    "start": "better-npm-run watch-client",
-    "build": "better-npm-run build-snake-design",
-    "build-docs": "better-npm-run gen-docs",
+    "start": "npm run build-dll && webpack-dev-server --config ./webpack/webpack.dev.conf.js --colors",
+    "build": "tsc -p tsconfig.lib.json && webpack --config webpack/webpack.prod.conf.js",
+    "build-docs": "npm run build-dll && webpack --config webpack/docs.config.js",
     "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
-    "build-analyse": "better-npm-run webpack-analyse",
+    "build-analyse": "npm run build-dll && webpack --config webpack/webpack.prod.conf.js",
     "test": "jest --colors --coverage --forceExit --expand",
     "test-watch": "jest --colors --coverage --forceExit --expand --watch",
     "test-update": "jest --updateSnapshot",
@@ -37,37 +37,8 @@
     "precommit": "npm run precommit-msg && npm run lint",
     "commitmsg": "validate-commit-msg"
   },
-  "betterScripts": {
-    "watch-client": {
-      "command": "npm run build-dll && webpack-dev-server --progress --config ./webpack/webpack.dev.conf.js --colors",
-      "env": {
-        "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./docs",
-        "NODE_ENV": "localdev"
-      }
-    },
-    "gen-docs": {
-      "command": "npm run build-dll && webpack --config webpack/docs.config.js",
-      "env": {
-        "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./docs",
-        "NODE_ENV": "production"
-      }
-    },
-    "build-snake-design": {
-      "command": "tsc -p tsconfig.lib.json && webpack --config webpack/webpack.prod.conf.js",
-      "env": {
-        "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./docs",
-        "NODE_ENV": "production"
-      }
-    },
-    "webpack-analyse": {
-      "command": "npm run build-dll && webpack --config webpack/webpack.prod.conf.js",
-      "env": {
-        "NODE_ENV": "analyse"
-      }
-    }
+  "husky": {
+    "hooks": {}
   },
   "jest": {
     "moduleFileExtensions": [
@@ -95,8 +66,9 @@
   "module": "es/index.js",
   "dependencies": {
     "classnames": "^2.2.5",
+    "husky": "^1.3.1",
     "normalize.css": "^7.0.0",
-    "react-transition-group": "^2.2.1"
+    "react-spring": "^8.0.18"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
@@ -109,11 +81,8 @@
     "@types/prismjs": "^1.9.0",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
-    "@types/react-hot-loader": "^3.0.5",
     "@types/react-router-dom": "^4.0.7",
-    "@types/react-transition-group": "^2.0.6",
     "@types/webpack-env": "^1.13.2",
-    "better-npm-run": "^0.1.0",
     "clean-webpack-plugin": "^0.1.17",
     "concurrently": "^3.4.0",
     "css-loader": "^0.28.7",
@@ -121,12 +90,13 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-to-json": "^3.1.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "express": "^4.16.2",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
-    "html-webpack-plugin": "^2.30.1",
-    "husky": "^0.14.3",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^21.2.1",
     "jsdom": "^11.4.0",
     "marked": "^0.3.6",
@@ -135,18 +105,16 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.6",
     "prismjs": "^1.9.0",
-    "qrcode.react": "^0.7.2",
     "raw-loader": "^0.5.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-hot-loader": "^3.0.0-beta.7",
     "react-router-dom": "^4.2.2",
     "sass-lint": "^1.11.1",
     "sass-loader": "^6.0.6",
     "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
-    "ts-jest": "^21.0.1",
-    "ts-loader": "^2.3.6",
+    "ts-jest": "^24.0.0",
+    "ts-loader": "^5.3.3",
     "tslint": "^5.7.0",
     "tslint-eslint-rules": "^4.1.1",
     "tslint-react": "^3.2.0",
@@ -154,9 +122,11 @@
     "uglifyjs-webpack-plugin": "^1.1.4",
     "url-loader": "^0.5.9",
     "validate-commit-msg": "^2.12.1",
-    "webpack": "^3.5.6",
+    "warning": "^4.0.3",
+    "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1",
     "webpack-parallel-uglify-plugin": "^1.0.0"
   }
 }

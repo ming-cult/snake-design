@@ -13,6 +13,7 @@ function resolve() {
 }
 
 module.exports = {
+  mode: 'production',
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
@@ -38,7 +39,7 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
@@ -89,10 +90,6 @@ module.exports = {
       inject: true,
       chunks: ['vendor', 'main'],
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
     new UglifyJsPlugin({
       sourceMap: true,
       parallel: true,
@@ -106,5 +103,11 @@ module.exports = {
       }
     }),
     new FriendlyErrorsPlugin(),
-  ]
+  ],
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  },
 };

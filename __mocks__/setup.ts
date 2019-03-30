@@ -20,7 +20,6 @@ global.navigator = {
 }
 copyProps(window, global);
 
-// tslint:disable-next-line:max-line-length
 // Fix Warning: React depends on requestAnimationFrame. Make sure that you load a polyfill in older browsers. http://fb.me/react-polyfills
 (function () {
   let lastTime = 0

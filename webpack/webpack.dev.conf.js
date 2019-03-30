@@ -13,15 +13,13 @@ function resolve() {
 }
 
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
     'main': [
-      "./docs/app.tsx"
+      "./docs/app.tsx",
     ],
-    'vendor': [
-      'react-hot-loader/patch',
-    ]
   },
   output: {
     path: path.resolve(__dirname, "../build"),
@@ -38,17 +36,17 @@ module.exports = {
       static: resolve() + '/docs/static'
     }
   },
-
   module: {
-    loaders: [
+    strictExportPresence: true,
+    rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: require.resolve('ts-loader'),
         exclude: /node_modules/
       },
       {
         test: /\.md$/,
-        loader: 'raw-loader'
+        loader: require.resolve('raw-loader')
       },
       {
         test: /\.css$/,
@@ -69,21 +67,16 @@ module.exports = {
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"localdev"',
-      }
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       inject: true,
       chunks: ['vendor', 'main'],
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunks: Infinity,
+    // }),
     new FriendlyErrorsPlugin(),
     new OpenBrowserPlugin({
       url: `http://${config.host}:${config.port}`,
@@ -101,5 +94,12 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
     stats: { color: true, assets: true, assetsSort: "field", chunks: false },
     historyApiFallback: true
+  },
+  // 将一些在浏览器不起作用，但是引用到的库置空
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
   }
 };
