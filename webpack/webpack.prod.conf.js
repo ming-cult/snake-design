@@ -21,7 +21,7 @@ module.exports = {
   devtool: 'false',
   context: path.resolve(__dirname, '..'),
   entry: {
-    'snake-design': "components/index.ts"
+    'snake-design': "components/index.tsx"
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
