@@ -11,8 +11,5 @@ describe('Button Component', () => {
   it('renders a primary button correctly', async () => {
     const wrapper = shallow(<Button text="test" />)
     expect(renderToJson(wrapper)).toMatchSnapshot()
-
-    const wrapper2 = shallow(<Button>test</Button>)
-    expect(wrapper2.children().text()).toEqual('test')
   })
 })

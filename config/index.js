@@ -1,4 +1,4 @@
-const ENV = process.env.NODE_ENV || 'localdev'
+const ENV = 'localdev'
 const os = require('os')
 
 const localIp = () => {

@@ -17,6 +17,7 @@ const projectRootPath = path.resolve(__dirname, '../');
 const assetsPath = path.resolve(projectRootPath, './dist');
 
 module.exports = {
+  mode: 'production',
   devtool: 'false',
   context: path.resolve(__dirname, '..'),
   entry: {
@@ -44,7 +45,7 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
@@ -87,5 +88,11 @@ module.exports = {
         }
       }
     })
-  ]
+  ],
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  },
 };

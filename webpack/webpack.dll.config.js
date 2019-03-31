@@ -52,12 +52,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
+  mode: 'development',
   entry: {
     vendor: [
       'react',
       'react-dom',
       'react-router-dom',
-      'qrcode.react',
       'marked',
       'prismjs'
     ]

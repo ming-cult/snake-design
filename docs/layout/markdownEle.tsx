@@ -49,7 +49,6 @@ renderer.code = function(code: string, lang: string) {
     language = prism.languages.jsx
     break
   }
-  // tslint:disable-next-line:max-line-length
   return '<div class="code-demo">' +
     `<pre class="language-${tmpLang}">` +
       `<code class="language-${tmpLang}">` +
