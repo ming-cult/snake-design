@@ -6,7 +6,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const config = require('../config')
 
-const publicPath = "/"
+const publicPath = "./"
 
 function resolve() {
   return path.resolve(__dirname,'..')
@@ -22,9 +22,9 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, "../server/static"),
-    filename: "[name]-[chunkhash:6].js",
-    chunkFilename: '[name]-[chunkhash:6].js',
+    path: path.resolve(__dirname, "../docsDist"),
+    filename: "docs.js",
+    chunkFilename: 'docs.js',
     publicPath: publicPath,
   },
   resolve: {
@@ -42,36 +42,26 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: require.resolve('ts-loader'),
         exclude: /node_modules/
       },
       {
         test: /\.md$/,
-        loader: 'raw-loader'
+        loader: require.resolve('raw-loader')
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader?importLoaders=2&minimize=true', 'postcss-loader']
-        })
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
-      { test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader?importLoaders=2&minimize=true', 'postcss-loader', 'sass-loader']
-        })
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader?importLoaders=2', 'postcss-loader', 'sass-loader']
       },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
       { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10240' }
     ]
   },
   plugins: [
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('../server/static/build/vendor/vendor-manifest.json')
-    }),
-
     new webpack.optimize.ModuleConcatenationPlugin(),
     new ExtractTextPlugin({filename: '[name]-[contenthash:6].css', allChunks: true}),
     new webpack.DefinePlugin({
@@ -85,10 +75,9 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, '../server/views/index.ejs'),
       template: path.resolve(__dirname, '../docs/index.html'),
       inject: true,
-      chunks: ['vendor', 'main'],
+      chunks: ['main'],
     }),
     new UglifyJsPlugin({
       sourceMap: true,

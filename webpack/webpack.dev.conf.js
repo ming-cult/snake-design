@@ -73,10 +73,6 @@ module.exports = {
       inject: true,
       chunks: ['vendor', 'main'],
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor',
-    //   minChunks: Infinity,
-    // }),
     new FriendlyErrorsPlugin(),
     new OpenBrowserPlugin({
       url: `http://${config.host}:${config.port}`,
