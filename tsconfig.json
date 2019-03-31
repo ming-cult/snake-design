@@ -9,7 +9,6 @@
     "target": "ES5",
     "allowJs": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "baseUrl": ".",
     "typeRoots": [
