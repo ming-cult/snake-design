@@ -1,9 +1,40 @@
-## Contributing Guide
+# Contributing Guide
 
+## 贡献流程
+
+* 首先 fork `front-swordsman/snake-design` 到自己的项目;
+* 接着 clone 自己项目下的 `snake-design` 到本地;
+* 然后在本地项目中执行以下 git 操作;
+
+```bash
+# 列出远程仓库 URL
+$ git remote -v
+# 设置一个新的远程仓库
+$ git remote add remote https://github.com/front-swordsman/snake-design.git
+
+# 再次列出远程仓库 URL
+$ git remote -v
+# origin	https://github.com/MuYunyun/snake-design.git (fetch)
+# origin	https://github.com/MuYunyun/snake-design.git (push)
+# remote	https://github.com/front-swordsman/snake-design.git (fetch)
+# remote	https://github.com/front-swordsman/snake-design.git (push)
+
+# 获取上游代码
+$ git fetch remote
+
+# 检查你的 fork’s 本地 master 分支，如果不在 master 分支就切换到该分支
+$ git checkout master
+# Switched to branch 'master'
+
+# 合并来自 remote/master 的更改到本地 master 分支上。
+$ git merge remote/master
+```
+
+### 提交之后：
+
+提交合并到 `front-swordsman/snake-design` 之后，为了保证与主仓库代码的一致性，还需要进行一次本地与远程仓库的手动更新。
 
 ## Pull Request 规范
-
-* 请先以 `master` 为基础创建对应的分支
 
 * 不要提交 `dist` 或 `build` 文件夹下的文件
 

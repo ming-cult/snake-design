@@ -21,7 +21,7 @@ module.exports = {
   devtool: 'false',
   context: path.resolve(__dirname, '..'),
   entry: {
-    'snake-design': "components/index.ts"
+    'snake-design': "components/index.tsx"
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -45,17 +45,24 @@ module.exports = {
   ],
 
   module: {
+    strictExportPresence: true,
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: require.resolve('ts-loader'),
         exclude: /node_modules/
       },
-      { test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader?importLoaders=2&minimize=true', 'postcss-loader', 'sass-loader']
-         })
+      {
+        test: /\.md$/,
+        loader: require.resolve('raw-loader')
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader?importLoaders=2', 'postcss-loader', 'sass-loader']
       },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
       { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10240' }
@@ -65,7 +72,7 @@ module.exports = {
     new CleanPlugin([assetsPath], { root: projectRootPath }),
     process.env.NODE_ENV === 'analyse' ? new BundleAnalyzerPlugin() : () => {},
     // css files from the extract-text-plugin loader
-    new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
+    // new ExtractTextPlugin({filename: '[name].css', allChunks: true}),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
