@@ -41,6 +41,11 @@ export default class Simple extends React.Component {
         <button onClick={this.reset} style={{marginTop: 10}}>
           reset
         </button>
+        <p>（3）自定义分隔符</p>
+        <Breadcrumb dataSource={this.state.dataSource} onClick={this.handleClick} separator=">" />
+        <button onClick={this.reset} style={{marginTop: 10}}>
+          reset
+        </button>
       </div>
     )
   }
