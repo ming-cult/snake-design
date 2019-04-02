@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ButtonProps } from 'types/button.d'
+import {ButtonProps} from 'types/button.d'
 
 class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
@@ -13,9 +13,7 @@ class Button extends React.Component<ButtonProps, any> {
   }
 
   render() {
-    return (
-      <div>button</div>
-    )
+    return <div>button</div>
   }
 }
 
