@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {getCx} from '../utils/tool'
-import {BreadcrumbProps, BreadcrumbItemProps} from 'types/breadcrumb.d'
+import { getCx } from '../utils/tool'
+import { BreadcrumbProps, BreadcrumbItemProps } from 'types/breadcrumb.d'
 import './index.scss'
 
-const {useCallback} = React
+const { useCallback } = React
 
 const defaultProps: Partial<BreadcrumbProps> = {
   prefixCls: 'snake-breadcrumb',
@@ -12,8 +12,10 @@ const defaultProps: Partial<BreadcrumbProps> = {
   expandMax: 5,
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> & {defaultProps: Partial<BreadcrumbProps>} = props => {
-  const {prefixCls, separator, onClick, style, dataSource, size} = props
+const Breadcrumb: React.FC<BreadcrumbProps> & {
+  defaultProps: Partial<BreadcrumbProps>
+} = props => {
+  const { prefixCls, separator, onClick, style, dataSource, size } = props
   const cx = useCallback(getCx(prefixCls), [prefixCls])
 
   return (
