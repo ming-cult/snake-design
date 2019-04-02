@@ -1,0 +1,41 @@
+$hd: 1px;
+
+$fontFamily: Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei";
+
+// 标题
+$title: $hd * 16;
+// 小标题
+$subHead: $hd * 20;
+// 大标题
+$headLine: $hd * 24;
+
+// 运营标题
+$display-1: $hd * 36;
+$display-2: $hd * 48;
+$display-3: $hd * 56;
+
+// 正文
+$body: $hd * 14;
+$body-1: $hd * 12;
+$body-2: $hd * 16;
+$body-3: $hd * 20;
+
+// 行高
+$lineHeight: 1.5;
+$lineHeightIntensive: 1.3;
+$lineHeightLoose: 1.7;
+$lineHeight-1: 1;
+
+// 圆角
+$borderRadius: $hd * 4;
+$borderRadiusBig: $hd * 16;
+$borderRadiusMax: $hd * 100;
+
+// 线条
+$lineThin: 1 * $hd;
+$lineNormal: 2 * $hd;
+$lineFat: 3 * $hd;
+
+// 边距
+$padding: $hd * 20;
+$margin: $hd * 20;
