@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Breadcrumb from 'components/Breadcrumb'
-import './demo.scss'
 
 const dataSource = [
   {
