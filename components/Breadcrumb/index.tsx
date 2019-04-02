@@ -13,11 +13,11 @@ const defaultProps: Partial<BreadcrumbProps> = {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> & {defaultProps: Partial<BreadcrumbProps>} = props => {
-  const {prefixCls, separator, onClick, dataSource} = props
+  const {prefixCls, separator, onClick, style, dataSource, size} = props
   const cx = useCallback(getCx(prefixCls), [prefixCls])
 
   return (
-    <div className={prefixCls}>
+    <div className={prefixCls + ' ' + cx(size)} style={style}>
       {dataSource.map((item: BreadcrumbItemProps, index: number) => {
         const isActive = index === dataSource.length - 1
         let aProps: any = {}

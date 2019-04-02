@@ -1,20 +1,38 @@
 @import '../styles/themes/default';
 
-.snake-breadcrumb-item-content {
-  color: $primaryColor;
-  cursor: pointer;
-  &:hover {
-    color: #127da0;
+.breadcrumb-demo-page {
+  h3 {
+    font-weight: normal;
   }
-}
 
-.snake-breadcrumb-item-active {
-  .snake-breadcrumb-item-content {
-    color: $colorFontTerm;
-    cursor: initial;
+  .snake-breadcrumb {
+    &-default {
+      font-size: 16px;
+    }
+
+    &-large {
+      font-size: 24px;
+    }
+    &-small {
+      font-size: 12px;
+    }
   }
-}
-.snake-breadcrumb-separator {
-  // cursor: pointer;
-  margin: 0 4px;
+  .snake-breadcrumb-item-content {
+    color: $primaryColor;
+    cursor: pointer;
+    &:hover {
+      color: #127da0;
+    }
+  }
+
+  .snake-breadcrumb-item-active {
+    .snake-breadcrumb-item-content {
+      color: $colorFontTerm;
+      cursor: initial;
+    }
+  }
+  .snake-breadcrumb-separator {
+    // cursor: pointer;
+    margin: 0 4px;
+  }
 }
