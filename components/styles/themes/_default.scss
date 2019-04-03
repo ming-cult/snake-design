@@ -1,48 +1,49 @@
-@import "../color";
+@import "./color";
+@import "./font";
 
-$fontFamily: PingFangSC-Regular,
-HelveticaNeue,
-HiraginoSansGB-W3,
-Helvetica,
-Arial,
-MicrosoftYaHei;
+// transition 
+// Hover 状态时，目标对象颜色加深，以示与默认状态的样式区分，增强感知
+$hoverIn: 300ms;
+$hoverOut: 200ms;
 
-// primary and accent
-$primaryColor: #1f9ec8; // 主色
-$secondaryColor: $fullWhite; // 次级颜色
-$accentColor: $apricotOrange; // 强调色
+// Select 状态是一个需要强调的状态，动效主要以类似挤压的形式来表达选中状态
+$pressIn: 300ms;
+$pressOut: 200ms;
 
-// textColor or borderColor
-$textColor: $darkGray;
-$secondaryTextColor: $gray;
-$alternateTextColor: $fullWhite;
-$borderColor: $lightGray;
+$fadeIn: 300ms;
+$fadeOut: 200ms;
 
-// background
-$backgroundColor: $bgGray;
-$dialogBackgroundColor: $fullWhite; // dialogs or cards
-$btnLightBackgroundColor: $lightOrange;
-$btnMinBackgroundColor: $minOrange;
+$expandOut: 400ms;
+$expandIn: 400ms;
 
-// animate
-$easeOutFunction: cubic-bezier(0.23, 1, 0.32, 1);
-$easeInOutFunction: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+// z-index
+$zindexTableFixed: auto;
+$zindexAffix: 10;
+$zindexBackTop: 10;
+$zindexBadge: 10;
+$zindexPickerPanel: 10;
+$zindexPopupClose: 10;
+$zindexModal: 1000;
+$zindexModalMask: 1000;
+$zindexMessage: 1010;
+$zindexNotification: 1010;
+$zindexPopover: 1030;
+$zindexDropdown: 1050;
+$zindexPicker: 1050;
+$zindexTooltip: 1060;
 
-// ICON-FONTS
-$icon-font-prefix: dicon;
-
-/* colors,待调整，waiting...... */
-$colorPrimary: #b81e13; // 主色调
-$colorError: #fc352b; // 重要/错误
-$colorWarning: #ffa800; // 提示/警告
-// font colors
-$colorFontInfo: #000; // 信息
-$colorFontTitle: #333; // 标题
-$colorFontTerm: #666; // 条件
-$colorFontNormal: #929292; // 选择
-// border colors
-$colorBorderTip: #b2b2b2; // 输入框提示
-$colorBorder: #e5e5e5; // 线条颜色
-// background colors
-$colorBgpage: #f2f1f0; // 页面背景
-$colorBgdialog: #fafafa; // 弹窗标题背景
+// Animation
+$easeBaseOut: cubic-bezier(0.7, 0.3, 0.1, 1);
+$easeBaseIn: cubic-bezier(0.9, 0, 0.3, 0.7);
+$easeOut: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeIn: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeInOut: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeOutBack: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+$easeInBack: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+$easeInOutBack: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+$easeOutCirc: cubic-bezier(0.08, 0.82, 0.17, 1);
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$easeInOutCirc: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);

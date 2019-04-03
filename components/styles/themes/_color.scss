@@ -1,0 +1,88 @@
+// 品牌色 代表品牌对外形象及VI识别，品牌色的数量根据品牌特性制定，可以1个也可以多个，用于主Button、主搜、价格、ICON等需要突出品牌特征的地方在业务中经常使用的颜色
+$brand: #01C1B2;
+$brandShallow: #D6F4ED;
+$brandDeep: #01A79A;
+
+// 中立色 灰或饱和度低的颜色（如蓝灰）用于界面设计中字体、背景、边框、分割线、ICON、中立插图等
+
+/* line 线条 */
+$lineShallow: #E6E7EB;
+$lineNormal: #DCDEE3;
+$lineDeep:  #C4C6CF;
+$lineWeight: #A0A2AD;
+
+/* fill 填充 */
+$fillShallow: #F7F8FA;
+$fillNormal: #F2F3F7;
+$fillDeep: #EBECF0;
+$fillWeight: #E2E4E8;
+
+/* text 文本 */
+// 禁用
+$textDisabled: #CCC;
+// 水印/提示
+$textHint: #999;
+// 正文/标题
+$textContent: #666;
+$textTitle: #333;
+
+// 阴影色
+$boxShadowShallow: #fff1f0;
+$boxShadow: #ffccc7;
+
+// 功能色 功能色为UI设计中的特殊场景色，如成功、出错、失败、提醒等，专色专用
+
+/* success 成功 */
+$successShallow: #E4FDDA;
+$successNormal: #CDF2BE;
+$successDeep: #46BC15;
+$successWeight: #41A716;
+
+/* notice 提示 */
+$noticeShallow: #E3F2FD;
+$noticeNormal: #BAD9FF;
+$noticeDeep: #4494F9;
+$noticeWeight: #2E7DE0;
+
+/* warning 警告 */
+$warningShallow: #FFF3E0;
+$warningNormal: #FFE6BD;
+$warningDeep: #FF9300;
+$warningWeight: #EB7E10;
+
+/* error 错误 */
+$errorShallow: #FFECE4;
+$errorNormal: #FFC8B2;
+$errorDeep: #FF3000;
+$errorWeight: #E72B00;
+
+/* help 帮助 */
+$helpShallow: #E3FFF8;
+$helpNormal: #C0ECE2;
+$helpDeep: #01C1B2;
+$helpWeight: #01A79A;
+
+/* link 链接 */
+$linkDefault: #5584FF;
+$linkVisited: #5584FF;
+$linkHover: #3E71F7;
+
+/* other 其他 */
+$otherShallow: #FFEB3B;
+$otherNormal: #FCCC12;
+$otherDepp: #EABB06;
+
+// 数据色
+$data1: #01C1B2;
+$data2: #5584FF;
+$data3: #8272EC;
+$data4: #FF445F;
+$data5: #FF6A00;
+$data6: #FFD74D;
+$data7: #4DDE6D;
+$data8: #18B1F7;
+
+// 内置色
+$white: #FFF;
+$black: #000;
+$transparent: transparent;
