@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import DocsNav from './docsNav'
+import './docs.scss'
 
 export default class App extends React.Component<any, any> {
 
@@ -25,7 +26,7 @@ export default class App extends React.Component<any, any> {
             basicCList={this.props.basicCList}
             aboutSnakeDesignList={this.props.aboutSnakeDesignList}
           />
-          <div className="snake-design-doc-content">{children}</div>
+          <div className="snake-design-doc-content at-markdown">{children}</div>
         </div>
       </div>
     ]

@@ -1,18 +1,25 @@
+---
+imports:
+  import ButtomDemoCode from '!raw-loader!./simple.tsx';
+  import BreadCrumbDemo from './simple.tsx';
+  import Code from '../../layout/prism/index'
+---
+
 # Breadcrumb 面包屑
 
 导航类组件，便于在几个关联页面之间快速跳转
 
-## 代码示例
-
-:::demo
-
 ### 简单示例
 
-```require
-./components/Breadcrumb/simple.tsx
-```
+:::demo
+各种类型的按钮
 
+<BreadCrumbDemo />
 :::
+
+## 代码示例
+
+<div><Code>{ButtomDemoCode}</Code></div>
 
 ## Props
 
