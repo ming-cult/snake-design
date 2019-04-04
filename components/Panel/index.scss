@@ -2,22 +2,25 @@
 $_pddTop: 12px;
 $_pddLeft: 15px;
 .snake-design-panel {
-  color: $colorFontTerm;
+  color: red;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
   &-header{
     @include one-px-border(top);
+
     padding: $_pddTop $_pddLeft;
     background: #fff;
   }
   &-body{
     @include one-px-border(top);
     @include one-px-border(bottom);
+
     background: #fff;
   }
   &-footer{
     @include one-px-border(bottom);
+
     padding: $_pddTop $_pddLeft;
     background: #fff;
   }
@@ -32,7 +35,7 @@ $_pddLeft: 15px;
     justify-content: space-between;
     &:not(:last-child) {
       @include one-px-border(bottom);
-      &:after{
+      &::after{
         left: $_pddLeft;
       }
     }

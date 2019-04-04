@@ -18,16 +18,17 @@
     }
   }
   .snake-breadcrumb-item-content {
-    color: $primaryColor;
+    color: $brand;
     cursor: pointer;
     &:hover {
-      color: #127da0;
+      color: $brand;
+      opacity: 0.8;
     }
   }
 
   .snake-breadcrumb-item-active {
     .snake-breadcrumb-item-content {
-      color: $colorFontTerm;
+      color: $brand;
       cursor: initial;
     }
   }
