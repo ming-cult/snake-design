@@ -7,12 +7,14 @@
 
 %_onepxTopBottom {
   @extend %_onepxElement;
+
   left: 0;
   right: 0;
 }
 
 %_onepxLeftRight {
   @extend %_onepxElement;
+
   top: 0;
   bottom: 0;
 }
@@ -21,7 +23,7 @@
 @mixin setDprBorder($direction: tb) {
   @for $i from 1 through 4 {
     @media screen and (-webkit-min-device-pixel-ratio: $i) {
-      @if($direction == tb){
+      @if ($direction == tb){
         transform: scaleY(1 / $i);
       } @else if($direction == lr) {
         transform: scaleX(1 / $i);
@@ -38,34 +40,38 @@
  * $style: 线条样式，默认solid
  * $color: 边框颜色
  */
-@mixin one-px-border($direction: bottom, $style: solid, $color: $colorBorder) {
+@mixin one-px-border($direction: bottom, $style: solid, $color: $brand) {
   position: relative;
   $border: 1px $style $color;
   @if ($direction == bottom) {
-    &:after {
+    &::after {
       @extend %_onepxTopBottom;
       @include setDprBorder(tb);
+
       border-top: $border;
       bottom: 0;
     }
   } @else if ($direction == top) {
-    &:before {
+    &::before {
       @extend %_onepxTopBottom;
       @include setDprBorder(tb);
+
       border-top: $border;
       top: 0;
     }
   } @else if ($direction == left) {
-    &:before {
+    &::before {
       @extend %_onepxLeftRight;
       @include setDprBorder(lr);
+
       border-left: $border;
       left: 0;
     }
   } @else if ($direction == right) {
-    &:after {
+    &::after {
       @extend %_onepxLeftRight;
       @include setDprBorder(lr);
+
       border-left: $border;
       right: 0;
     }
@@ -83,11 +89,12 @@
  * $style: 线条样式,默认solid
  * $radius: 圆角
  */
-@mixin full-px-border($color: $colorBorder, $style: solid, $radius: 0){
+@mixin full-px-border($color: $brand, $style: solid, $radius: 0){
   position: relative;
   z-index: 1;
-  &:before{
+  &::before{
     @extend %_onepxElement;
+
     z-index: -1;
     left: 0;
     top: 0;
@@ -98,7 +105,7 @@
         width: 100% * $i;
         height: 100% * $i;
         transform: scale(1 / $i);
-        @if($radius != 0) {
+        @if ($radius != 0) {
           border-radius: $radius * $i;
         }
       }

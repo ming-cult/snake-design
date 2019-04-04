@@ -65,7 +65,7 @@ body {
     }
     .logo {
       padding: 20px;
-      color: $primaryColor;
+      color: $brand;
       font-size: 1.5rem;
     }
     .tabs {
@@ -77,7 +77,7 @@ body {
         padding: 10px 0px;
         margin-right: 50px;
         position: relative;
-        color: $primaryColor;
+        color: $brand;
         :not(.gitlab) {
           &::before,
           &::after {
@@ -86,7 +86,7 @@ body {
             left: 0;
             width: 100%;
             height: 1px;
-            background: $primaryColor;
+            background: $brand;
             content: '';
             opacity: 0.2;
             transition: opacity 0.3s, height 0.3s;
@@ -112,7 +112,7 @@ body {
         display: block;
         position: absolute;
         padding: 12px 0 0 0;
-        color: $primaryColor;
+        color: $brand;
         text-shadow: none;
         text-transform: none;
         font-style: italic;
@@ -187,7 +187,7 @@ body {
             transition: color 0.3s ease;
             @extend %ellipsis;
             &:hover {
-              color: $primaryColor;
+              color: $brand;
             }
             &:after {
               content: '';
@@ -196,10 +196,10 @@ body {
               position: absolute;
               right: 0;
               background-color: transparent;
-              transition: all 0.5s $easeOutFunction;
+              transition: all 0.5s $easeOut;
             }
             &.sub-active {
-              color: $primaryColor;
+              color: $brand;
               &::after {
                 background-color: currentColor;
               }
@@ -221,17 +221,17 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: $backgroundColor;
+  background-color: #fff;
   .qr-code {
     position: fixed;
     z-index: 99;
     bottom: 10px;
     right: 10px;
     padding: 5px;
-    background-color: $fullWhite;
+    background-color: #fff;
     text-align: center;
     p {
-      color: $fullWhite;
+      color: #fff;
     }
   }
 }
@@ -243,7 +243,7 @@ body {
 
 // 一个代码片段展示
 .code-example {
-  border: 1px solid $borderColor;
+  border: 1px solid $brand;
   border-radius: 2px;
   padding: 10px;
   margin-top: 10px;
@@ -263,8 +263,8 @@ body {
 
 // demo页配色
 .snake-design-doc-content .demo-page {
-  color: $dimGray;
+  color: gray;
   > h2 {
-    color: $primaryColor;
+    color: $brand;
   }
 }
