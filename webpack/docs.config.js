@@ -45,9 +45,13 @@ module.exports = {
         loader: require.resolve('ts-loader'),
         exclude: /node_modules/
       },
+      // {
+      //   test: /\.md$/,
+      //   loader: require.resolve('raw-loader')
+      // },
       {
         test: /\.md$/,
-        loader: require.resolve('raw-loader')
+        loader: `babel-loader!${path.join(__dirname, './addImportLoader.js')}`
       },
       {
         test: /\.css$/,

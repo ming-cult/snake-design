@@ -1,6 +1,6 @@
 import * as React from 'react'
-import MarkdownEle from '../layout/markdownEle'
+import USAGE from './usage.md'
 
 export default function () {
-  return <MarkdownEle text={require('./usage.md')} />
+  return <USAGE />
 }

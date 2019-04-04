@@ -1,6 +1,6 @@
 import * as React from 'react'
-import MarkdownEle from '../layout/markdownEle'
+import Install from './install.md'
 
 export default function () {
-  return <MarkdownEle text={require('./install.md')} />
+  return <Install />
 }

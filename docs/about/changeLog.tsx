@@ -1,6 +1,6 @@
 import * as React from 'react'
-import MarkdownEle from '../layout/markdownEle'
+import CHANGELOG from './CHANGELOG.md'
 
 export default function () {
-  return <MarkdownEle text={require('./CHANGELOG.md')} />
+  return <CHANGELOG />
 }

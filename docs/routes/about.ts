@@ -1,4 +1,5 @@
-export default [{
+export default [
+{
   key: 'install',
   path: '/guide/install',
   name: '安装',
@@ -18,4 +19,5 @@ export default [{
   path: '/more/contribution',
   name: '贡献指南',
   component: require('../about/contribution').default,
-}]
+}
+]
