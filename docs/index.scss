@@ -49,7 +49,7 @@ body {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      max-width: 1366px;
+      height: 100%;
       margin: 0 auto;
       overflow: hidden;
     }
@@ -159,7 +159,7 @@ body {
       margin: 0px 12px;
       white-space: nowrap;
       min-width: 240px;
-      padding: 20px;
+      padding: 20px 5px 0 20px;
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
