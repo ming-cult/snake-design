@@ -6,7 +6,7 @@
 * 接着 clone 自己项目下的 `snake-design` 到本地;
 * 然后在本地项目中执行以下 git 操作;
 
-```bash
+```
 # 列出远程仓库 URL
 $ git remote -v
 # 设置一个新的远程仓库
