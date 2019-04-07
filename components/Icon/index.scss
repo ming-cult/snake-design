@@ -1,12 +1,6 @@
 @import '../styles/themes/default';
 $icon: 'snake-icon';
 
-@keyframes loadingSpin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .#{$icon} {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
@@ -16,5 +10,11 @@ $icon: 'snake-icon';
 
   &-spin {
     animation: loadingSpin 1s infinite linear;
+  }
+}
+
+@keyframes loadingSpin {
+  100% {
+    transform: rotate(360deg);
   }
 }
