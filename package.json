@@ -27,7 +27,7 @@
     "build": "tsc -p tsconfig.json && webpack --config webpack/webpack.prod.conf.js",
     "build-docs": "webpack --config webpack/docs.config.js",
     "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
-    "test": "is-ci \"test:coverage\" \"test:watch\"",
+    "test": "jest --config jest.config.js --verbose",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
