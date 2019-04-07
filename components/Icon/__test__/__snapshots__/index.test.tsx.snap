@@ -3,3 +3,5 @@
 exports[`icon test snapshot 1`] = `"<svg class=\\"snake-icon snake-icon-eye-close\\"><use xlink:href=\\"#icon-eye-close\\"></use></svg>"`;
 
 exports[`icon test snapshot 2`] = `"<svg class=\\"snake-icon snake-icon-eye-close\\" style=\\"font-size: 20px; color: red;\\"><use xlink:href=\\"#icon-eye-close\\"></use></svg>"`;
+
+exports[`icon test snapshot 3`] = `"<svg class=\\"uni-design uni-design-eye-close\\"><use xlink:href=\\"#icon-eye-close\\"></use></svg>"`;
