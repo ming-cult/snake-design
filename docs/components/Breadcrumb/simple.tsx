@@ -5,11 +5,11 @@ const { useState } = React
 
 const defaultDataSource = [
   {
-    link: 'customer-list',
+    link: 'customer',
     content: '客户'
   },
   {
-    link: 'customer-detail',
+    link: 'customer-list',
     content: '客户列表'
   },
   {
@@ -46,6 +46,7 @@ export default function Demo() {
       <Breadcrumb dataSource={dataSource} onClick={handleClick} size="small" />
       自定义：
       <Breadcrumb
+        className="my-breadcrumb"
         dataSource={dataSource}
         onClick={handleClick}
         style={{

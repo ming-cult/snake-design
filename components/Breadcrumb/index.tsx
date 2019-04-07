@@ -17,11 +17,11 @@ const Breadcrumb = (userProps: BreadcrumbProps) => {
     ...defaultProps,
     ...userProps
   }
-  const { prefixCls, separator, onClick, style, dataSource, size } = props
+  const { prefixCls, separator, onClick, style, dataSource, size, className } = props
   const cx = useCallback(getCx(prefixCls), [prefixCls])
 
   return (
-    <div className={prefixCls + ' ' + cx(size)} style={style}>
+    <div className={cx('', size, { className })} style={style}>
       {dataSource.map((item: BreadcrumbItemProps, index: number) => {
         const isActive = index === dataSource.length - 1
         let aProps: any = {}
