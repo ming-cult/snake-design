@@ -1,39 +1,33 @@
 @import '../styles/themes/default';
 
-.breadcrumb-demo-page {
-  h3 {
-    font-weight: normal;
+.snake-breadcrumb {
+  &-default {
+    font-size: 16px;
   }
 
-  .snake-breadcrumb {
-    &-default {
-      font-size: 16px;
-    }
-
-    &-large {
-      font-size: 24px;
-    }
-    &-small {
-      font-size: 12px;
-    }
+  &-large {
+    font-size: 24px;
   }
-  .snake-breadcrumb-item-content {
+  &-small {
+    font-size: 12px;
+  }
+}
+.snake-breadcrumb-item-content {
+  color: $brand;
+  cursor: pointer;
+  &:hover {
     color: $brand;
-    cursor: pointer;
-    &:hover {
-      color: $brand;
-      opacity: 0.8;
-    }
+    opacity: 0.8;
   }
+}
 
-  .snake-breadcrumb-item-active {
-    .snake-breadcrumb-item-content {
-      color: $brand;
-      cursor: initial;
-    }
+.snake-breadcrumb-item-active {
+  .snake-breadcrumb-item-content {
+    color: $textContent;
+    cursor: initial;
   }
-  .snake-breadcrumb-separator {
-    // cursor: pointer;
-    margin: 0 4px;
-  }
+}
+.snake-breadcrumb-separator {
+  // cursor: pointer;
+  margin: 0 4px;
 }

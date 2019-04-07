@@ -1,13 +1,40 @@
 import ClassNames from 'classnames'
 
-export const noop = () => {}
+export const noop = (..._args: any[]) => {}
 
-export const getCx = (prefixCls: string) => (...args: (string | Object)[]) =>
-  ClassNames(
-    args.map(item => {
-      if (typeof item === 'string') {
-        return `${prefixCls}-${item}`
+export const mapKeys = (obj: any, fn: (...args: any[]) => any) =>
+  Object.keys(obj).reduce((acc: any, k: string) => {
+    acc[fn(obj[k], k, obj)] = obj[k]
+    return acc
+  }, {})
+
+export const getType = (v: any) =>
+  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase()
+
+const prefixItem = (prefixCls: string, arg: any) => {
+  const type = getType(arg)
+  if (type === 'string') {
+    return arg === '' ? prefixCls : `${prefixCls}-${arg}`
+  } else if (type === 'object') {
+    return Object.keys(arg).reduce((acc: any, key: string) => {
+      if (key === 'className' && typeof arg[key] === 'string') {
+        acc[arg[key]] = true
+      } else {
+        acc[`${prefixCls}-${key}`] = arg[key]
       }
-      return {[`${prefixCls}-${Object.keys(item)[0]}`]: Object.values(item)[0]}
-    }),
+      return acc
+    }, {})
+  }
+  return arg
+}
+
+export const getCx = (prefixCls: string) => (...args: any[]) =>
+  ClassNames(
+    args.map((arg: any) => {
+      const type = getType(arg)
+      if (type === 'array') {
+        return arg.map((item: any) => prefixItem(prefixCls, item))
+      }
+      return prefixItem(prefixCls, arg)
+    })
   )

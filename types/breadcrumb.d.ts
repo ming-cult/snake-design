@@ -15,11 +15,11 @@ export interface BreadcrumbProps {
   /** 点击的回调 **/
   onClick?: (index: number, url: string) => void
   /** 尺寸 **/
-  size: 'default' | 'small' | 'large'
+  size?: 'default' | 'small' | 'large'
   /** 数据源 **/
   dataSource: BreadcrumbItemProps[]
   /** 分隔符 **/
-  separator: React.ReactNode
+  separator?: React.ReactNode
   /** 最大显示多少级 **/
-  expandMax: number
+  expandMax?: number
 }
