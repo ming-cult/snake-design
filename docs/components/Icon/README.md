@@ -7,7 +7,7 @@ imports:
 
 # Icon
 
-图标类型的组件，现在是`svg`，但是`svg`在`IE9`是不兼容的，目前是一次性全部加载，后续会考虑`按需加载`
+图标类型的组件，现在是 `svg`，但是 `svg` 在 `IE9` 是不兼容的，目前是一次性全部加载，后续会考虑`按需加载`
 
 ## Usage 用法
 
@@ -15,7 +15,7 @@ imports:
 <Icon type="eye">
 ```
 
-`type`是必填字段
+`type` 是必填字段
 
 ## Api
 
@@ -28,7 +28,7 @@ imports:
 | spin | 是否渲染 | boolean | `false` | --
 | className | 类名 | string | -- | --
 | style | 样式 | object | -- | --
-| onClick | 点击事件 | fun(e) | -- | --
+| onClick | 点击事件 | function(e) : void | -- | --
 
 ## Demo 示例
 
