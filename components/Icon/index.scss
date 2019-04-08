@@ -1,0 +1,21 @@
+@import '../styles/themes/default';
+$icon: 'snake-icon';
+
+.#{$icon} {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  font-size: 24px;
+
+  &-spin {
+    animation: loadingSpin 1s infinite linear;
+  }
+}
+
+@keyframes loadingSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

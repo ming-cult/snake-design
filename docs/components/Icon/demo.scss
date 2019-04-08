@@ -1,0 +1,24 @@
+.snake-icon-demo {
+  color: #666;
+  ul {
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border-radius: 4px;
+    &:hover {
+      background-color: #ECF5FD;
+      transform: scale(1.2)
+    }
+  }
+  &-icon {
+    padding: 20px;
+  }
+  &-name {
+    padding: 10px;
+  }
+}

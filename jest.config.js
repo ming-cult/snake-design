@@ -8,7 +8,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '/lib/', '/es/'],
   testRegex: '(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
-  setupFilesAfterEnv: ['react-testing-library/cleanup-after-each', '<rootDir>/__mocks__/setup.ts'],
+  setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
   coverageThreshold: {
     global: {
       statements: 80,
