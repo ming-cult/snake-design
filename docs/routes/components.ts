@@ -11,4 +11,10 @@ export default [
     path: '/app/basic/breadcrumb',
     component: require('../components/Breadcrumb').default,
   },
+  {
+    key: 'tabs',
+    name: '标签页',
+    path: '/app/basic/tabs',
+    component: require('../components/Tabs').default,
+  },
 ]

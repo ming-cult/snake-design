@@ -1,0 +1,139 @@
+@import '../styles/themes/default';
+
+$tabs: 'tabs';
+
+.#{$tabs} {
+  box-sizing: border-box;
+
+  &-wrap {
+    display: flex;
+    position: relative;
+    background: #fff;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none; // 移除滚动条
+    }
+
+    &-top {
+      height: 40px;
+    }
+
+    &-bottom {
+      height: 40px;
+    }
+
+    &-left {
+      flex-direction: column;
+      width: 60px;
+    }
+
+    &-right {
+      flex-direction: column;
+      width: 60px;
+    }
+
+    &-item {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+
+      &-customWidth {
+        flex: initial;
+      }
+
+      &-top {
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #ddd;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 1px;
+          transform: scaleY(0.5);
+        }
+      }
+
+      &-bottom {
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #ddd;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 1px;
+          transform: scaleY(0.5);
+        }
+      }
+
+      &-left {
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #ddd;
+          right: 0;
+          height: 100%;
+          width: 1px;
+          transform: scaleX(0.5);
+        }
+      }
+
+      &-right {
+        &::after {
+          position: absolute;
+          content: '';
+          background-color: #ddd;
+          left: 0;
+          height: 100%;
+          width: 1px;
+          transform: scaleX(0.5);
+        }
+      }
+    }
+
+    &-scroll {
+      flex-shrink: 0;
+    }
+
+    &-active {
+      color: #333;
+    }
+
+    &-underline {
+      position: absolute;
+      border: 1px solid #333;
+      z-index: 10;
+
+      &-top {
+        bottom: 0;
+        transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+      }
+
+      &-right {
+        left: 0;
+        transition: top 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+      }
+
+      &-bottom {
+        top: 0;
+        transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+      }
+
+      &-left {
+        right: 0;
+        border: 1px solid $color-brand-normal;
+        transition: top 0.3s cubic-bezier(0.35, 0, 0.25, 1), width 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+      }
+    }
+  }
+
+  &-left,
+  &-right {
+    display: flex;
+  }
+}

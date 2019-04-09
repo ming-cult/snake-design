@@ -10,39 +10,45 @@
 
 ## 开发进度
 
- - [ ] Icon
- - [ ] Button
- - [ ] Input
- - [ ] Row
- - [ ] Col
- - [ ] Affix
- - [ ] Avatar
- - [ ] Badge
- - [ ] Card
- - [ ] CheckboxGroup
- - [ ] Collapse
- - [ ] Divide
- - [ ] Menu
- - [ ] Modal
- - [ ] Overlay
- - [ ] Pagination
- - [ ] Progress
- - [ ] RadioGroup
- - [ ] Slide
- - [ ] Step
- - [ ] Spin
- - [ ] Switch
- - [ ] Tabs
- - [ ] Tag
- - [ ] Upload
- - [ ] Popup
- - [ ] Tooltip
- - [ ] DataPicker
- - [ ] TimePicker
- - [ ] Cascader
- - [ ] Select
- - [ ] Table
- - [ ] AutoComplete
+#### 开发中组件
+
+- [ ] Icon
+- [ ] Button
+- [ ] Input
+- [ ] Tabs
+- [ ] Table
+- [ ] Breadcrumb
+
+#### 待开发组件
+
+- [ ] Row
+- [ ] Col
+- [ ] Affix
+- [ ] Avatar
+- [ ] Badge
+- [ ] Card
+- [ ] CheckboxGroup
+- [ ] Collapse
+- [ ] Divide
+- [ ] Menu
+- [ ] Modal
+- [ ] Overlay
+- [ ] Pagination
+- [ ] Progress
+- [ ] RadioGroup
+- [ ] Slide
+- [ ] Step
+- [ ] Spin
+- [ ] Switch
+- [ ] Tag
+- [ ] Upload
+- [ ] Popup
+- [ ] Tooltip
+- [ ] DataPicker
+- [ ] TimePicker
+- [ ] Cascader
+- [ ] Select
+- [ ] AutoComplete
 
 ## 命令说明
 
