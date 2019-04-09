@@ -8,13 +8,16 @@
   &-large {
     font-size: 24px;
   }
+
   &-small {
     font-size: 12px;
   }
 }
+
 .snake-breadcrumb-item-content {
   color: $brand;
   cursor: pointer;
+
   &:hover {
     color: $brand;
     opacity: 0.8;
@@ -27,6 +30,7 @@
     cursor: initial;
   }
 }
+
 .snake-breadcrumb-separator {
   // cursor: pointer;
   margin: 0 4px;

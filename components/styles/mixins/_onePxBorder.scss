@@ -23,7 +23,7 @@
 @mixin setDprBorder($direction: tb) {
   @for $i from 1 through 4 {
     @media screen and (-webkit-min-device-pixel-ratio: $i) {
-      @if ($direction == tb){
+      @if ($direction == tb) {
         transform: scaleY(1 / $i);
       } @else if($direction == lr) {
         transform: scaleX(1 / $i);
@@ -79,7 +79,7 @@
 }
 
 // 默认下边框
-%one-px-border{
+%one-px-border {
   @include one-px-border();
 }
 
@@ -89,10 +89,11 @@
  * $style: 线条样式,默认solid
  * $radius: 圆角
  */
-@mixin full-px-border($color: $brand, $style: solid, $radius: 0){
+@mixin full-px-border($color: $brand, $style: solid, $radius: 0) {
   position: relative;
   z-index: 1;
-  &::before{
+
+  &::before {
     @extend %_onepxElement;
 
     z-index: -1;
@@ -112,6 +113,7 @@
     }
   }
 }
-%full-px-border{
+
+%full-px-border {
   @include full-px-border();
 }
