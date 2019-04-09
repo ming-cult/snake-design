@@ -1,20 +1,74 @@
 import * as React from 'react'
-import {ButtonProps} from 'types/button.d'
+import { getCx } from '../utils/tool'
+import { ButtonProps } from 'types/button.d'
+import Icon from '../Icon'
+import './index.scss'
 
-class Button extends React.Component<ButtonProps, any> {
-  static defaultProps = {
-    size: 'default', // 默认尺寸
-    type: 'primary', // 按钮默认主色调
-    disabled: false, // 是否禁止按钮
-    primary: true, // 背景色是否为主色
-    secondary: false, // 背景色是否为次级色
-    accent: false, // 背景色是否为强调色
-    textPosition: 'after', // 文本默认在后
-  }
+const { useCallback } = React
 
-  render() {
-    return <div>button</div>
-  }
+const defaultProps = {
+  prefixCls: 'snake-button',
+  size: 'default',
+  disabled: false,
+  loading: false,
+  type: 'primary',
+  text: false,
+  onClick: () => {}
 }
 
+const Button = (userProps: ButtonProps) => {
+  const props = {
+    ...defaultProps,
+    ...userProps
+  }
+  const {
+    prefixCls,
+    style,
+    size,
+    onClick,
+    loading,
+    disabled,
+    className = '',
+    children,
+    type,
+    text,
+    icon,
+    iconStyle
+  } = props
+  const cx = useCallback(getCx(prefixCls), [prefixCls])
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (loading) return
+    if (disabled) return
+    onClick(e)
+  }
+
+  if (!!text) {
+    return (
+      <a
+        disabled={!!disabled}
+        className={cx('', 'text-' + type, { className })}
+        style={style}
+        onClick={handleClick}
+      >
+        {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
+        <span>{children}</span>
+      </a>
+    )
+  }
+  return (
+    <button
+      type="button"
+      disabled={!!disabled}
+      className={cx('', size, 'btn-' + type, { className })}
+      style={style}
+      onClick={handleClick}
+    >
+      {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
+      <span>{children}</span>
+    </button>
+  )
+}
+
+Button.defaultProps = defaultProps
 export default Button
