@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Button from 'components/Button'
+import Icon from 'components/Icon'
 import './demo.scss'
 
 export default class SimpleButton extends React.Component {
@@ -25,9 +26,10 @@ export default class SimpleButton extends React.Component {
         <Button loading>加载中</Button>
         <Button text loading>加载中</Button>
         <h3>（6）内置icon按钮</h3>
-        {/* 内置Icon组件 */}
         <Button icon="share">分享</Button>
         <Button text icon="share">分享</Button>
+        <h3>（7）引入icon按钮</h3>
+        <Button><Icon type="share" style={{fontSize: '1em'}} /></Button>
       </div>
     )
   }

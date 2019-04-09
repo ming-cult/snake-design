@@ -24,6 +24,8 @@ imports:
 ## Props
 | 参数     | 说明              | 类型   | 可选值 | 默认值 |
 | -------- | ----------------- | ------ | ------ | ------ |
+| prefixCls | `类名前缀` | string | - | - |
+| children | `子组件` | ReactNode | - | - |
 | className | `按钮类名` | string | - | - |
 | style | `按钮样式` | object | - | - |
 | size | `按钮尺寸` | string | "default" / "small" / "large" | "default" |

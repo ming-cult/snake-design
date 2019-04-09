@@ -4,17 +4,15 @@
   line-height: 2;
   cursor: pointer;
   outline: none;
-  &:focus  {
-    outline: none;
-  }
-  &-default {
-    padding: 0 20px;
-    border-radius: 3px;
-  }
   &-small {
     font-size: 12px;
     padding: 0 15px;
     border-radius: 2px;
+  }
+  &-default {
+    font-size: 14px;
+    padding: 0 20px;
+    border-radius: 3px;
   }
   &-large {
     font-size: 16px;
@@ -75,7 +73,7 @@
   }
   &-text-loading, &-btn-loading {
     opacity: 0.8;
-    cursor: default;
+    cursor: progress;
   }
   &-text-loading {
     &:hover {
@@ -92,7 +90,7 @@
       opacity: 1;
     }
   }
-  .btn-icon {
+  &-icon.snake-icon {
     font-size: 1em;
     margin-right: 4px;
   }

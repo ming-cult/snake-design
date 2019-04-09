@@ -40,20 +40,21 @@ const Button = (userProps: ButtonProps) => {
     onClick(e)
   }
 
-  const disabledStr = disabled ? 'disabled' : ''
-  const loadStr = loading ? 'loading' : ''
+  const iconClass = cx({ [`${prefixCls}-icon`]: true })
 
   if (!!text) {
     const classStr = cx(prefixCls, {
       [`${prefixCls}-text-${type}`]: type,
-      [`${prefixCls}-text-${disabledStr}`]: disabled,
-      [`${prefixCls}-text-${loadStr}`]: loading,
+      [`${prefixCls}-text-disabled`]: disabled,
+      [`${prefixCls}-text-loading`]: loading,
       className
     })
     return (
       <a className={classStr} style={style} onClick={handleClick}>
-        {loading ? <Icon type="reload" spin={true} style={iconStyle} className="btn-icon" /> : null}
-        {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
+        {loading ? (
+          <Icon type="reload" spin={true} style={iconStyle} className={iconClass} />
+        ) : null}
+        {icon ? <Icon type={icon} style={iconStyle} className={iconClass} /> : null}
         <span>{children}</span>
       </a>
     )
@@ -61,7 +62,7 @@ const Button = (userProps: ButtonProps) => {
   const classStr = cx(prefixCls, {
     [`${prefixCls}-${size}`]: size,
     [`${prefixCls}-btn-${type}`]: type,
-    [`${prefixCls}-btn-${loadStr}`]: loading,
+    [`${prefixCls}-btn-loading`]: loading,
     className
   })
   return (
@@ -72,8 +73,8 @@ const Button = (userProps: ButtonProps) => {
       style={style}
       onClick={handleClick}
     >
-      {loading ? <Icon type="reload" spin={true} style={iconStyle} className="btn-icon" /> : null}
-      {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
+      {loading ? <Icon type="reload" spin={true} style={iconStyle} className={iconClass} /> : null}
+      {icon ? <Icon type={icon} style={iconStyle} className={iconClass} /> : null}
       <span>{children}</span>
     </button>
   )
