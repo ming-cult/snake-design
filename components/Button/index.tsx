@@ -1,10 +1,8 @@
 import * as React from 'react'
-import { getCx } from '../utils/tool'
+import cx from 'classnames'
 import { ButtonProps } from 'types/button.d'
 import Icon from '../Icon'
 import './index.scss'
-
-const { useCallback } = React
 
 const defaultProps = {
   prefixCls: 'snake-button',
@@ -35,7 +33,6 @@ const Button = (userProps: ButtonProps) => {
     icon,
     iconStyle
   } = props
-  const cx = useCallback(getCx(prefixCls), [prefixCls])
 
   const handleClick = (e: React.MouseEvent) => {
     if (loading) return
@@ -43,27 +40,39 @@ const Button = (userProps: ButtonProps) => {
     onClick(e)
   }
 
+  const disabledStr = disabled ? 'disabled' : ''
+  const loadStr = loading ? 'loading' : ''
+
   if (!!text) {
+    const classStr = cx(prefixCls, {
+      [`${prefixCls}-text-${type}`]: type,
+      [`${prefixCls}-text-${disabledStr}`]: disabled,
+      [`${prefixCls}-text-${loadStr}`]: loading,
+      className
+    })
     return (
-      <a
-        disabled={!!disabled}
-        className={cx('', 'text-' + type, { className })}
-        style={style}
-        onClick={handleClick}
-      >
+      <a className={classStr} style={style} onClick={handleClick}>
+        {loading ? <Icon type="reload" spin={true} style={iconStyle} className="btn-icon" /> : null}
         {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
         <span>{children}</span>
       </a>
     )
   }
+  const classStr = cx(prefixCls, {
+    [`${prefixCls}-${size}`]: size,
+    [`${prefixCls}-btn-${type}`]: type,
+    [`${prefixCls}-btn-${loadStr}`]: loading,
+    className
+  })
   return (
     <button
       type="button"
       disabled={!!disabled}
-      className={cx('', size, 'btn-' + type, { className })}
+      className={classStr}
       style={style}
       onClick={handleClick}
     >
+      {loading ? <Icon type="reload" spin={true} style={iconStyle} className="btn-icon" /> : null}
       {icon ? <Icon type={icon} style={iconStyle} className="btn-icon" /> : null}
       <span>{children}</span>
     </button>

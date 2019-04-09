@@ -3,6 +3,10 @@
 .snake-button {
   line-height: 2;
   cursor: pointer;
+  outline: none;
+  &:focus  {
+    outline: none;
+  }
   &-default {
     padding: 0 20px;
     border-radius: 3px;
@@ -27,7 +31,7 @@
   }
   &-btn-gray {
     color: $textTitle;
-    border: 1px solid $lineDeep;
+    border: 1px solid $lineNormalColor;
     &:hover {
       border: 1px solid $brand;
       color: $brand;
@@ -62,10 +66,27 @@
       color: $errorWeight;
     }
   }
+  &-text-disabled {
+    color: $textHint;
+    cursor: not-allowed;
+    &:hover {
+      color: $textHint;
+    }
+  }
+  &-text-loading, &-btn-loading {
+    opacity: 0.8;
+    cursor: default;
+  }
+  &-text-loading {
+    &:hover {
+      color: $brand;
+      opacity: 0.8;
+    }
+  }
   &[disabled] {
     color: $textHint;
     background-color: #f7f7f7;
-    border-color: $lineDeep;
+    border-color: $lineDeepColor;
     cursor: not-allowed;
     &:hover {
       opacity: 1;
