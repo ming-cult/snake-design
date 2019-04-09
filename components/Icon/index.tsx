@@ -5,14 +5,18 @@ import { IconProps } from '../../types/icon.d'
 
 const { useCallback, useEffect } = React
 const cacheScript = new Set()
-const url = 'https://at.alicdn.com/t/font_1127944_wamgkx66xje.js'
+const url = 'https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js'
 
 export default function Icon({ spin = false, prefixCls = 'snake-icon', ...rest }: IconProps) {
   const { className, size, type, color, rotate, style, ...other } = rest
-  const classStr = cx(prefixCls, {
-    [`${prefixCls}-${type}`]: type,
-    [`${prefixCls}-spin`]: spin
-  }, className)
+  const classStr = cx(
+    prefixCls,
+    {
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-spin`]: spin
+    },
+    className
+  )
 
   const getStyle = useCallback(() => {
     const cloneStyle: React.CSSProperties = { ...style }
@@ -35,7 +39,7 @@ export default function Icon({ spin = false, prefixCls = 'snake-icon', ...rest }
 
   return (
     <svg className={classStr} {...other} style={getStyle()}>
-      <use xlinkHref={`#icon-${type}`}></use>
+      <use xlinkHref={`#icon-${type}`} />
     </svg>
   )
 }
