@@ -1,13 +1,16 @@
 import * as React from 'react'
 import cx from 'classnames'
 import * as warning from 'warning'
-import { IconProps } from '../../types/icon.d'
+import { IconProps } from 'types/icon.d'
 
 const { useCallback, useEffect } = React
 const cacheScript = new Set()
 const url = 'https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js'
 
-export default function Icon({ spin = false, prefixCls = 'snake-icon', ...rest }: IconProps) {
+function Icon(
+  { spin = false, prefixCls = 'snake-icon', ...rest }: IconProps,
+  ref: React.RefObject<SVGSVGElement>
+) {
   const { className, size, type, color, rotate, style, ...other } = rest
   const classStr = cx(
     prefixCls,
@@ -38,8 +41,10 @@ export default function Icon({ spin = false, prefixCls = 'snake-icon', ...rest }
   warning(!!type, 'Icon', 'Should have `type` prop.')
 
   return (
-    <svg className={classStr} {...other} style={getStyle()}>
+    <svg className={classStr} {...other} style={getStyle()} ref={ref}>
       <use xlinkHref={`#icon-${type}`} />
     </svg>
   )
 }
+
+export default React.forwardRef(Icon)
