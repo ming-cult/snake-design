@@ -28,7 +28,7 @@ function Tabs(props: any) {
   }, [activeTab])
 
   // 处理下划线样式
-  function handleUnderline() {
+  const handleUnderline = () => {
     if (tabBarPosition === 'top' || tabBarPosition === 'bottom') {
       ;(this as any).underline &&
         ((this as any).underline.style.width = `${getUnderlineWidth(activeTab)}px`)
@@ -37,22 +37,22 @@ function Tabs(props: any) {
   }
 
   // 获取下划线宽度
-  function getUnderlineWidth(_current: number) {
+  const getUnderlineWidth = (_current: number) => {
     // let underlineWidth = (this as any)[`tab${current}`].getBoundingClientRect().width
     let underlineWidth = 0
     return underlineWidth
   }
 
   // 获取当前激活 tab 距离左侧的距离
-  function getLeft(_current: number) {
+  const getLeft = (_current: number) => {
     // return current * (leftDistance * 2 + (this as any)[`tab${current}`].getBoundingClientRect().width) + leftDistance
     return 0
   }
 
   // 更改 Tab
-  function changeTab(e: React.MouseEvent<HTMLElement>, index: number, r: any) {
+  const changeTab = (e: React.MouseEvent<HTMLElement>, index: number, r: any) => {
     // 禁用 tab 点击
-    if (r && r.disable) return
+    if (r && r.disabled) return
     // 下划线滑动逻辑
     underlineMove(index)
 
@@ -63,9 +63,9 @@ function Tabs(props: any) {
   }
 
   // 下划线滑动逻辑
-  function underlineMove(_index: number) {}
+  const underlineMove = (_index: number) => {}
 
-  function renderTab() {
+  const renderTab = () => {
     return (
       <div className={ClassNames(`${prefixCls}-wrap`, `${prefixCls}-wrap-${tabBarPosition}`)}>
         {tabs.map((r: any, index: number) => {
@@ -111,33 +111,33 @@ function Tabs(props: any) {
     )
   }
 
-  function renderContent() {
+  const renderContent = () => {
     return <div>This is a swipe</div>
   }
 
   function layout() {
     switch (tabBarPosition) {
-      case 'left':
-        return (
-          <div className={`${prefixCls}-left`}>
-            {renderTab()}
-            {renderContent()}
-          </div>
-        )
-      case 'right':
-        return (
-          <div className={`${prefixCls}-right`}>
-            {renderContent()}
-            {renderTab()}
-          </div>
-        )
-      case 'bottom':
-        return (
-          <div>
-            {renderContent()}
-            {renderTab()}
-          </div>
-        )
+      // case 'left':
+      //   return (
+      //     <div className={`${prefixCls}-left`}>
+      //       {renderTab()}
+      //       {renderContent()}
+      //     </div>
+      //   )
+      // case 'right':
+      //   return (
+      //     <div className={`${prefixCls}-right`}>
+      //       {renderContent()}
+      //       {renderTab()}
+      //     </div>
+      //   )
+      // case 'bottom':
+      //   return (
+      //     <div>
+      //       {renderContent()}
+      //       {renderTab()}
+      //     </div>
+      //   )
       default:
         return (
           <div>

@@ -5,6 +5,7 @@ import './demo.scss'
 const tabs0 = [
   { title: '标签一' },
   { title: '标签二' },
+  { title: '标签三' },
 ];
 
 export default class SimpleTab extends React.Component {
@@ -34,6 +35,9 @@ export default class SimpleTab extends React.Component {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
             标签二的内容
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
+            标签三的内容
           </div> */}
         </Tabs>
       </>
