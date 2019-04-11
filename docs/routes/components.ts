@@ -17,4 +17,10 @@ export default [
     path: '/app/basic/tabs',
     component: require('../components/Tabs').default,
   },
+  {
+    key: 'icon',
+    name: 'Icon 图标',
+    path: '/app/basic/icon',
+    component: require('../components/Icon').default,
+  },
 ]

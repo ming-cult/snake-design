@@ -12,8 +12,6 @@ imports:
 ### 简单示例
 
 :::demo
-各种类型的按钮
-
 <TabDemo />
 :::
 

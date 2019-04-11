@@ -1,63 +1,78 @@
 @import '../styles/mixins/onePxBorder';
 $_pddTop: 12px;
 $_pddLeft: 15px;
+
 .snake-design-panel {
   color: red;
+
   &:not(:last-child) {
     margin-bottom: 10px;
   }
-  &-header{
+
+  &-header {
     @include one-px-border(top);
 
     padding: $_pddTop $_pddLeft;
     background: #fff;
   }
-  &-body{
+
+  &-body {
     @include one-px-border(top);
     @include one-px-border(bottom);
 
     background: #fff;
   }
-  &-footer{
+
+  &-footer {
     @include one-px-border(bottom);
 
     padding: $_pddTop $_pddLeft;
     background: #fff;
   }
-  &-addons{
+
+  &-addons {
     font-size: 12px;
     padding: $_pddTop $_pddLeft $_pddTop - 2px;
   }
+
   &-item {
     padding: $_pddTop $_pddLeft;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     &:not(:last-child) {
       @include one-px-border(bottom);
-      &::after{
+
+      &::after {
         left: $_pddLeft;
       }
     }
-    &-inner{
+
+    &-inner {
       display: inline-flex;
       flex: 1;
       width: 100%;
-      &-row{
+
+      &-row {
         flex-direction: row;
       }
-      &-column{
+
+      &-column {
         flex-direction: column;
       }
     }
+
     &-leftIcon,
-    &-leftAddon{
+    &-leftAddon {
       margin-right: 10px;
     }
-    &-rightAddon{
+
+    &-rightAddon {
       margin: 0 6px;
     }
-    &-rightIcon{
+
+    &-rightIcon {
       line-height: 1;
     }
   }
@@ -67,14 +82,16 @@ $_pddLeft: 15px;
   }
 
   // 对齐方式
-  &-align__{
-    &stretch{
-      align-items:stretch;
+  &-align__ {
+    &stretch {
+      align-items: stretch;
     }
-    &center{
+
+    &center {
       align-items: center;
     }
-    &end{
+
+    &end {
       align-items: flex-end;
     }
   }

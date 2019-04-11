@@ -29,8 +29,9 @@ export default class SimpleTab extends React.Component {
           tabs={tabs0}
           activeTab={page0}
           onChange={(index: number, e: any) => this.onChange(index, e, 0)}
+          style={{width: 500}}
         >
-          {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
             标签一的内容
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
@@ -38,7 +39,7 @@ export default class SimpleTab extends React.Component {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '120px', backgroundColor: '#fff' }}>
             标签三的内容
-          </div> */}
+          </div>
         </Tabs>
       </>
     )

@@ -1,5 +1,5 @@
 export interface TabsProps {
-  style?: string,
+  style?: object,
   className?: string,
   tabBarPosition?: string,
   onChange?: (index: number, e: any) => void,
@@ -9,5 +9,6 @@ export interface TabsProps {
   tabDirection?: string,
   tabBarActiveTextColor?: string,
   tabBarInactiveTextColor?: string,
-  notEqualDvided?: boolean,
+  children?: any,
+  prefixCls?: string
 }

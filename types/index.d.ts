@@ -2,3 +2,4 @@
 /// <reference path="button.d.ts" />
 /// <reference path="panel.d.ts" />
 /// <reference path="tabs.d.ts" />
+/// <reference path="icon.d.ts" />
