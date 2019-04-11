@@ -32,6 +32,7 @@
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test-update": "jest --updateSnapshot",
+    "style-fix": "stylelint \"components/**/*.scss\" --syntax scss --fix",
     "publish-doc": "git subtree push --prefix=docsDist origin gh-pages"
   },
   "husky": {
@@ -120,7 +121,7 @@
     "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
     "stylelint": "^9.10.1",
-    "stylelint-config-prettier": "^5.0.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-scss": "^3.5.4",
     "ts-jest": "^24.0.1",
