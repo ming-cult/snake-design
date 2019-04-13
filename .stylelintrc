@@ -2,7 +2,7 @@
   "plugins": ["stylelint-scss"],
   "extends": [
      "stylelint-config-standard",
-     "stylelint-config-prettier"
+     "stylelint-config-recommended-scss"
   ],
   "rules": {
     "at-rule-no-unknown": null,

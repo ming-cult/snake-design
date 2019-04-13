@@ -5,38 +5,40 @@ import './index.scss'
 
 const { useCallback } = React
 
-const defaultProps: Partial<BreadcrumbProps> = {
+const defaultProps = {
   prefixCls: 'snake-breadcrumb',
   size: 'default',
   separator: '/',
-  expandMax: 5,
+  expandMax: 5
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> & {
-  defaultProps: Partial<BreadcrumbProps>
-} = props => {
-  const { prefixCls, separator, onClick, style, dataSource, size } = props
+const Breadcrumb = (userProps: BreadcrumbProps) => {
+  const props = {
+    ...defaultProps,
+    ...userProps
+  }
+  const { prefixCls, separator, onClick, style, dataSource, size, className } = props
   const cx = useCallback(getCx(prefixCls), [prefixCls])
 
   return (
-    <div className={prefixCls + ' ' + cx(size)} style={style}>
+    <div className={cx('', size, { className })} style={style}>
       {dataSource.map((item: BreadcrumbItemProps, index: number) => {
         const isActive = index === dataSource.length - 1
         let aProps: any = {}
         if (!isActive) {
           aProps = onClick
             ? {
-                onClick: () => onClick(index, item.link),
+                onClick: () => onClick(index, item.link)
               }
             : {
-                href: item.link,
+                href: item.link
               }
         }
         return (
           <span
             key={`key-${item.link}`}
             className={cx('item', {
-              ['item-active']: isActive,
+              ['item-active']: isActive
             })}
           >
             <a {...aProps} className={cx('item-content')}>
@@ -49,7 +51,5 @@ const Breadcrumb: React.FC<BreadcrumbProps> & {
     </div>
   )
 }
-
-Breadcrumb.defaultProps = defaultProps
 
 export default Breadcrumb
