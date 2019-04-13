@@ -103,8 +103,22 @@ export interface MergeCell {
   rowSpan?: number
 }
 
+/** 选择功能的配置 */
 export interface RowSelection {
-
+  // 选中项的数组， 需要配合onChange一起使用
+  selectedRowKeys?: Array<string | number>
+  // type 单选或者多选的类型 默认为`checkbox`
+  type?: 'checkbox' | 'radio'
+  // onChange 选中项发生变化的回调, 全选也会调用
+  onChange?: (selectedRowKeys: Array<string | number>, selectedRows: Data[]) => void
+  // onSelect 选择某一行发生的回调
+  onSelect?: (record: Data, selectedRows: Data[], selected: boolean) => void
+  // onDisabled 配置哪些不可选
+  onDisabled?: (record: Data) => boolean
+  // hideDefaultSelections 用于隐藏全选和反选选项 默认为false
+  hideDefaultSelections?: boolean
+  // onSelectAll 点击全选的回调
+  onSelectAll?: (selectedRows: Data[], selected: boolean) => void
 }
 
 export type SortType = 'ascend' | 'descend'
