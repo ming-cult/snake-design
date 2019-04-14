@@ -11,10 +11,11 @@ const defaultProps = {
   loading: false,
   type: 'primary',
   text: false,
+  className: '',
   onClick: () => {}
 }
 
-const Button = (userProps: ButtonProps) => {
+const Button = (userProps: ButtonProps, ref: any) => {
   const props = {
     ...defaultProps,
     ...userProps
@@ -26,7 +27,7 @@ const Button = (userProps: ButtonProps) => {
     onClick,
     loading,
     disabled,
-    className = '',
+    className,
     children,
     type,
     text,
@@ -50,7 +51,7 @@ const Button = (userProps: ButtonProps) => {
       className
     })
     return (
-      <a className={classStr} style={style} onClick={handleClick}>
+      <a className={classStr} style={style} onClick={handleClick} ref={ref}>
         {loading ? (
           <Icon type="reload" spin={true} style={iconStyle} className={iconClass} />
         ) : null}
@@ -67,6 +68,7 @@ const Button = (userProps: ButtonProps) => {
   })
   return (
     <button
+      ref={ref}
       type="button"
       disabled={!!disabled}
       className={classStr}
@@ -80,5 +82,4 @@ const Button = (userProps: ButtonProps) => {
   )
 }
 
-Button.defaultProps = defaultProps
-export default Button
+export default React.forwardRef(Button)
