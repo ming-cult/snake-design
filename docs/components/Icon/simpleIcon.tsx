@@ -8,7 +8,7 @@ export default function IconDemo() {
   return (
     <div className="snake-icon-demo">
       <ul>
-        {icons.map((n, index) => {
+        {icons.map((n) => {
           return (
             <li key={n}>
               <div className="snake-icon-demo-icon"><Icon type={n} /></div>

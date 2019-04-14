@@ -17,4 +17,10 @@ export default [
     path: '/app/basic/icon',
     component: require('../components/Icon').default,
   },
+  {
+    key: 'checkbox',
+    name: 'Checkbox 复选框',
+    path: '/app/basic/checkbox',
+    component: require('../components/Checkbox').default,
+  },
 ]
