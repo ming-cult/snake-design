@@ -47,8 +47,8 @@ function getOtherProps(props: CheckboxItemProps) {
   return omitProps
 }
 
-function Checkbox(checkboxProps: CheckboxItemProps, ref: any) {
-  const props = { ...defaultProps, ...checkboxProps }
+function CheckboxItem(checkboxItemProps: CheckboxItemProps, ref: any) {
+  const props = { ...defaultProps, ...checkboxItemProps }
   const { prefixCls, children, checked, indeterminate } = props
   const inputRef = React.useRef<HTMLInputElement>()
   const otherProps = getOtherProps(props)
@@ -79,4 +79,4 @@ function Checkbox(checkboxProps: CheckboxItemProps, ref: any) {
   )
 }
 
-export default React.forwardRef(Checkbox)
+export default React.forwardRef(CheckboxItem)

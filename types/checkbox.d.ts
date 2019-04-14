@@ -35,7 +35,7 @@ interface OptionValue {
 }
 
 /**
- * checkboxGroup
+ * checkbox
  */
 export interface CheckboxProps {
   // onChange 默认noop

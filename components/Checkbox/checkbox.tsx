@@ -5,7 +5,7 @@ import { noop } from '../utils/tool'
 
 const prefixCls = 'snake-checkbox'
 
-const CheckboxGroup: React.SFC<CheckboxProps> & {
+const Checkbox: React.SFC<CheckboxProps> & {
   item: React.ForwardRefExoticComponent<CheckboxItemProps & React.RefAttributes<{}>>
 } = ({ onChange = noop, disabled = false, options = [], value = [] }) => {
   const handleChange = (checked: boolean, checkedValue: string | number) => {
@@ -38,6 +38,6 @@ const CheckboxGroup: React.SFC<CheckboxProps> & {
   )
 }
 
-CheckboxGroup.item = CheckboxItem
+Checkbox.item = CheckboxItem
 
-export default CheckboxGroup
+export default Checkbox
