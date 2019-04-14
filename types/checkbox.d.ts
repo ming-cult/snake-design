@@ -27,7 +27,7 @@ interface OptionValue {
   // 文本信息
   label: React.ReactNode
   // 选中的值
-  value: string
+  value: string | number
   // 不可用
   disabled?: boolean
   // autoFocus
@@ -39,11 +39,11 @@ interface OptionValue {
  */
 export interface CheckGroupProps {
   // onChange 默认noop
-  onChange?: (checkedValue: string[]) => void
+  onChange?: (checkedValue: Array<string | number>) => void
   // disabled 失效 全部不可用 默认false
   disabled?: boolean
   // 配置的选项 默认为空数组
   options?: OptionValue[]
   // value 指定选中 的项
-  value?: string[]
+  value?: Array<string | number>
 }

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { render, fireEvent } from 'react-testing-library'
-import CheckboxGroup from '../index'
+import Checkbox from '../index'
 
 describe('checkbox test', () => {
-  const Checkbox = CheckboxGroup.checkbox
+  const CheckboxItem = Checkbox.item
   const options = [
     {
       label: '篮球',
@@ -24,10 +24,10 @@ describe('checkbox test', () => {
   ]
 
   it('snapshot', () => {
-    const checked = render(<Checkbox checked>选中</Checkbox>)
-    const notChecked = render(<Checkbox>未选中</Checkbox>)
-    const disabled = render(<Checkbox disabled>不可用</Checkbox>)
-    const indent = render(<Checkbox indeterminate>半选</Checkbox>)
+    const checked = render(<CheckboxItem checked>选中</CheckboxItem>)
+    const notChecked = render(<CheckboxItem>未选中</CheckboxItem>)
+    const disabled = render(<CheckboxItem disabled>不可用</CheckboxItem>)
+    const indent = render(<CheckboxItem indeterminate>半选</CheckboxItem>)
     expect(checked.container.innerHTML).toMatchSnapshot()
     expect(notChecked.container.innerHTML).toMatchSnapshot()
     expect(disabled.container.innerHTML).toMatchSnapshot()
@@ -38,9 +38,9 @@ describe('checkbox test', () => {
     function CheckDemo() {
       const [checked, setChecked] = React.useState(false)
       return (
-        <Checkbox checked={checked} onChange={checked => setChecked(checked)}>
+        <CheckboxItem checked={checked} onChange={checked => setChecked(checked)}>
           测试demo
-        </Checkbox>
+        </CheckboxItem>
       )
     }
     const { getByText } = render(<CheckDemo />)
@@ -51,14 +51,14 @@ describe('checkbox test', () => {
   })
 
   it('checkbox group', () => {
-    const { container } = render(<CheckboxGroup options={options} />)
+    const { container } = render(<Checkbox options={options} />)
     expect(container.firstChild.childNodes.length).toBe(4)
   })
 
   it('fire group change', () => {
     function GroupDemo() {
       const [value, setValue] = React.useState([])
-      return <CheckboxGroup value={value} onChange={value => setValue(value)} options={options} />
+      return <Checkbox value={value} onChange={value => setValue(value)} options={options} />
     }
     const { getByText } = render(<GroupDemo />)
     const baskNode = getByText(/篮球/i).previousSibling.firstChild as HTMLInputElement

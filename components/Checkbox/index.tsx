@@ -1,3 +1,3 @@
-import CheckboxGroup from './checkboxGroup'
+import Checkbox from './checkbox'
 
-export default CheckboxGroup
+export default Checkbox

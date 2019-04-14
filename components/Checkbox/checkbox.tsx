@@ -1,75 +1,43 @@
 import * as React from 'react'
-import cx from 'classnames'
-import { CheckboxProps } from '../../types/checkbox'
-import { noop, omit } from '../utils/tool'
+import { CheckGroupProps, CheckboxProps } from '../../types/checkbox'
+import CheckboxItem from './checkboxItem'
+import { noop } from '../utils/tool'
 
-const defaultProps = {
-  checked: false,
-  onChange: noop,
-  autoFocus: false,
-  disabled: false,
-  indeterminate: false,
-  onBlur: noop,
-  onFocus: noop,
-  prefixCls: 'snake-checkbox-item'
-}
+const prefixCls = 'snake-checkbox'
 
-function getClassName({ disabled, indeterminate, checked, prefixCls, className }: CheckboxProps) {
-  return cx(
-    prefixCls,
-    {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-indeterminate`]: indeterminate
-    },
-    className
-  )
-}
-
-function handleChange(
-  e: React.ChangeEvent<HTMLInputElement>,
-  { onChange, disabled }: CheckboxProps
-) {
-  const checked = e.target.checked
-  if (disabled) return
-  onChange(checked)
-}
-
-function getOtherProps(props: CheckboxProps) {
-  const omitStr = ['onChange', 'prefixCls', 'classNames', 'children', 'indeterminate']
-  let omitProps = omit(props, omitStr)
-  return omitProps
-}
-
-function Checkbox(checkboxProps: CheckboxProps, ref: any) {
-  const props = { ...defaultProps, ...checkboxProps }
-  const { prefixCls, children } = props
-  const inputRef = React.useRef<HTMLInputElement>()
-  const otherProps = getOtherProps(props)
-
-  React.useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRef.current.focus()
-    },
-    blur: () => {
-      inputRef.current.blur()
+const CheckboxGroup: React.SFC<CheckGroupProps> & {
+  item: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<{}>>
+} = ({ onChange = noop, disabled = false, options = [], value = [] }) => {
+  const handleChange = (checked: boolean, checkedValue: string | number) => {
+    const cloneValue = value.slice()
+    if (checked) {
+      cloneValue.push(checkedValue)
+    } else {
+      cloneValue.splice(cloneValue.indexOf(checkedValue), 1)
     }
-  }))
+    onChange(cloneValue)
+  }
 
   return (
-    <label className={getClassName(props)}>
-      <span className={`${prefixCls}-select`}>
-        <input
-          type="checkbox"
-          onChange={e => handleChange(e, props)}
-          {...otherProps}
-          ref={inputRef}
-        />
-        <span className={`${prefixCls}-select-inner`} />
-      </span>
-      <span className={`${prefixCls}-label`}>{children}</span>
-    </label>
+    <div className={`${prefixCls}`}>
+      {options.map(p => {
+        const checked = value.includes(p.value)
+        return (
+          <CheckboxItem
+            key={p.value}
+            checked={checked}
+            disabled={disabled || p.disabled}
+            autoFocus={p.autoFocus}
+            onChange={checked => handleChange(checked, p.value)}
+          >
+            {p.label}
+          </CheckboxItem>
+        )
+      })}
+    </div>
   )
 }
 
-export default React.forwardRef(Checkbox)
+CheckboxGroup.item = CheckboxItem
+
+export default CheckboxGroup
