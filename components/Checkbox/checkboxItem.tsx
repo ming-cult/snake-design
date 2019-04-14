@@ -1,6 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
-import { CheckboxProps } from '../../types/checkbox'
+import { CheckboxItemProps } from '../../types/checkbox'
 import { noop, omit } from '../utils/tool'
 
 const defaultProps = {
@@ -14,7 +14,13 @@ const defaultProps = {
   prefixCls: 'snake-checkbox-item'
 }
 
-function getClassName({ disabled, indeterminate, checked, prefixCls, className }: CheckboxProps) {
+function getClassName({
+  disabled,
+  indeterminate,
+  checked,
+  prefixCls,
+  className
+}: CheckboxItemProps) {
   return cx(
     prefixCls,
     {
@@ -28,20 +34,20 @@ function getClassName({ disabled, indeterminate, checked, prefixCls, className }
 
 function handleChange(
   e: React.ChangeEvent<HTMLInputElement>,
-  { onChange, disabled }: CheckboxProps
+  { onChange, disabled }: CheckboxItemProps
 ) {
   const checked = e.target.checked
   if (disabled) return
   onChange(checked)
 }
 
-function getOtherProps(props: CheckboxProps) {
+function getOtherProps(props: CheckboxItemProps) {
   const omitStr = ['onChange', 'prefixCls', 'classNames', 'children', 'indeterminate', 'checked']
   let omitProps = omit(props, omitStr)
   return omitProps
 }
 
-function Checkbox(checkboxProps: CheckboxProps, ref: any) {
+function Checkbox(checkboxProps: CheckboxItemProps, ref: any) {
   const props = { ...defaultProps, ...checkboxProps }
   const { prefixCls, children, checked, indeterminate } = props
   const inputRef = React.useRef<HTMLInputElement>()

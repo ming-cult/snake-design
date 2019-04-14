@@ -1,7 +1,7 @@
 /**
  * checkbox interface
  */
-export interface CheckboxProps {
+export interface CheckboxItemProps {
   // 是否被选中 默认为false
   checked?: boolean
   // onChange 变化时候发生的回调
@@ -37,7 +37,7 @@ interface OptionValue {
 /**
  * checkboxGroup
  */
-export interface CheckGroupProps {
+export interface CheckboxProps {
   // onChange 默认noop
   onChange?: (checkedValue: Array<string | number>) => void
   // disabled 失效 全部不可用 默认false

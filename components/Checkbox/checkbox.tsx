@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { CheckGroupProps, CheckboxProps } from '../../types/checkbox'
+import { CheckboxItemProps, CheckboxProps } from '../../types/checkbox'
 import CheckboxItem from './checkboxItem'
 import { noop } from '../utils/tool'
 
 const prefixCls = 'snake-checkbox'
 
-const CheckboxGroup: React.SFC<CheckGroupProps> & {
-  item: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<{}>>
+const CheckboxGroup: React.SFC<CheckboxProps> & {
+  item: React.ForwardRefExoticComponent<CheckboxItemProps & React.RefAttributes<{}>>
 } = ({ onChange = noop, disabled = false, options = [], value = [] }) => {
   const handleChange = (checked: boolean, checkedValue: string | number) => {
     const cloneValue = value.slice()
