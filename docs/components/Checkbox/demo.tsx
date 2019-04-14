@@ -19,6 +19,7 @@ const options = [{
 export default function CheckboxDemo() {
   const [checked, setChecked] = React.useState(false)
   const [value, setValue] = React.useState([])
+  console.log(value)
   return (
     <div style={{ padding: 20 }}>
       <h3>基础用法</h3>

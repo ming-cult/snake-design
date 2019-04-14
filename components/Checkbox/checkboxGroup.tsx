@@ -5,12 +5,9 @@ import { noop } from '../utils/tool'
 
 const prefixCls = 'snake-checkbox'
 
-const CheckboxGroup: React.SFC<CheckGroupProps> & { checkbox: React.SFC<CheckboxProps> } = ({
-  onChange = noop,
-  disabled = false,
-  options = [],
-  value = []
-}) => {
+const CheckboxGroup: React.SFC<CheckGroupProps> & {
+  checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<{}>>
+} = ({ onChange = noop, disabled = false, options = [], value = [] }) => {
   const handleChange = (checked: boolean, checkedValue: string) => {
     const cloneValue = value.slice()
     if (checked) {
@@ -27,6 +24,7 @@ const CheckboxGroup: React.SFC<CheckGroupProps> & { checkbox: React.SFC<Checkbox
         const checked = value.includes(p.value)
         return (
           <Checkbox
+            key={p.value}
             checked={checked}
             disabled={disabled || p.disabled}
             autoFocus={p.autoFocus}

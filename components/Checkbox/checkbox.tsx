@@ -26,8 +26,12 @@ function getClassName({ disabled, indeterminate, checked, prefixCls, className }
   )
 }
 
-function handleChange(e: React.ChangeEvent<HTMLInputElement>, { onChange }: CheckboxProps) {
+function handleChange(
+  e: React.ChangeEvent<HTMLInputElement>,
+  { onChange, disabled }: CheckboxProps
+) {
   const checked = e.target.checked
+  if (disabled) return
   onChange(checked)
 }
 
@@ -37,7 +41,7 @@ function getOtherProps(props: CheckboxProps) {
   return omitProps
 }
 
-function Checkbox(checkboxProps: CheckboxProps, ref: React.RefObject<any>) {
+function Checkbox(checkboxProps: CheckboxProps, ref: any) {
   const props = { ...defaultProps, ...checkboxProps }
   const { prefixCls, children } = props
   const inputRef = React.useRef<HTMLInputElement>()
