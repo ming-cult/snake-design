@@ -9,10 +9,10 @@ notifications:
   - 1171009543@qq.com
 
 node_js:
-  - 8
+  - 10
 
 before_install:
-  - npm install codecov.io coveralls
+  - yarn add codecov.io coveralls
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
