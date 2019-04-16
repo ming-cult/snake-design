@@ -2,22 +2,20 @@
 imports:
   import CheckboxDemoCode from '!raw-loader!./demo.tsx';
   import CheckboxDemo from './demo.tsx';
-  import Code from '../../layout/prism/index'
+  import Block from '../../layout/block';
 ---
 
-# Button 按钮
+# Checkbox 复选框
 
-基础组件，触发业务逻辑时使用。
+在一组可选项中进行多项选择时
 
 ## 简单示例
 
 :::demo
-<CheckboxDemo />
+<Block code={CheckboxDemoCode} des="复选框">
+  <CheckboxDemo />
+</Block>
 :::
-
-## 代码示例
-
-<div><Code>{CheckboxDemoCode}</Code></div>
 
 ## Api
 
