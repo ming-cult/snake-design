@@ -71,9 +71,9 @@ describe('checkbox test', () => {
   it('disabled checkbox', () => {
     const fn = jest.fn()
     const { getByText } = render(
-      <Checkbox disabled onChange={fn}>
+      <CheckboxItem disabled onChange={fn}>
         测试
-      </Checkbox>
+      </CheckboxItem>
     )
     const inputNode = getByText(/测试/i).previousSibling.firstChild as HTMLInputElement
     fireEvent.click(inputNode)
