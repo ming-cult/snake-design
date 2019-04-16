@@ -1,0 +1,19 @@
+.snake-design-block {
+  &-header {
+    border-bottom: 1px solid #e2ecf4
+  }
+
+  &-description {
+    padding: 10px;
+    color: #314659;
+    position: relative;
+    span {
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+    }
+    &.dash {
+      border-bottom: 1px dashed #e2ecf4;
+    }
+  }
+}
