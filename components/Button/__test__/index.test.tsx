@@ -1,74 +1,65 @@
 import * as React from 'react'
-import { render } from 'react-testing-library'
+import { render, fireEvent } from 'react-testing-library'
 import Button from '../index'
 import Icon from '../../Icon'
 
 describe('render button', () => {
   it('render default', () => {
     const wrapper = render(<Button />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.container).toMatchSnapshot()
   })
   it('render button with children', () => {
     const childrenBtn = render(<Button>确认</Button>)
-    expect(childrenBtn).toMatchSnapshot()
+    expect(childrenBtn.container).toMatchSnapshot()
   })
-  it('render button with icon', () => {
+  it('render button with type-icon', () => {
     const iconBtn = render(<Button icon="eye-close">闭眼啦</Button>)
-    expect(iconBtn).toMatchSnapshot()
-    const iconChild = render(
+    expect(iconBtn.container).toMatchSnapshot()
+  })
+  it('render button with child-icon', () => {
+    const iconBtn = render(
       <Button>
         <Icon type="eye-close" />
+        闭眼啦
       </Button>
     )
-    expect(iconChild).toMatchSnapshot()
-    const loadingBtn = render(<Button loading />)
-    expect(loadingBtn).toMatchSnapshot()
-  })
-})
-
-describe('button has correct class', () => {
-  it('should have snake-button', () => {
-    const { container: wrapper } = render(<Button />)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button')).toBe(true)
-  })
-
-  it('should have snake-button-default', () => {
-    const { container: wrapper } = render(<Button>确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-default')).toBe(true)
-  })
-  it('should have snake-button-small', () => {
-    const { container: wrapper } = render(<Button size="small">确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-small')).toBe(true)
-  })
-  it('should have snake-button-large', () => {
-    const { container: wrapper } = render(<Button size="large">确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-large')).toBe(true)
-  })
-
-  it('should have snake-button-btn-primary', () => {
-    const { container: wrapper } = render(<Button type="primary">确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-btn-primary')).toBe(true)
-  })
-  it('should have snake-button-btn-gray', () => {
-    const { container: wrapper } = render(<Button type="gray">确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-btn-gray')).toBe(true)
-  })
-  it('should have snake-button-btn-warn', () => {
-    const { container: wrapper } = render(<Button type="warn">确定</Button>)
-    const button = wrapper.firstChild as HTMLElement
-    expect(button.classList.contains('snake-button-btn-warn')).toBe(true)
+    expect(iconBtn.container).toMatchSnapshot()
   })
 })
 
 describe('render text button', () => {
   it('render only text', () => {
     const wrapper = render(<Button text>文字</Button>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.container).toMatchSnapshot()
+  })
+})
+
+describe('onClick event', () => {
+  const fn = jest.fn()
+  it('onClick should not work when loading', () => {
+    const { getByText, queryByText } = render(
+      <Button loading onClick={fn}>
+        点击按钮
+      </Button>
+    )
+    expect(queryByText('点击按钮')).toBeTruthy()
+    fireEvent.click(getByText('点击按钮'))
+    expect(fn).not.toBeCalled()
+  })
+  it('onClick should not work when disabled', () => {
+    const { getByText, queryByText } = render(
+      <Button disabled onClick={fn}>
+        点击按钮
+      </Button>
+    )
+    expect(queryByText('点击按钮')).toBeTruthy()
+    fireEvent.click(getByText('点击按钮'))
+    expect(fn).not.toBeCalled()
+  })
+  it('onClick should be fired', () => {
+    const { getByText, queryByText } = render(<Button onClick={fn}>点击按钮</Button>)
+    expect(queryByText('点击按钮')).toBeTruthy()
+    fireEvent.click(getByText('点击按钮'))
+    expect(fn).toBeCalled()
   })
 })
