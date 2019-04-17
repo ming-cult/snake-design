@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/ming-cult/snake-design.png)](https://travis-ci.org/ming-cult/snake-design)
+
+
 ## 介绍
 
 基于 `React hooks` 开发的下一代 `PC` 端组件库。

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox test snapshot 1`] = `"<label class=\\"snake-checkbox-item snake-checkbox-item-checked\\"><span class=\\"snake-checkbox-item-select\\"><input type=\\"checkbox\\" checked=\\"\\"><span class=\\"snake-checkbox-item-select-inner\\"></span></span><span class=\\"snake-checkbox-item-label\\">选中</span></label>"`;
+
+exports[`checkbox test snapshot 2`] = `"<label class=\\"snake-checkbox-item\\"><span class=\\"snake-checkbox-item-select\\"><input type=\\"checkbox\\"><span class=\\"snake-checkbox-item-select-inner\\"></span></span><span class=\\"snake-checkbox-item-label\\">未选中</span></label>"`;
+
+exports[`checkbox test snapshot 3`] = `"<label class=\\"snake-checkbox-item snake-checkbox-item-disabled\\"><span class=\\"snake-checkbox-item-select\\"><input type=\\"checkbox\\" disabled=\\"\\"><span class=\\"snake-checkbox-item-select-inner\\"></span></span><span class=\\"snake-checkbox-item-label\\">不可用</span></label>"`;
+
+exports[`checkbox test snapshot 4`] = `"<label class=\\"snake-checkbox-item snake-checkbox-item-indeterminate\\"><span class=\\"snake-checkbox-item-select\\"><input type=\\"checkbox\\"><span class=\\"snake-checkbox-item-select-inner\\"></span></span><span class=\\"snake-checkbox-item-label\\">半选</span></label>"`;

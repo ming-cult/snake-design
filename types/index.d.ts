@@ -3,3 +3,4 @@
 /// <reference path="panel.d.ts" />
 /// <reference path="tabs.d.ts" />
 /// <reference path="icon.d.ts" />
+/// <reference path="checkbox.d.ts" />
