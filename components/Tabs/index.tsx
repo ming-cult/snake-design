@@ -4,22 +4,20 @@ import cx from 'classnames'
 
 const { useEffect, useCallback } = React
 
-function Tabs(
-  {
-    prefixCls = 'snake-tabs',
-    tabBarPosition = 'top',
-    activeTab,
-    tabs,
-    tabBarActiveTextColor,
-    tabBarInactiveTextColor,
-    onChange,
-    onTabClick,
-    children,
-    className,
-    style
-  }: TabsProps,
-  ref: React.RefObject<HTMLElement>
-) {
+function Tabs({
+  prefixCls = 'snake-tabs',
+  tabBarPosition = 'top',
+  activeTab,
+  tabs,
+  tabBarActiveTextColor,
+  tabBarInactiveTextColor,
+  onChange,
+  onTabClick,
+  children,
+  className,
+  style
+}: TabsProps) {
+  // ref: React.RefObject<HTMLElement>
   let underline: any = null
   let tabObj: any = {}
   let tabWrap: any = null

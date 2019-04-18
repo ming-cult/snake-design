@@ -14,7 +14,7 @@ export default class SimpleTab extends React.Component {
     page0: 0
   }
 
-  onChange = (index: number, e: any, order: any) => {
+  onChange = (index: number, _e: any, order: any) => {
     this.setState({
       [`page${order}`]: index
     })
