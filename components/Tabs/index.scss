@@ -22,7 +22,18 @@ $tabs: 'snake-tabs';
 
     &-bottom {
       height: 40px;
-      @include one-px-border(bottom, solid, #ddd); }
+      @include one-px-border(top, solid, #ddd);
+    }
+
+    &-left {
+      flex-direction: column;
+      @include one-px-border(right, solid, #ddd);
+    }
+
+    &-right {
+      flex-direction: column;
+      @include one-px-border(left, solid, #ddd);
+    }
 
     &-item {
       flex: 1;
@@ -60,6 +71,21 @@ $tabs: 'snake-tabs';
         top: 0;
         transition: left 0.3s $easeInOut, width 0.3s $easeInOut;
       }
+
+      &-left {
+        right: 0;
+        transition: top 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
+
+      &-right {
+        left: 0;
+        transition: top 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
     }
+  }
+
+  &-left,
+  &-right {
+    display: flex;
   }
 }

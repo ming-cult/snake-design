@@ -4,23 +4,26 @@ import cx from 'classnames'
 
 const { useEffect, useCallback } = React
 
-function Tabs({
-  prefixCls = 'snake-tabs',
-  tabBarPosition = 'top',
-  activeTab,
-  tabs,
-  tabBarActiveTextColor,
-  tabBarInactiveTextColor,
-  onChange,
-  onTabClick,
-  children,
-  className,
-  style
-}: TabsProps) {
-  // ref: React.RefObject<HTMLElement>
+function Tabs(
+  {
+    prefixCls = 'snake-tabs',
+    tabBarPosition = 'top',
+    activeTab,
+    tabs,
+    tabBarActiveTextColor,
+    tabBarInactiveTextColor,
+    onChange,
+    onTabClick,
+    children,
+    className,
+    style
+  }: TabsProps,
+  ref: React.RefObject<any>
+) {
   let underline: any = null
   let tabObj: any = {}
   let tabWrap: any = null
+  let tabItemObj: any = {}
 
   useEffect(() => {
     handleUnderline()
@@ -28,16 +31,24 @@ function Tabs({
 
   // 处理下划线样式
   const handleUnderline = () => {
-    underline && (underline.style.width = `${getUnderlineWidth(activeTab)}px`)
-    underline && (underline.style.left = `${getLeft(activeTab)}px`)
+    if (tabBarPosition === 'top' || tabBarPosition === 'bottom') {
+      underline && (underline.style.width = `${getUnderlineWidth(activeTab)}px`)
+      underline && (underline.style.left = `${getLeft(activeTab)}px`)
+    } else if (tabBarPosition === 'left' || tabBarPosition === 'right') {
+      underline && (underline.style.height = `${getUnderlineHeight(activeTab)}px`)
+      underline && (underline.style.top = `${getTop(activeTab)}px`)
+    }
   }
 
   // 获取下划线宽度
   const getUnderlineWidth = useCallback(
-    (current: number) => {
-      let underlineWidth = tabObj[`tab${current}`].getBoundingClientRect().width
-      return underlineWidth
-    },
+    (current: number) => tabObj[`tab${current}`].getBoundingClientRect().width,
+    [activeTab]
+  )
+
+  // 获取下划线高度
+  const getUnderlineHeight = useCallback(
+    (current: number) => tabItemObj[`tab${current}`].getBoundingClientRect().height,
     [activeTab]
   )
 
@@ -48,6 +59,21 @@ function Tabs({
         return (
           tabObj[`tab${current}`].getBoundingClientRect().left -
           tabWrap.getBoundingClientRect().left
+        )
+      } else {
+        return 0
+      }
+    },
+    [activeTab]
+  )
+
+  // 获取当前激活 tab 距离上侧的距离
+  const getTop = useCallback(
+    (current: number) => {
+      if (tabObj[`tab${current}`] && tabWrap) {
+        return (
+          tabItemObj[`tab${current}`].getBoundingClientRect().top -
+          tabWrap.getBoundingClientRect().top
         )
       } else {
         return 0
@@ -83,6 +109,9 @@ function Tabs({
               )}
               onClick={e => changeTab(e, index, r)}
               key={index}
+              ref={ele => {
+                tabItemObj[`tab${index}`] = ele
+              }}
             >
               <div
                 className={cx({
@@ -93,7 +122,7 @@ function Tabs({
                     ? { color: tabBarActiveTextColor }
                     : { color: tabBarInactiveTextColor }
                 }
-                ref={(ele: any) => {
+                ref={ele => {
                   tabObj[`tab${index}`] = ele
                 }}
               >
@@ -125,6 +154,20 @@ function Tabs({
 
   function layout() {
     switch (tabBarPosition) {
+      case 'left':
+        return (
+          <div className={`${prefixCls}-left`}>
+            {renderTab()}
+            {renderContent()}
+          </div>
+        )
+      case 'right':
+        return (
+          <div className={`${prefixCls}-right`}>
+            {renderContent()}
+            {renderTab()}
+          </div>
+        )
       case 'bottom':
         return (
           <div>
@@ -147,7 +190,7 @@ function Tabs({
   }
 
   return (
-    <div className={getClassName()} style={style}>
+    <div className={getClassName()} style={style} ref={ref}>
       {layout()}
     </div>
   )
