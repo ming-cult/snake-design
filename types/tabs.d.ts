@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface TabsProps {
   style?: object,
   className?: string,
@@ -10,5 +12,11 @@ export interface TabsProps {
   tabBarActiveTextColor?: string,
   tabBarInactiveTextColor?: string,
   children?: any,
-  prefixCls?: string
+  prefixCls?: string,
+  type?: string,
+}
+
+export interface TabsItemProps {
+  title: String | Number | ReactNode
+  disabled?: boolean
 }
