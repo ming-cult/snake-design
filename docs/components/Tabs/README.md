@@ -2,22 +2,20 @@
 imports:
   import TabsDemoCode from '!raw-loader!./simpleTabs.tsx';
   import TabDemo from './simpleTabs.tsx';
-  import Code from '../../layout/prism/index'
+  import Block from '../../layout/block';
 ---
 
 # Tabs 标签页
 
 选项卡切换组件。
 
-### Demo
+## 简单示例
 
 :::demo
-<TabDemo />
+<Block des="Tabs 示例" code={TabsDemoCode}>
+  <TabDemo />
+</Block>
 :::
-
-## 代码示例
-
-<div><Code>{TabsDemoCode}</Code></div>
 
 ## Api
 
