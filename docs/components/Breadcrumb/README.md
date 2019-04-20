@@ -1,7 +1,6 @@
 ---
 imports:
-  import ButtomDemoCode from '!raw-loader!./simple.tsx';
-  import BreadCrumbDemo from './simple.tsx';
+  import ButtomDemoCode from '!raw-loader!./simple.tsx'; import BreadCrumbDemo from './simple.tsx';
   import Code from '../../layout/prism/index'
 ---
 
@@ -11,8 +10,7 @@ imports:
 
 ### 简单示例
 
-:::demo
-各种类型的按钮
+:::demo 各种类型的按钮
 
 <BreadCrumbDemo />
 :::
