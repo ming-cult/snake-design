@@ -10,7 +10,11 @@ imports:
 
 ## 简单示例
 
-:::demo <Block code={CheckboxDemoCode} des="复选框"> <CheckboxDemo /> </Block> :::
+:::demo 
+<Block code={CheckboxDemoCode} des="复选框"> 
+<CheckboxDemo /> 
+</Block> 
+:::
 
 ## Api
 

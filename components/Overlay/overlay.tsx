@@ -1,107 +1,159 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import cx from 'classnames'
 import { CSSTransition } from 'react-transition-group'
+import cx from 'classnames'
 import { OverlayProps } from 'types/overlay'
-import { noop } from '../utils/tool'
-import Icon from '../Icon'
+import Icon from '../icon'
 
-const defaultProps: OverlayProps = {
-  visible: false,
-  hasMask: true,
-  onClose: noop,
-  maskClosable: true,
-  destroy: true,
+const noop = () => {}
+const { useEffect, useRef } = React
+
+const defaultProps = {
   prefixCls: 'snake-overlay',
-  maskTimeout: 300,
-  contentTimeout: 300
+  visible: false,
+  mask: true,
+  maskClosable: true,
+  closable: false,
+  autoFix: false,
+  destroy: true,
+  onClose: noop,
+  maskAnimationName: 'fade',
+  animationName: 'fade'
 }
 
-const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
-  const props = { ...defaultProps, ...overlay }
-  const {
+const getZIndex = (zIndex?: number) => {
+  return zIndex
+}
+
+const setBody = (hide: string) => {
+  document.body.style.overflow = hide
+}
+
+const getClassNames = ({ mask, className, prefixCls }: OverlayProps) => {
+  return cx(
     prefixCls,
-    wrapperClassName,
-    visible,
-    destroy,
-    hasMask,
-    wrapperStyle,
-    maskTimeout,
-    contentTimeout,
-    children,
-    header,
-    footer,
-    maskAnimation,
-    contentAnimation,
-    zIndex,
-    closable
-  } = props
+    {
+      [`${prefixCls}-no-mask`]: !mask
+    },
+    className
+  )
+}
 
-  const getCls = React.useCallback(() => {
-    const isHidden = !visible && !destroy
-    const classStr = cx(prefixCls, wrapperClassName, {
-      [`${prefixCls}-hidden`]: isHidden
-    })
-    return classStr
-  }, [prefixCls, wrapperClassName, visible, destroy])
-
-  const getZIndex = React.useCallback(() => {
-    const style: React.CSSProperties = {}
-    if (zIndex) {
-      style.zIndex = zIndex
-    }
-    return style
-  }, [zIndex])
-
-  const renderMask = () => {
-    const maskCls = cx(`${prefixCls}-mask`, maskAnimation)
-    const style = getZIndex()
-    if (hasMask) {
-      return (
-        <CSSTransition in={visible} timeout={maskTimeout}>
-          <div className={maskCls} style={style} />
-        </CSSTransition>
-      )
-    }
-    return null
+const maskClick = (e: React.MouseEvent<HTMLDivElement>, { onClose }: OverlayProps) => {
+  if (e.target === e.currentTarget) {
+    onClose(e)
   }
+}
 
-  const renderContent = () => {
-    const contentCls = cx(`${prefixCls}-wrapper`, contentAnimation)
-    const style = getZIndex()
+const animateEnter = ({ destroy }: OverlayProps, wrapRef: React.RefObject<HTMLDivElement>) => {
+  setBody('hidden')
+  if (!destroy) {
+    ;(wrapRef.current as any).style.display = ''
+  }
+}
+
+const animateLeave = ({ destroy }: OverlayProps, wrapRef: React.RefObject<HTMLDivElement>) => {
+  setBody('auto')
+  if (!destroy) {
+    ;(wrapRef.current as any).style.display = 'none'
+  }
+}
+
+const renderMask = ({
+  maskClassName,
+  mask,
+  prefixCls,
+  zIndex,
+  maskAnimationName,
+  visible
+}: OverlayProps) => {
+  const classStr = cx(`${prefixCls}-mask`, maskClassName)
+  const zindex = getZIndex(zIndex)
+  const style: React.CSSProperties = zindex ? { zIndex: zindex } : {}
+  if (mask) {
     return (
-      <CSSTransition in={visible} timeout={contentTimeout}>
-        <div className={contentCls} style={style}>
-          <div className={cx(`${prefixCls}-header`)}>{header}</div>
-          <div className={cx(`${prefixCls}-wrapper-inner`)}>{children}</div>
-          <div className={cx(`${prefixCls}-footer`)}>{footer}</div>
-        </div>
+      <CSSTransition in={visible} timeout={300} classNames={`${prefixCls}-${maskAnimationName}`}>
+        <div className={classStr} style={style} />
       </CSSTransition>
     )
   }
+  return null
+}
 
-  const renderClosable = () => {
-    if (closable) {
-      return (
-        <div className={`${prefixCls}-close`}>
-          <Icon type="" />
-        </div>
-      )
-    }
-    return null
+const renderHeader = ({ header, prefixCls }: OverlayProps) => {
+  if (header) {
+    return <div className={`${prefixCls}-header`}>{header}</div>
   }
+  return null
+}
 
-  const getContainer = () => {
+const renderClose = ({ closable, onClose, close, prefixCls }: OverlayProps) => {
+  if (closable) {
     return (
-      <div className={getCls()} style={wrapperStyle} ref={ref}>
-        {renderClosable()}
-        {renderMask()}
-        {renderContent()}
+      <div className={`${prefixCls}-close`} onClick={onClose}>
+        {close || <Icon type="close" />}
       </div>
     )
   }
-
-  return visible || !destroy ? ReactDOM.createPortal(getContainer(), document.body) : null
+  return null
 }
 
-export default React.forwardRef(Overlay)
+const renderFooter = ({ footer, prefixCls }: OverlayProps) => {
+  if (footer) {
+    return <div className={`${prefixCls}-footer`}>{footer}</div>
+  }
+  return null
+}
+
+const renderBody = (props: OverlayProps, wrapRef: React.RefObject<HTMLDivElement>) => {
+  const { prefixCls, children, animationName, zIndex, visible } = props
+  const zindex = getZIndex(zIndex)
+  const style: React.CSSProperties = zIndex ? { zIndex: zindex } : {}
+  return (
+    <CSSTransition
+      in={visible}
+      timeout={300}
+      classNames={`${prefixCls}-${animationName}`}
+      onEnter={() => animateEnter(props, wrapRef)}
+      onExited={() => animateLeave(props, wrapRef)}
+    >
+      <div className={`${prefixCls}-wrapper`} style={style}>
+        {renderHeader(props)}
+        {renderClose(props)}
+        <div className={`${prefixCls}-wrapper-inner`}>{children}</div>
+        {renderFooter(props)}
+      </div>
+    </CSSTransition>
+  )
+}
+
+const Overlay: React.FC<OverlayProps> = overlay => {
+  const props = { ...defaultProps, ...overlay }
+  const { prefixCls, maskClosable } = props
+  const classStr = getClassNames(props)
+  const wrapRef = useRef(null)
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = null
+    }
+  }, [])
+  return (
+    <div className={classStr} ref={wrapRef}>
+      {renderMask(props)}
+      <div
+        className={`${prefixCls}-wrap`}
+        onClick={
+          maskClosable
+            ? e => {
+                maskClick(e, props)
+              }
+            : undefined
+        }
+      >
+        {renderBody(props, wrapRef)}
+      </div>
+    </div>
+  )
+}
+
+export default Overlay
