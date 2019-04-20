@@ -1,3 +1,3 @@
-import Overlay from './overlayWrapper'
+import Overlay from './overlay'
 
 export default Overlay

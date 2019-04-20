@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Overlay, Button } from 'components'
+import './index.scss'
 
 export default function OverlayDemo() {
   const [visible, setVisible] = React.useState(false)

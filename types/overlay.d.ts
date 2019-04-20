@@ -1,68 +1,36 @@
 export interface OverlayProps {
-  // prefixCls snake-overlay
-  prefixCls?: string
-  // 类名
-  className?: string
-  // 弹出层名字
-  maskClassName?: string
-  // animationName 区域动画 默认为fade
-  animationName?: string
-  // 弹出层动画类名 默认为fade
-  maskAnimationName?: string
-  // visible 是否可见 默认为false
+  /** visible 是否可见 */
   visible?: boolean
-  // header 是否显示头部
-  header?: React.ReactNode
-  // mask 是否显示浮层 默认显示遮罩层 true
-  mask?: boolean
-  // maskClosable 默认为true 点击浮层是否允许关闭
-  maskClosable?: boolean
-  // children 内容区域
-  children?: React.ReactNode
-  // closable 是否显示叉号 默认为false
-  closable?: boolean
-  // close 关闭的节点可以自行定义
-  close?: React.ReactNode
-  // footer
-  footer?: React.ReactNode
-  // autoFix 是否开启自适应 在超出边界的时候会自动调整方向 默认为false
-  autoFix?: boolean
-  // 关闭的回调,点击浮层关闭或者关闭按钮关闭都会调用此函数
+  /** 是否有遮罩层 默认为true */
+  hasMask?: boolean
+  /** onClose 关闭弹层的回调 */
   onClose?: (e: React.MouseEvent<HTMLElement>) => void
-  // destroy 是否销毁 默认为true 关闭后默认销毁
+  /** 是否点击遮罩层 关闭 默认为 true */
+  maskClosable?: boolean
+  /** destroy 隐藏时， 是否销毁 默认为 true */
   destroy?: boolean
-  // style 样式
-  style?: React.CSSProperties
-  // zIndex 层级 默认999
-  zIndex?: number
-}
-
-export type Trigger = 'click' | 'hover'
-export type Direction =
-  | 'top'
-  | 'left'
-  | 'bottom'
-  | 'right'
-  | 'leftBottom'
-  | 'leftTop'
-  | 'rightTop'
-  | 'rightBottom'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomRight'
-// 带有位置的一类
-export interface PopupProps {
-  // 触发方式
-  trigger: Trigger
-  // direction
-  direction: Direction
-  // className
-  className?: string
-  // style
-  style?: React.CSSProperties
-  // children
+  /** children 弹层的内容 */
   children?: React.ReactNode
-  // visible 是否显示, dropdown, tooltip,popover可以在此基础上封装 默认为false
-  visible: boolean
+  /** wrapperClassName */
+  wrapperClassName?: string
+  /** wrapperStyle */
+  wrapperStyle?: React.CSSProperties
+  /** maskAnimation 弹层的动画 默认为 fade */
+  maskAnimation?: string
+  /** contentAnimation 内容区的动画 默认为 zoom */
+  contentAnimation?: string
+  /** zIndex */
+  zIndex?: number
+  /** prefixCls */
+  prefixCls?: string
+  /** maskTimeout 动画时间 自定义动画的时候需要与自定义动画的时间保持一致 默认 300ms */
+  maskTimeout?: number
+  /** contentTimeout 内容区域动画时间 */
+  contentTimeout?: number
+  /** header 自定义 header 区域 */
+  header?: React.ReactNode
+  /** footer 自定义 footer 区域 */
+  footer?: React.ReactNode
+  /** closable 是否显示右上角的叉号 */
+  closable?: boolean
 }
