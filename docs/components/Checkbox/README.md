@@ -2,7 +2,6 @@
 imports:
   import CheckboxDemoCode from '!raw-loader!./demo.tsx';
   import CheckboxDemo from './demo.tsx';
-  import Block from '../../layout/block';
 ---
 
 # Checkbox 复选框
