@@ -29,4 +29,10 @@ export default [
     path: '/app/basic/radio',
     component: require('../components/Radio').default,
   },
+  {
+    key: 'layout',
+    name: 'Layout 布局',
+    path: '/app/basic/layout',
+    component: require('../components/Layout').default,
+  },
 ]

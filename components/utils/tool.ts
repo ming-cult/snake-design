@@ -2,6 +2,8 @@ import ClassNames from 'classnames'
 
 export const noop = (..._args: any[]) => {}
 
+export const tuple = <T extends string[]>(...args: T) => args
+
 export const mapKeys = (obj: any, fn: (...args: any[]) => any) =>
   Object.keys(obj).reduce((acc: any, k: string) => {
     acc[fn(obj[k], k, obj)] = obj[k]
@@ -42,4 +44,4 @@ export const getCx = (prefixCls: string) => (...args: any[]) =>
 export const omit = (obj: any, arr: string[]) =>
   Object.keys(obj)
     .filter(k => !arr.includes(k))
-    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {} as any);
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {} as any)
