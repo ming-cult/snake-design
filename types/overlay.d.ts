@@ -28,7 +28,7 @@ export interface OverlayProps {
   // autoFix 是否开启自适应 在超出边界的时候会自动调整方向 默认为false
   autoFix?: boolean
   // 关闭的回调,点击浮层关闭或者关闭按钮关闭都会调用此函数
-  onClose?: () => void
+  onClose?: (e: React.MouseEvent<HTMLElement>) => void
   // destroy 是否销毁 默认为true 关闭后默认销毁
   destroy?: boolean
   // style 样式
