@@ -3,7 +3,6 @@ imports:
   import RadioDemoCode from '!raw-loader!./demo.tsx';
   import ButtonDemoCode from '!raw-loader!./buttonDemo.tsx';
   import RadioDemo from './demo.tsx';
-  import Block from '../../layout/block';
   import RadioButtonDemo from './buttonDemo.tsx';
 ---
 
