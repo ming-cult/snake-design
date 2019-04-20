@@ -1,1 +1,119 @@
 @import '../styles/themes/default';
+
+.snake-button {
+  line-height: 2;
+  cursor: pointer;
+  outline: none;
+
+  &-small {
+    font-size: 12px;
+    padding: 0 15px;
+    border-radius: 2px;
+  }
+
+  &-default {
+    font-size: 14px;
+    padding: 0 20px;
+    border-radius: 3px;
+  }
+
+  &-large {
+    font-size: 16px;
+    padding: 0 30px;
+    border-radius: 4px;
+  }
+
+  &-btn-primary {
+    color: $white;
+    background-color: $brand;
+    border: 1px solid $brand;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-btn-gray {
+    color: $textTitle;
+    border: 1px solid $lineNormalColor;
+
+    &:hover {
+      border: 1px solid $brand;
+      color: $brand;
+    }
+  }
+
+  &-btn-warn {
+    color: $errorDeep;
+    border: 1px solid $errorNormal;
+
+    &:hover {
+      background-color: $errorDeep;
+      border: 1px solid $errorDeep;
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+
+  &-text-primary {
+    color: $brand;
+
+    &:hover {
+      color: $brandDeep;
+    }
+  }
+
+  &-text-gray {
+    color: $textTitle;
+
+    &:hover {
+      color: $brand;
+    }
+  }
+
+  &-text-warn {
+    color: $errorDeep;
+
+    &:hover {
+      color: $errorWeight;
+    }
+  }
+
+  &-text-disabled {
+    color: $textHint;
+    cursor: not-allowed;
+
+    &:hover {
+      color: $textHint;
+    }
+  }
+
+  &-text-loading,
+ &-btn-loading {
+    opacity: 0.8;
+    cursor: progress;
+  }
+
+  &-text-loading {
+    &:hover {
+      color: $brand;
+      opacity: 0.8;
+    }
+  }
+
+  &[disabled] {
+    color: $textHint;
+    background-color: #f7f7f7;
+    border-color: $lineDeepColor;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-icon.snake-icon {
+    font-size: 1em;
+    margin-right: 4px;
+  }
+}

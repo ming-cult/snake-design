@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render button render button with child-icon 1`] = `
+<div>
+  <button
+    class="snake-button snake-button-default snake-button-btn-primary"
+    type="button"
+  >
+    <span>
+      <svg
+        class="snake-icon snake-icon-eye-close"
+      >
+        <use
+          xlink:href="#icon-eye-close"
+        />
+      </svg>
+      闭眼啦
+    </span>
+  </button>
+</div>
+`;
+
+exports[`render button render button with children 1`] = `
+<div>
+  <button
+    class="snake-button snake-button-default snake-button-btn-primary"
+    type="button"
+  >
+    <span>
+      确认
+    </span>
+  </button>
+</div>
+`;
+
+exports[`render button render button with type-icon 1`] = `
+<div>
+  <button
+    class="snake-button snake-button-default snake-button-btn-primary"
+    type="button"
+  >
+    <svg
+      class="snake-icon snake-icon-eye-close snake-button-icon"
+    >
+      <use
+        xlink:href="#icon-eye-close"
+      />
+    </svg>
+    <span>
+      闭眼啦
+    </span>
+  </button>
+</div>
+`;
+
+exports[`render button render default 1`] = `
+<div>
+  <button
+    class="snake-button snake-button-default snake-button-btn-primary"
+    type="button"
+  >
+    <span />
+  </button>
+</div>
+`;
+
+exports[`render text button render only text 1`] = `
+<div>
+  <a
+    class="snake-button snake-button-text-primary"
+  >
+    <span>
+      文字
+    </span>
+  </a>
+</div>
+`;
