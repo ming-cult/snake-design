@@ -7,7 +7,8 @@ const { useEffect, useCallback } = React
 const defaultProps = {
   prefixCls: 'snake-tabs',
   tabBarPosition: 'top',
-  type: 'line'
+  type: 'line',
+  tabBarUnderlineColor: '#01C1B2'
 }
 
 function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
@@ -20,9 +21,8 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
     prefixCls,
     tabBarPosition,
     activeTab,
+    tabBarUnderlineColor,
     tabs,
-    tabBarActiveTextColor,
-    tabBarInactiveTextColor,
     onChange,
     onTabClick,
     children,
@@ -53,13 +53,15 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
 
   // 获取下划线宽度
   const getUnderlineWidth = useCallback(
-    (current: number) => tabObj[`tab${current}`].getBoundingClientRect().width,
+    (current: number) =>
+      tabObj[`tab${current}`] && tabObj[`tab${current}`].getBoundingClientRect().width,
     [activeTab]
   )
 
   // 获取下划线高度
   const getUnderlineHeight = useCallback(
-    (current: number) => tabItemObj[`tab${current}`].getBoundingClientRect().height,
+    (current: number) =>
+      tabItemObj[`tab${current}`] && tabItemObj[`tab${current}`].getBoundingClientRect().height,
     [activeTab]
   )
 
@@ -129,11 +131,6 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
                 className={cx({
                   [`${prefixCls}-wrap-active`]: activeTab === index
                 })}
-                style={
-                  activeTab === index
-                    ? { color: tabBarActiveTextColor }
-                    : { color: tabBarInactiveTextColor }
-                }
                 ref={ele => {
                   tabObj[`tab${index}`] = ele
                 }}
@@ -156,6 +153,7 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
             `${prefixCls}-wrap-underline`,
             `${prefixCls}-wrap-underline-${tabBarPosition}`
           )}
+          style={{ border: `1px solid ${tabBarUnderlineColor}` }}
           ref={ele => {
             underline = ele
           }}

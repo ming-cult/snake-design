@@ -28,10 +28,9 @@ imports:
 | onChange | Tab 切换时触发 | Function | | 否 |
 | onTabClick | 点击 Tab 时触发 | Function | | 否 |
 | tabBarPosition | TabBar位置 | 'top' \| 'bottom \| left \| right | top | 否 |
-| tabBarActiveTextColor | tabBar激活Tab文字颜色 | string | | false |
-| tabBarInactiveTextColor | tabBar非激活Tab文字颜色 | string | | false |
 | tabItemStyle | tabItem 的样式 | React.CSSProperties | | false |
 | type | 提供 'line' \| 'card' 两种模式 | string | 'line' | false |
+| tabBarUnderlineColor | 下划线颜色 | string | '01C1B2' | false |
 
 ## TabsItemProps Api
 

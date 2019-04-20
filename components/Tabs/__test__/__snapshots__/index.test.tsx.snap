@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button Component renders a primary button correctly 1`] = `
-<div>
-  button
-</div>
-`;
+exports[`Tabs Test snapshot 1`] = `"<div class=\\"snake-tabs\\"><div><div class=\\"snake-tabs-wrap snake-tabs-wrap-top\\"><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签一</div></div><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签二</div></div><div class=\\"snake-tabs-wrap-item snake-tabs-wrap-item-disabled\\"><div class=\\"\\">标签三</div></div><div class=\\"snake-tabs-wrap-underline snake-tabs-wrap-underline-top\\" style=\\"border: 1px solid #01c1b2; left: 0px;\\"></div></div></div></div>"`;
+
+exports[`Tabs Test snapshot 2`] = `"<div class=\\"snake-tabs\\"><div><div class=\\"snake-tabs-wrap snake-tabs-wrap-bottom\\"><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签一</div></div><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签二</div></div><div class=\\"snake-tabs-wrap-item snake-tabs-wrap-item-disabled\\"><div class=\\"\\">标签三</div></div><div class=\\"snake-tabs-wrap-underline snake-tabs-wrap-underline-bottom\\" style=\\"border: 1px solid #01c1b2; left: 0px;\\"></div></div></div></div>"`;
+
+exports[`Tabs Test snapshot 3`] = `"<div class=\\"snake-tabs\\"><div class=\\"snake-tabs-left\\"><div class=\\"snake-tabs-wrap snake-tabs-wrap-left\\"><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签一</div></div><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签二</div></div><div class=\\"snake-tabs-wrap-item snake-tabs-wrap-item-disabled\\"><div class=\\"\\">标签三</div></div><div class=\\"snake-tabs-wrap-underline snake-tabs-wrap-underline-left\\" style=\\"border: 1px solid #01c1b2; top: 0px;\\"></div></div></div></div>"`;
+
+exports[`Tabs Test snapshot 4`] = `"<div class=\\"snake-tabs\\"><div class=\\"snake-tabs-right\\"><div class=\\"snake-tabs-wrap snake-tabs-wrap-right\\"><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签一</div></div><div class=\\"snake-tabs-wrap-item\\"><div class=\\"\\">标签二</div></div><div class=\\"snake-tabs-wrap-item snake-tabs-wrap-item-disabled\\"><div class=\\"\\">标签三</div></div><div class=\\"snake-tabs-wrap-underline snake-tabs-wrap-underline-right\\" style=\\"border: 1px solid #01c1b2; top: 0px;\\"></div></div></div></div>"`;
