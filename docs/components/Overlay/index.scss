@@ -3,26 +3,28 @@ $modalIndex:999;
 $border-radius-normal: 4px;
 
 .#{$modal} {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $modalIndex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-hidden {
+    display: none;
+  }
+
   &-mask {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.45);
     z-index: $modalIndex;
-  }
-
-  &-wrap {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: $modalIndex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &-wrapper {
@@ -98,6 +100,31 @@ $border-radius-normal: 4px;
 
   &-fade-exit-active {
     animation-name: modalFadeOut;
+    animation-play-state: running;
+  }
+
+  &-zoom-enter {
+    opacity: 0;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+  }
+
+  &-zoom-enter-active {
+    animation-name: modalZoomIn;
+    animation-play-state: running;
+  }
+
+  &-zoom-exit {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-play-state: paused;
+  }
+
+  &-zoom-exit-active {
+    animation-name: modalZoomOut;
     animation-play-state: running;
   }
 }

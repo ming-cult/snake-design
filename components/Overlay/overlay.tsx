@@ -3,8 +3,15 @@ import * as ReactDOM from 'react-dom'
 import cx from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 import { OverlayProps } from 'types/overlay'
-import { noop } from '../utils/tool'
+import { noop, hasScrollBar, getScrollBarWidth } from '../utils/tool'
 import Icon from '../Icon'
+
+interface Animate {
+  bodyRef: React.MutableRefObject<React.CSSProperties>
+  wrapperRef: React.MutableRefObject<HTMLElement>
+  maskRef: React.MutableRefObject<HTMLElement>
+  destroy: boolean
+}
 
 const defaultProps: OverlayProps = {
   visible: false,
@@ -16,7 +23,45 @@ const defaultProps: OverlayProps = {
   maskTimeout: 300,
   contentTimeout: 300,
   maskAnimation: 'fade',
-  contentAnimation: 'zoom'
+  contentAnimation: 'zoom',
+  closable: true
+}
+
+const getBodyStyle = (bodyRef: React.MutableRefObject<React.CSSProperties>) => {
+  const style: React.CSSProperties = {}
+  if ('paddingRight' in document.body.style) {
+    style.paddingRight = document.body.style.paddingRight
+  }
+  if ('overflow' in document.body.style) {
+    style.overflow = document.body.style.overflow
+  }
+  bodyRef.current = style
+}
+
+const setDestroyStyle = ({ wrapperRef, maskRef }: Animate, display: string) => {
+  wrapperRef.current.style.display = display
+  maskRef.current.style.display = display
+}
+
+const onAnimateEnter = (animate: Animate) => {
+  getBodyStyle(animate.bodyRef)
+  if (hasScrollBar()) {
+    // tslint:disable-next-line: radix
+    document.body.style.paddingRight = `${parseInt(animate.bodyRef.current.paddingRight as string) +
+      getScrollBarWidth()}px`
+  }
+  document.body.style.overflow = 'hidden'
+  if (!animate.destroy) {
+    setDestroyStyle(animate, '')
+  }
+}
+
+const onAnimateExist = (animate: Animate) => {
+  document.body.style.overflow = animate.bodyRef.current.overflow || ''
+  document.body.style.paddingRight = `${animate.bodyRef.current.paddingRight}` || ''
+  if (!animate.destroy) {
+    setDestroyStyle(animate, 'none')
+  }
 }
 
 const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
@@ -41,17 +86,37 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     onClose
   } = props
 
+  const bodyRef = React.useRef<React.CSSProperties>()
+  const wrapperRef = React.useRef()
+  const maskRef = React.useRef()
+  // 因为 动画库的原因，如果 `unmountExist` 为 false 就会直接渲染出来 不是很好
+  const [firstTime, setFirstTime] = React.useState(true)
+
+  if (visible) {
+    if (firstTime) {
+      setFirstTime(false)
+    }
+  }
+
+  // 处理destroy为false的时候第一次没动画的问题
+  const getUnmount = React.useCallback(() => {
+    let unmountOnExit = true
+    if (destroy) {
+      unmountOnExit = true
+    } else {
+      if (firstTime) {
+        unmountOnExit = true
+      } else {
+        unmountOnExit = false
+      }
+    }
+    return unmountOnExit
+  }, [firstTime, destroy])
+
   const getCls = React.useCallback(() => {
-    const isHidden = !visible && !destroy
-    const classStr = cx(
-      prefixCls,
-      {
-        [`${prefixCls}-hidden`]: isHidden
-      },
-      wrapperClassName
-    )
+    const classStr = cx(prefixCls, wrapperClassName)
     return classStr
-  }, [prefixCls, wrapperClassName, visible, destroy])
+  }, [prefixCls, wrapperClassName])
 
   const getZIndex = React.useCallback(() => {
     const style: React.CSSProperties = {}
@@ -62,7 +127,7 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
   }, [zIndex])
 
   const maskClick = (e: React.MouseEvent<HTMLElement>) => {
-    if (e.target !== e.currentTarget) {
+    if (e.target === e.currentTarget) {
       onClose(e)
     }
   }
@@ -72,8 +137,13 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     const style = getZIndex()
     if (hasMask) {
       return (
-        <CSSTransition in={visible} timeout={maskTimeout} classNames={maskCls}>
-          <div className={`${prefixCls}-mask`} style={style} />
+        <CSSTransition
+          in={visible}
+          timeout={maskTimeout}
+          classNames={maskCls}
+          unmountOnExit={getUnmount()}
+        >
+          <div className={`${prefixCls}-mask`} style={style} ref={maskRef} />
         </CSSTransition>
       )
     }
@@ -84,11 +154,26 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     const contentCls = `${prefixCls}-${contentAnimation}`
     const style = getZIndex()
     return (
-      <CSSTransition in={visible} timeout={contentTimeout} classNames={contentCls}>
-        <div className={`${prefixCls}-wrapper`} style={style}>
-          {header ? <div className={cx(`${prefixCls}-header`)}>{header}</div> : null}
-          <div className={cx(`${prefixCls}-wrapper-inner`)}>{children}</div>
-          {footer ? <div className={cx(`${prefixCls}-footer`)}>{footer}</div> : null}
+      <CSSTransition
+        in={visible}
+        timeout={contentTimeout}
+        classNames={contentCls}
+        unmountOnExit={getUnmount()}
+        onEnter={() => onAnimateEnter({ bodyRef, wrapperRef, maskRef, destroy })}
+        onExited={() => onAnimateExist({ bodyRef, wrapperRef, maskRef, destroy })}
+      >
+        <div
+          className={getCls()}
+          onClick={maskClosable ? maskClick : undefined}
+          ref={wrapperRef}
+          style={style}
+        >
+          <div className={`${prefixCls}-wrapper`} style={wrapperStyle} ref={ref}>
+            {renderClosable()}
+            {header ? <div className={cx(`${prefixCls}-header`)}>{header}</div> : null}
+            <div className={cx(`${prefixCls}-wrapper-inner`)}>{children}</div>
+            {footer ? <div className={cx(`${prefixCls}-footer`)}>{footer}</div> : null}
+          </div>
         </div>
       </CSSTransition>
     )
@@ -107,17 +192,14 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
 
   const getContainer = () => {
     return (
-      <div className={getCls()} style={wrapperStyle} ref={ref}>
-        {renderClosable()}
+      <>
         {renderMask()}
-        <div className={`${prefixCls}-container`} onClick={maskClosable ? maskClick : undefined}>
-          {renderContent()}
-        </div>
-      </div>
+        {renderContent()}
+      </>
     )
   }
 
-  return visible || !destroy ? ReactDOM.createPortal(getContainer(), document.body) : null
+  return ReactDOM.createPortal(getContainer(), document.body)
 }
 
 export default React.forwardRef(Overlay)
