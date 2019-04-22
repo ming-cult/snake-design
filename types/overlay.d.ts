@@ -24,9 +24,9 @@ export interface OverlayProps {
   /** prefixCls */
   prefixCls?: string
   /** maskTimeout 动画时间 自定义动画的时候需要与自定义动画的时间保持一致 默认 300ms */
-  maskTimeout?: number
+  maskTimeout?: number | object
   /** contentTimeout 内容区域动画时间 */
-  contentTimeout?: number
+  contentTimeout?: number | object
   /** header 自定义 header 区域 */
   header?: React.ReactNode
   /** footer 自定义 footer 区域 */
