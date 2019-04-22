@@ -1,7 +1,7 @@
 import * as React from 'react';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
-// import { Radio, Icon, Input } from 'antd';
+import { Radio, Icon, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 import debounce from 'lodash/debounce';
@@ -91,7 +91,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          {/* <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
+          <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
             <Radio.Button value="outlined">
               <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
             </Radio.Button>
@@ -101,15 +101,15 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             <Radio.Button value="twoTone">
               <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
             </Radio.Button>
-          </Radio.Group> */}
-          {/* <Input.Search
+          </Radio.Group>
+          <Input.Search
             placeholder={messages['app.docs.components.icon.search.placeholder']}
             style={{ marginLeft: 10, flex: 1 }}
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
             autoFocus
-          /> */}
+          />
         </div>
         {this.renderCategories(list)}
       </>

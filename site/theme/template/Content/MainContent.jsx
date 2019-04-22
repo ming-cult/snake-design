@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'bisheng/router';
-// import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { Link } from 'pipixia/router';
+import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
@@ -11,7 +11,7 @@ import Footer from '../Layout/Footer';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
-// const { SubMenu } = Menu;
+const { SubMenu } = Menu;
 
 function getActiveMenuItem(props) {
   const { children } = props.params;
@@ -126,21 +126,20 @@ export default class MainContent extends Component {
     return menuItems.map(menuItem => {
       if (menuItem.children) {
         return (
-          // <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
-          //   {menuItem.children.map(child => {
-          //     if (child.type === 'type') {
-          //       return (
-          //         <Menu.ItemGroup title={child.title} key={child.title}>
-          //           {child.children
-          //             .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-          //             .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
-          //         </Menu.ItemGroup>
-          //       );
-          //     }
-          //     return this.generateMenuItem(false, child, footerNavIcons);
-          //   })}
-          // </SubMenu>
-          <></>
+          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
+            {menuItem.children.map(child => {
+              if (child.type === 'type') {
+                return (
+                  <Menu.ItemGroup title={child.title} key={child.title}>
+                    {child.children
+                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                  </Menu.ItemGroup>
+                );
+              }
+              return this.generateMenuItem(false, child, footerNavIcons);
+            })}
+          </SubMenu>
         );
       }
       return this.generateMenuItem(true, menuItem, footerNavIcons);
@@ -227,17 +226,15 @@ export default class MainContent extends Component {
         className="menu-item-link-outside"
       >
         {before}
-        {/* {text} <Icon type="export" /> */}
-        {text} <></>
+        {text} <Icon type="export" />
         {after}
       </a>
     );
 
     return (
-      // <Menu.Item key={key.toLowerCase()} disabled={disabled}>
-      //   {child}
-      // </Menu.Item>
-      <></>
+      <Menu.Item key={key.toLowerCase()} disabled={disabled}>
+        {child}
+      </Menu.Item>
     );
   }
 
@@ -261,10 +258,8 @@ export default class MainContent extends Component {
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
-      // before: <Icon className="footer-nav-icon-before" type="left" />,
-      // after: <Icon className="footer-nav-icon-after" type="right" />,
-      before: <></>,
-      after: <></>,
+      before: <Icon className="footer-nav-icon-before" type="left" />,
+      after: <Icon className="footer-nav-icon-after" type="right" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
     const { localizedPageData } = props;
@@ -272,21 +267,20 @@ export default class MainContent extends Component {
       'main-container-component': !!props.demos,
     });
     const menuChild = (
-      // <Menu
-      //   inlineIndent="40"
-      //   className="aside-container menu-site"
-      //   mode="inline"
-      //   openKeys={openKeys}
-      //   selectedKeys={[activeMenuItem]}
-      //   onOpenChange={this.handleMenuOpenChange}
-      // >
-      //   {menuItems}
-      // </Menu>
-      <>hahah</>
+      <Menu
+        inlineIndent="40"
+        className="aside-container menu-site"
+        mode="inline"
+        openKeys={openKeys}
+        selectedKeys={[activeMenuItem]}
+        onOpenChange={this.handleMenuOpenChange}
+      >
+        {menuItems}
+      </Menu>
     );
     return (
       <div className="main-wrapper">
-        {/* <Row>
+        <Row>
           {isMobile ? (
             <MobileMenu
               iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
@@ -313,7 +307,7 @@ export default class MainContent extends Component {
             <PrevAndNext prev={prev} next={next} />
             <Footer />
           </Col>
-        </Row> */}
+        </Row>
       </div>
     );
   }

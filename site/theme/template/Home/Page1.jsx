@@ -1,9 +1,9 @@
 import React from 'react';
 import { TweenOneGroup } from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
-// import { Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Link } from 'bisheng/router';
+import { Link } from 'pipixia/router';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../utils';
 
@@ -267,35 +267,34 @@ export default class Page1 extends React.PureComponent {
     const children = page1Data.map((item, i) => {
       const isHover = item.nameEn === hoverKey;
       return (
-        // <Col key={item.nameEn} md={6} xs={24}>
-        //   <TweenOneGroup
-        //     className="page1-point-wrapper"
-        //     enter={e => this.getEnter(i, e)}
-        //     leave={this.leave}
-        //     {...item.svgBg.props}
-        //     component="svg"
-        //     resetStyle={false}
-        //     exclusive
-        //   >
-        //     {(isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
-        //   </TweenOneGroup>
-        //   <QueueAnim
-        //     className="page1-block"
-        //     type="bottom"
-        //     component={Link}
-        //     componentProps={{ to: utils.getLocalizedPathname(item.to, isZhCN) }}
-        //     onMouseEnter={() => {
-        //       this.onMouseOver(item.nameEn);
-        //     }}
-        //     onMouseLeave={this.onMouseOut}
-        //   >
-        //     <div className="page1-image">
-        //       <img src={item.img} alt="icon" />
-        //     </div>
-        //     <h3>{isZhCN ? item.name : item.nameEn}</h3>
-        //   </QueueAnim>
-        // </Col>
-        <>hhaha</>
+        <Col key={item.nameEn} md={6} xs={24}>
+          <TweenOneGroup
+            className="page1-point-wrapper"
+            enter={e => this.getEnter(i, e)}
+            leave={this.leave}
+            {...item.svgBg.props}
+            component="svg"
+            resetStyle={false}
+            exclusive
+          >
+            {(isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
+          </TweenOneGroup>
+          <QueueAnim
+            className="page1-block"
+            type="bottom"
+            component={Link}
+            componentProps={{ to: utils.getLocalizedPathname(item.to, isZhCN) }}
+            onMouseEnter={() => {
+              this.onMouseOver(item.nameEn);
+            }}
+            onMouseLeave={this.onMouseOut}
+          >
+            <div className="page1-image">
+              <img src={item.img} alt="icon" />
+            </div>
+            <h3>{isZhCN ? item.name : item.nameEn}</h3>
+          </QueueAnim>
+        </Col>
       );
     });
     return (
@@ -306,8 +305,7 @@ export default class Page1 extends React.PureComponent {
           </h2>
           <ScrollOverPack playScale="0.3">
             <QueueAnim
-              // component={Row}
-              component={<></>}
+              component={Row}
               key="queue"
               type="bottom"
               ease={['easeOutQuart', 'easeInQuart']}

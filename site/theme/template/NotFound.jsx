@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'bisheng/router';
-import * as utils from './utils';
+import React from 'react'
+import { Link } from 'pipixia/router'
+import * as utils from './utils'
 
 export default function NotFound({ location }) {
   return (
@@ -16,9 +16,9 @@ export default function NotFound({ location }) {
       </section>
       <style
         dangerouslySetInnerHTML={{
-          __html: '#react-content { height: 100%; background-color: #fff }',
+          __html: '#react-content { height: 100%; background-color: #fff }'
         }}
       />
     </div>
-  );
+  )
 }

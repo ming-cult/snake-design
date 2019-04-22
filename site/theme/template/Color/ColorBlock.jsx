@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-// import { message } from 'antd';
+import { message } from 'antd';
 
 export default class ColorBlock extends Component {
   getTextStyle() {
@@ -14,7 +14,7 @@ export default class ColorBlock extends Component {
 
   onCopied = () => {
     const { color } = this.props;
-    // message.success(`Copied: ${color}`);
+    message.success(`Copied: ${color}`);
   };
 
   render() {

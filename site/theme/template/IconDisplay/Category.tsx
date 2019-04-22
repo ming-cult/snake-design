@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { message } from 'antd';
+import { message } from 'antd';
 import { ThemeType } from '../../../../components/icon';
 import CopyableIcon from './CopyableIcon';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
@@ -24,11 +24,11 @@ class Category extends React.Component<CategoryProps, CategoryState> {
   };
 
   onCopied = (type: string, text: string) => {
-    // message.success(
-    //   <span>
-    //     <code className="copied-code">{text}</code> copied 🎉
-    //   </span>,
-    // );
+    message.success(
+      <span>
+        <code className="copied-code">{text}</code> copied 🎉
+      </span>,
+    );
     this.setState({ justCopied: type }, () => {
       this.copyId = window.setTimeout(() => {
         this.setState({ justCopied: null });

@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-// import { Icon, Tooltip } from 'antd';
+import { Icon, Tooltip } from 'antd';
 import EditButton from './EditButton';
 import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';
@@ -272,16 +272,16 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 name="parameters"
                 value={compress(JSON.stringify(codesanboxPrefillConfig))}
               />
-              {/* <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
                 <input
                   type="submit"
                   value="Create New Sandbox with Prefilled Data"
                   className="code-box-codesandbox"
                 />
-              </Tooltip> */}
+              </Tooltip>
             </form>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
-              {/* <Tooltip
+              <Tooltip
                 visible={state.copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
@@ -290,9 +290,9 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   type={state.copied && state.copyTooltipVisible ? 'check' : 'snippets'}
                   className="code-box-code-copy"
                 />
-              </Tooltip> */}
+              </Tooltip>
             </CopyToClipboard>
-            {/* <Tooltip
+            <Tooltip
               title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >
               <span className="code-expand-icon">
@@ -309,7 +309,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
               </span>
-            </Tooltip> */}
+            </Tooltip>
           </div>
         </section>
         <section className={highlightClass} key="code">

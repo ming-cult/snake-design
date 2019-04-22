@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
-// import { Timeline, Alert, Affix } from 'antd';
+import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
 
 export default class Article extends React.Component {
@@ -44,19 +44,17 @@ export default class Article extends React.Component {
     let i = 1;
     Children.forEach(article.props.children, child => {
       if (child.type === 'h2' && temp.length > 0) {
-        // timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
-        timelineItems.push(<></>);
+        timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
         temp = [];
         i += 1;
       }
       temp.push(child);
     });
     if (temp.length > 0) {
-      // timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
-      timelineItems.push(<></>);
+      timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
     }
     return cloneElement(article, {
-      // children: <Timeline>{timelineItems}</Timeline>,
+      children: <Timeline>{timelineItems}</Timeline>,
     });
   }
 
@@ -74,18 +72,17 @@ export default class Article extends React.Component {
         {/* eslint-disable-next-line */}
         <article className="markdown" onClick={this.onResourceClick}>
           {isNotTranslated && (
-            // <Alert
-            //   type="warning"
-            //   message={
-            //     <span>
-            //       This article has not been translated yet. Wanna help us out?&nbsp;
-            //       <a href="https://github.com/ant-design/ant-design/issues/1471">
-            //         See this issue on GitHub.
-            //       </a>
-            //     </span>
-            //   }
-            // />
-            <>yiyiyi</>
+            <Alert
+              type="warning"
+              message={
+                <span>
+                  This article has not been translated yet. Wanna help us out?&nbsp;
+                  <a href="https://github.com/ant-design/ant-design/issues/1471">
+                    See this issue on GitHub.
+                  </a>
+                </span>
+              }
+            />
           )}
           <h1>
             {title[locale] || title}
@@ -101,17 +98,16 @@ export default class Article extends React.Component {
                 ['section', { className: 'markdown' }].concat(getChildren(description)),
               )}
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
-            // <Affix className="toc-affix" offsetTop={16}>
-            //   {props.utils.toReactComponent(
-            //     ['ul', { className: 'toc' }].concat(getChildren(content.toc)),
-            //   )}
-            // </Affix>
-            <>dddd</>
+            <Affix className="toc-affix" offsetTop={16}>
+              {props.utils.toReactComponent(
+                ['ul', { className: 'toc' }].concat(getChildren(content.toc)),
+              )}
+            </Affix>
           )}
           {this.getArticle(
             props.utils.toReactComponent(
               ['section', { className: 'markdown' }].concat(getChildren(content.content)),
-            )
+            ),
           )}
           {props.utils.toReactComponent(
             [

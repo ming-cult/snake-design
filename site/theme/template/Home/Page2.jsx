@@ -1,8 +1,8 @@
 import React from 'react';
-// import { Row, Col, Icon } from 'antd';
+import { Row, Col, Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Link } from 'bisheng/router';
+import { Link } from 'pipixia/router';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../utils';
 
@@ -118,16 +118,13 @@ export default function Page2({ isMobile, locale }) {
   const componentButton = (
     <div key="b" className="components-button-wrapper">
       <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-        {/* Ant Design of React <Icon type="right" /> */}
-        Ant Design of React
+        Ant Design of React <Icon type="right" />
       </Link>
       <a href="https://ng.ant.design/" target="_black">
-        {/* Ant Design of Angular <Icon type="right" /> */}
-        Ant Design of Angular
+        Ant Design of Angular <Icon type="right" />
       </a>
       <a href="https://vue.ant.design/" target="_black">
-        {/* Ant Design of Vue <Icon type="right" /> */}
-        Ant Design of Vue
+        Ant Design of Vue <Icon type="right" />
       </a>
     </div>
   );
@@ -140,11 +137,11 @@ export default function Page2({ isMobile, locale }) {
         <p key="p">{item.slogan}</p>
         <a className="more-mobile-react" href="https://mobile.ant.design" target="_black">
           <FormattedMessage id="app.home.more-mobile-react" />
-          {/* <Icon type="right" /> */}
+          <Icon type="right" />
         </a>
         <a className="more-mobile-angular" href="http://ng.mobile.ant.design" target="_black">
           <FormattedMessage id="app.home.more-mobile-angular" />
-          {/* <Icon type="right" /> */}
+          <Icon type="right" />
         </a>
       </div>
     );
@@ -154,8 +151,7 @@ export default function Page2({ isMobile, locale }) {
         : [
             <p key="p">{item.slogan}</p>,
             <span className="more" key="a">
-              {/* <FormattedMessage id="app.home.more" /> <Icon type="right" /> */}
-              <FormattedMessage id="app.home.more" />
+              <FormattedMessage id="app.home.more" /> <Icon type="right" />
             </span>,
           ];
     const content = isMobile && !i ? componentButton : moreContent;
@@ -167,7 +163,7 @@ export default function Page2({ isMobile, locale }) {
         href={item.link}
         style={{ display: 'block' }}
       >
-        {/* <Row>
+        <Row>
           <Col
             xs={8}
             md={i === 2 ? 6 : 8}
@@ -181,8 +177,7 @@ export default function Page2({ isMobile, locale }) {
             </h4>
             {content}
           </Col>
-        </Row> */}
-        <></>
+        </Row>
       </BlockElement>
     );
   });
@@ -192,11 +187,9 @@ export default function Page2({ isMobile, locale }) {
         <h2>
           <FormattedMessage id="app.home.solution" />
         </h2>
-        {/* <ScrollOverPack component={Row} className="page2-content" playScale="0.4"> */}
-        <ScrollOverPack component={<></>} className="page2-content" playScale="0.4">
+        <ScrollOverPack component={Row} className="page2-content" playScale="0.4">
           <QueueAnim
-            // component={Col}
-            component={<></>}
+            component={Col}
             componentProps={{ xs: 24, md: 12 }}
             className="page2-components"
             key="left"
@@ -210,8 +203,7 @@ export default function Page2({ isMobile, locale }) {
             {componentButton}
           </QueueAnim>
           <QueueAnim
-            // component={Col}
-            component={<></>}
+            component={Col}
             componentProps={{ xs: 24, md: 12 }}
             className="page2-product"
             key="right"

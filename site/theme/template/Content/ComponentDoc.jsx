@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-// import { Row, Col, Icon, Affix, Tooltip } from 'antd';
+import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -96,11 +96,11 @@ export default class ComponentDoc extends React.Component {
     return (
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article className={articleClassName}>
-          {/* <Affix className="toc-affix" offsetTop={16}>
+          <Affix className="toc-affix" offsetTop={16}>
             <ul id="demo-toc" className="toc">
               {jumper}
             </ul>
-          </Affix> */}
+          </Affix>
           <section className="markdown">
             <h1>
               {title[locale] || title}
@@ -115,7 +115,7 @@ export default class ComponentDoc extends React.Component {
             )}
             <h2>
               <FormattedMessage id="app.component.examples" />
-              {/* <Tooltip
+              <Tooltip
                 title={
                   <FormattedMessage
                     id={`app.component.examples.${expandAll ? 'collpse' : 'expand'}`}
@@ -127,10 +127,10 @@ export default class ComponentDoc extends React.Component {
                   className={expandTriggerClass}
                   onClick={this.handleExpandToggle}
                 />
-              </Tooltip> */}
+              </Tooltip>
             </h2>
           </section>
-          {/* <Row gutter={16}>
+          <Row gutter={16}>
             <Col
               span={isSingleCol ? 24 : 12}
               className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
@@ -142,7 +142,7 @@ export default class ComponentDoc extends React.Component {
                 {rightChildren}
               </Col>
             )}
-          </Row> */}
+          </Row>
           {props.utils.toReactComponent(
             [
               'section',

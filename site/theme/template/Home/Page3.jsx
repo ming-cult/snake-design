@@ -1,8 +1,8 @@
 import React from 'react';
-// import { Row, Col, Tag } from 'antd';
+import { Row, Col, Tag } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Link } from 'bisheng/router';
+import { Link } from 'pipixia/router';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../utils';
 import svgBgToParallax from './util';
@@ -83,36 +83,34 @@ export default function Page3({ locale }) {
         <h3>
           {item.title}
           {item.hot ? (
-            // <Tag
-            //   style={{
-            //     marginLeft: 8,
-            //     position: 'relative',
-            //     top: -3,
-            //     height: 18,
-            //     lineHeight: '16px',
-            //     padding: '0 2px',
-            //   }}
-            //   color="#f50"
-            // >
-            //   HOT
-            // </Tag>
-            <>nihao</>
+            <Tag
+              style={{
+                marginLeft: 8,
+                position: 'relative',
+                top: -3,
+                height: 18,
+                lineHeight: '16px',
+                padding: '0 2px',
+              }}
+              color="#f50"
+            >
+              HOT
+            </Tag>
           ) : null}
         </h3>
         <p>{item.content}</p>
       </div>,
     ];
     return (
-      // <Col key={i.toString()} md={8} xs={24} className="page3-block">
-      //   {item.to ? (
-      //     <Link to={utils.getLocalizedPathname(item.to, isZhCN)}>{child}</Link>
-      //   ) : (
-      //     <a href={item.link} target="_black">
-      //       {child}
-      //     </a>
-      //   )}
-      // </Col>
-      <>www</>
+      <Col key={i.toString()} md={8} xs={24} className="page3-block">
+        {item.to ? (
+          <Link to={utils.getLocalizedPathname(item.to, isZhCN)}>{child}</Link>
+        ) : (
+            <a href={item.link} target="_black">
+              {child}
+            </a>
+          )}
+      </Col>
     );
   });
   return (
@@ -135,8 +133,7 @@ export default function Page3({ locale }) {
           <FormattedMessage id="app.home.tool-title" />
         </h2>
         <ScrollOverPack location="page3">
-          {/* <QueueAnim key="queue" component={Row} type="bottom" leaveReverse> */}
-          <QueueAnim key="queue" component={<>hihihi</>} type="bottom" leaveReverse>
+          <QueueAnim key="queue" component={Row} type="bottom" leaveReverse>
             {children}
           </QueueAnim>
         </ScrollOverPack>

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { message } from 'antd';
+import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 const rgbToHex = rgbString => {
@@ -42,8 +42,7 @@ export default class Palette extends React.Component {
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
-          // onCopy={() => message.success(`@${colorText} copied: ${this.hexColors[colorText]}`)}
-          onCopy={() => {}}
+          onCopy={() => message.success(`@${colorText} copied: ${this.hexColors[colorText]}`)}
           key={colorText}
         >
           <div

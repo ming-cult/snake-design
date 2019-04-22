@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
-import { Link } from 'bisheng/router';
+import { Link } from 'pipixia/router';
 import { FormattedMessage } from 'react-intl';
 import GitHubButton from 'react-github-button';
-// import { Button } from 'antd';
+import { Button } from 'antd';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
 
@@ -69,17 +69,17 @@ class Banner extends React.PureComponent {
             </p>
             <div className="banner-btns" key="buttons">
               <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-                {/* <Button type="primary" className="banner-btn components">
+                <Button type="primary" className="banner-btn components">
                   <FormattedMessage id="app.home.getting-started" />
-                </Button> */}
+                </Button>
               </Link>
               <Link
                 to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}
                 style={{ marginLeft: 16 }}
               >
-                {/* <Button className="banner-btn language">
+                <Button className="banner-btn language">
                   <FormattedMessage id="app.home.design-language" />
-                </Button> */}
+                </Button>
               </Link>
               {!isMobile && (
                 <GitHubButton
