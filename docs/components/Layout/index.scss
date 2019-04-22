@@ -1,0 +1,34 @@
+.snake-layout-demo {
+  &-playground {
+    .snake-col {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border: 1px solid #eee;
+      overflow: hidden;
+      background: #01c1b2;
+      color: #fff;
+    }
+  }
+  &-col-child {
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    background: #a5d8d487;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    $heights: 30 50 100;
+    @each $height in $heights {
+      &.h-#{$height} {
+        min-height: #{$height}px;
+      }
+    }
+    $widths: 80 100 120;
+    @each $width in $widths {
+      &.w-#{$width} {
+        min-width: #{$width}px;
+      }
+    }
+  }
+}

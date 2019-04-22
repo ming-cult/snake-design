@@ -1,0 +1,51 @@
+@import '../styles/themes/default';
+
+$sizes: 2 3 4 6 8 12; // 24, 12 8 6 4 3 2
+@mixin snakeColSize($attr) {
+  @each $size in $sizes {
+    .snake-col-size-#{$size} {
+      #{$attr}: #{$size / 24 * 100 + '%'};
+    }
+  }
+}
+.snake-row {
+  display: flex;
+
+  // direction
+  &-horizontal {
+    flex-direction: row;
+    @include snakeColSize('width');
+  }
+  &-vertical {
+    flex-direction: column;
+    @include snakeColSize('height');
+  }
+
+  // justify-content
+  &-start {
+    justify-content: flex-start;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  // align-items
+  &-top {
+    align-items: flex-start;
+  }
+  &-middle {
+    align-items: center;
+  }
+  &-bottom {
+    align-items: flex-end;
+  }
+}
