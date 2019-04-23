@@ -12,17 +12,33 @@ jest.mock('react-transition-group', () => {
 })
 
 describe('overlay test', () => {
-  it('snapshot', () => {
+  it('snapshot overlayHide', () => {
     const overlayHide = render(<Overlay visible={false}>内容区</Overlay>)
+    expect(overlayHide.baseElement).toMatchSnapshot()
+  })
+
+  it('snapshot overlayShow', () => {
     const overlayShow = render(<Overlay visible>内容</Overlay>)
-    const overlayHeader = render(<Overlay header={<div>头部</div>} />)
-    const overlayFooter = render(<Overlay footer={<div>底部</div>} />)
-    const overlayClosable = render(<Overlay closable={false}>内容</Overlay>)
-    expect(overlayHide.container).toMatchSnapshot()
-    expect(overlayShow.container).toMatchSnapshot()
-    expect(overlayHeader.container).toMatchSnapshot()
-    expect(overlayFooter.container).toMatchSnapshot()
-    expect(overlayClosable.container).toMatchSnapshot()
+    expect(overlayShow.baseElement).toMatchSnapshot()
+  })
+
+  it('snapshot overlayHeader', () => {
+    const overlayHeader = render(<Overlay header={<div>头部</div>} visible />)
+    expect(overlayHeader.baseElement).toMatchSnapshot()
+  })
+
+  it('snapshot overlayFooter', () => {
+    const overlayFooter = render(<Overlay footer={<div>底部</div>} visible />)
+    expect(overlayFooter.baseElement).toMatchSnapshot()
+  })
+
+  it('snapshot overlayClosable', () => {
+    const overlayClosable = render(
+      <Overlay closable={false} visible>
+        内容
+      </Overlay>
+    )
+    expect(overlayClosable.baseElement).toMatchSnapshot()
   })
 
   it('portal in body', () => {
