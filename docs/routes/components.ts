@@ -34,5 +34,11 @@ export default [
     name: 'overlay 弹出层',
     path: '/app/basic/overlay',
     component: require('../components/Overlay').default
+  },
+  {
+    key: 'layout',
+    name: 'Layout 布局',
+    path: '/app/basic/layout',
+    component: require('../components/Layout').default
   }
 ]

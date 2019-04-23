@@ -1,6 +1,5 @@
 ---
-imports:
-  import CheckboxDemoCode from '!raw-loader!./demo.tsx';
+imports: import CheckboxDemoCode from '!raw-loader!./demo.tsx';
   import CheckboxDemo from './demo.tsx';
 ---
 
@@ -10,10 +9,10 @@ imports:
 
 ## 简单示例
 
-:::demo 
-<Block code={CheckboxDemoCode} des="复选框"> 
-<CheckboxDemo /> 
-</Block> 
+:::demo
+<Block code={CheckboxDemoCode} des="复选框">
+<CheckboxDemo />
+</Block>
 :::
 
 ## Api
@@ -40,18 +39,9 @@ imports:
 
 ### Data
 
-<<<<<<< HEAD
 | 参数      | 说明         | 类型      | 可选值 | 默认值 |
 | --------- | ------------ | --------- | ------ | ------ |
 | label     | 文本信息     | ReactNode | 否     | --     |
 | value     | 用于选定的值 | string    | 否     | --     |
 | disabled  | 是否不可用   | boolean   | --     | --     |
 | autoFocus | 是否自动聚焦 | boolean   | --     | --     |
-=======
-| 参数      | 说明         | 类型      | 可选值 | 默认值 |
-| --------- | ------------ | --------- | ------ | ------ |
-| label     | 文本信息     | ReactNode | 否     | --     |
-| value     | 用于选定的值 | string    | 否     | --     |
-| disabled  | 是否不可用   | boolean   | --     | --     |
-| autoFocus | 是否自动聚焦 | boolean   | --     | --     |
->>>>>>> design/master

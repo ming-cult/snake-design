@@ -2,6 +2,8 @@ import ClassNames from 'classnames'
 
 export const noop = (..._args: any[]) => {}
 
+export const tuple = <T extends string[]>(...args: T) => args
+
 export const mapKeys = (obj: any, fn: (...args: any[]) => any) =>
   Object.keys(obj).reduce((acc: any, k: string) => {
     acc[fn(obj[k], k, obj)] = obj[k]
