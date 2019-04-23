@@ -2,7 +2,6 @@
 imports:
   import ButtomDemoCode from '!raw-loader!./simpleButton.tsx';
   import ButtomDemo from './simpleButton.tsx';
-  import Code from '../../layout/prism/index'
 ---
 
 # Button 按钮
@@ -12,14 +11,10 @@ imports:
 ### 简单示例
 
 :::demo
-各种类型的按钮
-
-<ButtomDemo />
+<Block code={ButtomDemoCode} des="按钮">
+  <ButtomDemo />
+</Block>
 :::
-
-## 代码示例
-
-<div><Code>{ButtomDemoCode}</Code></div>
 
 ## Props
 | 参数     | 说明              | 类型   | 可选值 | 默认值 |
