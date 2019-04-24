@@ -23,7 +23,8 @@
   "license": "MIT",
   "main": "dist/snake-design.js",
   "scripts": {
-    "start": "yarn build-dll && webpack-dev-server --config webpack/webpack.dev.conf.js --colors",
+    "start": "bisheng start -c ./site/bisheng.config.js",
+    "start1": "yarn build-dll && webpack-dev-server --config webpack/webpack.dev.conf.js --colors",
     "build": "tsc -p tsconfig.json && webpack --config webpack/webpack.prod.conf.js",
     "build-docs": "webpack --config webpack/docs.config.js",
     "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
@@ -33,7 +34,7 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test-update": "jest --updateSnapshot",
     "style-fix": "stylelint \"components/**/*.scss\" --syntax scss --fix",
-    "publish-doc": "node ./scripts/publishdoc.js"
+    "publish-doc": "yarn build-docs && node ./scripts/publishdoc.js"
   },
   "husky": {
     "hooks": {
@@ -56,6 +57,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "normalize.css": "^7.0.0",
+    "pipixia": "^0.0.10",
     "react-spring": "^8.0.18",
     "warning": "^4.0.3"
   },
@@ -81,6 +83,7 @@
     "concurrently": "^3.4.0",
     "copy-to-clipboard": "^3.0.8",
     "css-loader": "^0.28.7",
+    "css-split-webpack-plugin": "^0.2.6",
     "ejs": "^2.5.7",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
