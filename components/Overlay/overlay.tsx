@@ -13,6 +13,8 @@ interface Animate {
   destroy: boolean
 }
 
+const { useEffect } = React
+
 const defaultProps: OverlayProps = {
   visible: false,
   hasMask: true,
@@ -24,7 +26,8 @@ const defaultProps: OverlayProps = {
   contentTimeout: 300,
   maskAnimation: 'fade',
   contentAnimation: 'zoom',
-  closable: true
+  closable: true,
+  esc: true
 }
 
 const getBodyStyle = (bodyRef: React.MutableRefObject<React.CSSProperties>) => {
@@ -83,11 +86,12 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     zIndex,
     closable,
     maskClosable,
-    onClose
+    onClose,
+    esc
   } = props
 
   const bodyRef = React.useRef<React.CSSProperties>()
-  const wrapperRef = React.useRef()
+  const wrapperRef = React.useRef<HTMLDivElement>()
   const maskRef = React.useRef()
   // 因为 动画库的原因，如果 `unmountExist` 为 false 就会直接渲染出来 不是很好
   const [firstTime, setFirstTime] = React.useState(true)
@@ -132,6 +136,13 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     }
   }
 
+  const keyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (esc && e.key === 'Escape') {
+      e.stopPropagation()
+      onClose(e as any)
+    }
+  }
+
   const renderMask = () => {
     const maskCls = `${prefixCls}-${maskAnimation}`
     const style = getZIndex()
@@ -165,8 +176,10 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
         <div
           className={getCls()}
           onClick={maskClosable ? maskClick : undefined}
+          onKeyDown={keyDown}
           ref={wrapperRef}
           style={style}
+          tabIndex={-1}
         >
           <div className={`${prefixCls}-wrapper`} style={wrapperStyle} ref={ref}>
             {renderClosable()}
@@ -198,6 +211,12 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
       </>
     )
   }
+
+  useEffect(() => {
+    if (wrapperRef.current) {
+      wrapperRef.current.focus()
+    }
+  }, [visible])
 
   return ReactDOM.createPortal(getContainer(), document.body)
 }

@@ -33,4 +33,6 @@ export interface OverlayProps {
   footer?: React.ReactNode
   /** closable 是否显示右上角的叉号 */
   closable?: boolean
+  /** esc 是否支持键盘 esc 关闭 默认为 true */
+  esc?: boolean
 }

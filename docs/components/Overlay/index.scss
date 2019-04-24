@@ -12,6 +12,7 @@ $border-radius-normal: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: 0;
 
   &-hidden {
     display: none;
