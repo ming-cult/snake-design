@@ -2,7 +2,6 @@
 imports:
   import IconDemoCode from '!raw-loader!./simpleIcon.tsx';
   import IconDemo from './simpleIcon.tsx';
-  import Code from '../../layout/prism/index'
 ---
 
 # Icon
