@@ -27,7 +27,7 @@ function alertBabelConfig(rules) {
 module.exports = {
   port: 8001,
   hash: true,
-  output: path.resolve(__dirname, '../build'),
+  // output: path.resolve(__dirname, '../build'),
   // source: {
   //   components: './components',
   //   docs: './docs',
@@ -95,18 +95,13 @@ module.exports = {
     config.entry = {
       main: ['./docs/app.tsx']
     }
-    config.output = {
-      path: path.resolve(__dirname, '../build'),
-      filename: '[name].js',
-      publicPath: '/'
-    }
+    // config.output = {
+    //   path: path.resolve(__dirname, '../build'),
+    //   filename: '[name].js',
+    //   publicPath: '/'
+    // }
     // eslint-disable-next-line
     config.resolve.alias = {
-      // 'antd/lib': path.join(process.cwd(), 'components'),
-      // 'antd/es': path.join(process.cwd(), 'components'),
-      // antd: path.join(process.cwd(), 'index'),
-      // site: path.join(process.cwd(), 'site'),
-      // 'react-router': 'react-router/umd/ReactRouter'
       components: path.join(process.cwd(), 'components'),
       types: path.join(process.cwd(), 'types'),
       layout: path.join(process.cwd(), 'docs/layout'),
@@ -118,16 +113,6 @@ module.exports = {
     // config.externals = {
     //   'react-router-dom': 'ReactRouterDOM'
     // }
-
-    if (usePreact) {
-      // eslint-disable-next-line
-      config.resolve.alias = Object.assign({}, config.resolve.alias, {
-        react: 'preact-compat',
-        'react-dom': 'preact-compat',
-        'create-react-class': 'preact-compat/lib/create-react-class',
-        'react-router': 'react-router'
-      })
-    }
 
     if (isDev) {
       // eslint-disable-next-line
