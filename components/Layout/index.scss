@@ -8,6 +8,7 @@ $sizes: 2 3 4 6 8 12; // 24, 12 8 6 4 3 2
     }
   }
 }
+
 .snake-row {
   display: flex;
 
@@ -16,6 +17,7 @@ $sizes: 2 3 4 6 8 12; // 24, 12 8 6 4 3 2
     flex-direction: row;
     @include snakeColSize('width');
   }
+
   &-vertical {
     flex-direction: column;
     @include snakeColSize('height');
@@ -25,15 +27,19 @@ $sizes: 2 3 4 6 8 12; // 24, 12 8 6 4 3 2
   &-start {
     justify-content: flex-start;
   }
+
   &-center {
     justify-content: center;
   }
+
   &-end {
     justify-content: flex-end;
   }
+
   &-space-between {
     justify-content: space-between;
   }
+
   &-space-around {
     justify-content: space-around;
   }
@@ -42,9 +48,11 @@ $sizes: 2 3 4 6 8 12; // 24, 12 8 6 4 3 2
   &-top {
     align-items: flex-start;
   }
+
   &-middle {
     align-items: center;
   }
+
   &-bottom {
     align-items: flex-end;
   }
