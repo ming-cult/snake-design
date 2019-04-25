@@ -71,8 +71,7 @@
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.0.7",
-    "@types/re
-    ": "^2.9.0",
+    "@types/react-transition-group": "^2.9.0",
     "@types/warning": "^3.0.0",
     "@types/webpack-env": "^1.13.2",
     "at-ui-style": "^1.5.1",
