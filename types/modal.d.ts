@@ -38,6 +38,8 @@ export interface ModalProps {
   esc?: boolean
   /** center 是否居中显示 modal 默认为 false */
   center?: boolean
+  /** children */
+  children?: React.ReactNode
 }
 
 export interface Alert extends OmitType<ModalProps, 'visible'> {
