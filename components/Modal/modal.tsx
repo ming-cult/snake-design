@@ -43,11 +43,11 @@ const renderFooter = ({
     <div>
       {footer || (
         <>
+          <Button onClick={onCancel} {...cancelButtonProps} type="gray">
+            {cancelText}
+          </Button>
           <Button onClick={onOk} {...okButtonProps}>
             {okText}
-          </Button>
-          <Button onClick={onCancel} {...cancelButtonProps}>
-            {cancelText}
           </Button>
         </>
       )}
