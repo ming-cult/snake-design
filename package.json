@@ -24,7 +24,6 @@
   "main": "dist/snake-design.js",
   "scripts": {
     "start": "bisheng start -c ./site/bisheng.config.js",
-    "start1": "yarn build-dll && webpack-dev-server --config webpack/webpack.dev.conf.js --colors",
     "build": "tsc -p tsconfig.json && webpack --config webpack/webpack.prod.conf.js",
     "build-docs": "webpack --config webpack/docs.config.js",
     "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
@@ -57,7 +56,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "normalize.css": "^7.0.0",
-    "pipixia": "^0.0.10",
+    "pipixia": "^0.0.12",
     "react-spring": "^8.0.18",
     "warning": "^4.0.3"
   },

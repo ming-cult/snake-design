@@ -115,9 +115,9 @@ module.exports = {
     }
 
     // eslint-disable-next-line
-    config.externals = {
-      'react-router-dom': 'ReactRouterDOM'
-    }
+    // config.externals = {
+    //   'react-router-dom': 'ReactRouterDOM'
+    // }
 
     if (usePreact) {
       // eslint-disable-next-line
