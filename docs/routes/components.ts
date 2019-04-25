@@ -35,4 +35,10 @@ export default [
     path: '/app/basic/layout',
     component: require('../components/Layout').default,
   },
+  {
+    key: 'affix',
+    name: 'Affix 固钉',
+    path: '/app/basic/affix',
+    component: require('../components/Affix').default,
+  }
 ]
