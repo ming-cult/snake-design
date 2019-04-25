@@ -1,18 +1,18 @@
 ---
 imports:
-  import ButtomDemoCode from '!raw-loader!./simpleButton.tsx';
-  import ButtomDemo from './simpleButton.tsx';
+  import AffixDemoCode from '!raw-loader!./simpleAffix.tsx';
+  import AffixDemo from './simpleAffix.tsx';
 ---
 
-# Button 按钮
+# Affix 固钉
 
-基础组件，触发业务逻辑时使用。
+将页面元素钉在可视范围。
 
 ### 简单示例
 
 :::demo
-<Block code={ButtomDemoCode} des="按钮">
-  <ButtomDemo />
+<Block code={AffixDemoCode} des="固钉">
+  <AffixDemo />
 </Block>
 :::
 
