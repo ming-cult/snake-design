@@ -1,6 +1,7 @@
 @import '../styles/themes/default';
 
 $modal: 'snake-modal';
+$confirm: 'snake-confirm';
 
 .#{$modal} {
   position: fixed;
@@ -88,6 +89,7 @@ $modal: 'snake-modal';
     }
   }
 
+  &-fade-appear,
   &-fade-enter {
     opacity: 0;
     animation-duration: 0.3s;
@@ -96,6 +98,7 @@ $modal: 'snake-modal';
     animation-play-state: paused;
   }
 
+  &-fade-appear-active,
   &-fade-enter-active {
     animation-name: modalFadeIn;
     animation-play-state: running;
@@ -113,6 +116,7 @@ $modal: 'snake-modal';
     animation-play-state: running;
   }
 
+  &-zoom-appear,
   &-zoom-enter {
     opacity: 0;
     animation-duration: 0.3s;
@@ -121,6 +125,7 @@ $modal: 'snake-modal';
     animation-play-state: paused;
   }
 
+  &-zoom-appear-active,
   &-zoom-enter-active {
     animation-name: modalZoomIn;
     animation-play-state: running;
@@ -136,6 +141,42 @@ $modal: 'snake-modal';
   &-zoom-exit-active {
     animation-name: modalZoomOut;
     animation-play-state: running;
+  }
+}
+
+.#{$confirm} {
+  .#{$modal}-wrapper {
+    min-width: 400px;
+  }
+
+  .#{$modal}-wrapper-inner {
+    padding: 32px 32px 24px;
+  }
+
+  &-body-header {
+    display: flex;
+    align-items: center;
+  }
+
+  &-title {
+    margin-left: 16px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  &-content {
+    margin-left: 40px;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  &-btn {
+    text-align: right;
+
+    .snake-button {
+      &:last-child {
+        margin-left: 8px;
+      }
+    }
   }
 }
 

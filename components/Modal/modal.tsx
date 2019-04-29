@@ -1,11 +1,14 @@
 import * as React from 'react'
 import cx from 'classnames'
-import { ModalProps } from 'types/modal'
+import { ModalProps, AlertProps } from 'types/modal'
 import Overlay from '../Overlay'
 import Button from '../Button'
+import confirm, { info, success, error, warning, Close } from './confirm'
 import { noop } from '../utils/tool'
 
 import './index.scss'
+
+type Confirm = (props: AlertProps) => Close
 
 const defaultProps = {
   cancelText: '取消',
@@ -17,7 +20,8 @@ const defaultProps = {
   visible: false,
   maskClosable: true,
   esc: true,
-  center: false
+  center: false,
+  afterClose: noop
 }
 
 const prefixCls = 'snake-modal'
@@ -55,7 +59,13 @@ const renderFooter = ({
   )
 }
 
-const Modal: React.FC<ModalProps> = (modalProps, ref: React.RefObject<any>) => {
+const Modal: React.FC<ModalProps> & {
+  confirm: Confirm
+  info: Confirm
+  success: Confirm
+  error: Confirm
+  warning: Confirm
+} = modalProps => {
   const props = { ...defaultProps, ...modalProps }
   const {
     children,
@@ -69,7 +79,8 @@ const Modal: React.FC<ModalProps> = (modalProps, ref: React.RefObject<any>) => {
     maskClosable,
     closable,
     zIndex,
-    width
+    width,
+    afterClose
   } = props
 
   const getClassStr = React.useCallback(() => {
@@ -96,7 +107,6 @@ const Modal: React.FC<ModalProps> = (modalProps, ref: React.RefObject<any>) => {
       header={renderHeader(props)}
       wrapperClassName={getClassStr()}
       esc={esc}
-      ref={ref}
       destroy={destroy}
       onClose={onCancel}
       visible={visible}
@@ -104,10 +114,17 @@ const Modal: React.FC<ModalProps> = (modalProps, ref: React.RefObject<any>) => {
       maskClosable={maskClosable}
       closable={closable}
       zIndex={zIndex}
+      afterClose={afterClose}
     >
       {children}
     </Overlay>
   )
 }
 
-export default React.forwardRef(Modal)
+Modal.confirm = confirm
+Modal.success = success
+Modal.error = error
+Modal.warning = warning
+Modal.info = info
+
+export default Modal

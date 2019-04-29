@@ -15,7 +15,7 @@ export interface ModalProps {
   /** onCancel 点击取消或遮罩层或者右上角按钮的回调 */
   onCancel?: () => void
   /** title 标题 */
-  title?: React.ReactNode
+  title?: React.ReactNode | null
   /** visible 是否可见 默认为 `false` */
   visible?: boolean
   /** maskClosable 点击蒙层是否关闭弹窗 默认为 `true` */
@@ -40,9 +40,16 @@ export interface ModalProps {
   center?: boolean
   /** children */
   children?: React.ReactNode
+  /** afterClose 弹窗完全关闭的回调 */
+  afterClose?: () => void
 }
 
-export interface Alert extends OmitType<ModalProps, 'visible'> {
+export interface AlertProps
+  extends OmitType<ModalProps, 'visible' | 'children' | 'footer' | 'closable' | 'destroy'> {
   /** icon 类型 可自定义 默认与 快捷弹窗的名称一致 */
   icon?: React.ReactNode
+  /** content 内容 */
+  content?: string | React.ReactNode
+  /** hasCancelBtn 是否需要取消按钮 默认为 true */
+  hasCancelBtn?: boolean
 }
