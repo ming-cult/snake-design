@@ -14,6 +14,7 @@ exports[`overlay test snapshot overlayClosable 1`] = `
   <div>
     <div
       class="snake-overlay"
+      tabindex="-1"
     >
       <div
         class="snake-overlay-wrapper"
@@ -43,6 +44,7 @@ exports[`overlay test snapshot overlayFooter 1`] = `
   <div>
     <div
       class="snake-overlay"
+      tabindex="-1"
     >
       <div
         class="snake-overlay-wrapper"
@@ -88,6 +90,7 @@ exports[`overlay test snapshot overlayHeader 1`] = `
   <div>
     <div
       class="snake-overlay"
+      tabindex="-1"
     >
       <div
         class="snake-overlay-wrapper"
@@ -138,6 +141,7 @@ exports[`overlay test snapshot overlayShow 1`] = `
   <div>
     <div
       class="snake-overlay"
+      tabindex="-1"
     >
       <div
         class="snake-overlay-wrapper"

@@ -40,5 +40,11 @@ export default [
     name: 'Layout 布局',
     path: '/app/basic/layout',
     component: require('../components/Layout').default
+  },
+  {
+    key: 'modal',
+    name: 'Modal 模态框',
+    path: '/app/basic/modal',
+    component: require('../components/Modal').default
   }
 ]
