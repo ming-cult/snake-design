@@ -6,14 +6,14 @@ export default function BasicModal() {
   return (
     <div>
       <h1>基础 Modal</h1>
-      <Button onClick={() => setVisible(true)}>基础 Modal</Button>
+      <Button onClick={() => setVisible(true)}>基础用法</Button>
       <Modal
         visible={visible}
         onCancel={() => setVisible(false)}
         title="基础 Modal "
         onOk={() => setVisible(false)}
       >
-        <div>基础modal</div>
+        <div>基础modal内容区</div>
       </Modal>
     </div>
   )
