@@ -6,16 +6,19 @@ import './demo.scss'
 const { useState } = React
 
 function SimpleAffix() {
-  const [top, setTop] = useState(0)
+  const [top, setTop] = useState(120)
 
   return (
-    <Affix offsetTop={top}>
+    <Affix
+      container={document.getElementsByClassName('at-markdown')[0]}
+      offsetTop={top}
+    >
       <Button
         type="primary"
-        onClick={() => setTop((top) => top + 10)}
+        onClick={() => setTop((top: number) => top + 10)}
       >
-        Affix top
-        </Button>
+        Affix Top
+      </Button>
     </Affix>
   )
 }
