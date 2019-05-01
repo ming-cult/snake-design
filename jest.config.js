@@ -3,7 +3,9 @@ module.exports = {
     '.(ts|tsx)': 'ts-jest'
   },
   moduleNameMapper: {
-    '\\.(css|less|scss)$': 'identity-obj-proxy'
+    '\\.(css|less|scss)$': 'identity-obj-proxy',
+    '^components$': '<rootDir>/components/index.tsx',
+    '^components(.*)$': '<rootDir>/components/$1'
   },
   testPathIgnorePatterns: ['/node_modules/', '/lib/', '/es/'],
   testRegex: '(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$',

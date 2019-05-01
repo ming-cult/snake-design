@@ -35,4 +35,6 @@ export interface OverlayProps {
   closable?: boolean
   /** esc 是否支持键盘 esc 关闭 默认为 true */
   esc?: boolean
+  /** afterClose 弹窗完全关闭后的回调 */
+  afterClose?: () => void
 }
