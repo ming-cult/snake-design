@@ -2,7 +2,7 @@
 
 ## 介绍
 
-基于 `React hooks` 开发的下一代 `PC` 端组件库。
+基于 `React hooks` 开发的下一代 `PC` 端组件库。[文档地址](https://ming-cult.github.io/snake-design)
 
 ### 特性
 
