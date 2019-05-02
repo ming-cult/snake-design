@@ -22,4 +22,4 @@ imports:
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number | - |
 | onChange | 固定状态改变时触发的回调函数 | Function(affixed) | - |
-| container | 容器 | any | - |
+| target | 设置 Affix 需要监听其滚动事件的元素 | () => HTMLElement | () => window |

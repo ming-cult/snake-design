@@ -10,7 +10,7 @@ export interface AffixProps {
   // 子元素
   children?: ReactElement
   // 容器
-  container?: any
+  target?: () => HTMLElement
   // 固定状态改变时触发的回调函数
   onChange?: (affixed: boolean) => void
   /* 样式相关 */
