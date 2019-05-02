@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`overlay test snapshot overlayClosable 1`] = `
+<body>
+  <script
+    src="https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js"
+  />
+  <div />
+  <div>
+    <div
+      class="snake-overlay-mask"
+    />
+  </div>
+  <div>
+    <div
+      class="snake-overlay"
+      tabindex="-1"
+    >
+      <div
+        class="snake-overlay-wrapper"
+      >
+        <div
+          class="snake-overlay-wrapper-inner"
+        >
+          内容
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`overlay test snapshot overlayFooter 1`] = `
+<body>
+  <script
+    src="https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js"
+  />
+  <div />
+  <div>
+    <div
+      class="snake-overlay-mask"
+    />
+  </div>
+  <div>
+    <div
+      class="snake-overlay"
+      tabindex="-1"
+    >
+      <div
+        class="snake-overlay-wrapper"
+      >
+        <div
+          class="snake-overlay-close"
+        >
+          <svg
+            class="snake-icon snake-icon-close"
+          >
+            <use
+              xlink:href="#icon-close"
+            />
+          </svg>
+        </div>
+        <div
+          class="snake-overlay-wrapper-inner"
+        />
+        <div
+          class="snake-overlay-footer"
+        >
+          <div>
+            底部
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`overlay test snapshot overlayHeader 1`] = `
+<body>
+  <script
+    src="https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js"
+  />
+  <div />
+  <div>
+    <div
+      class="snake-overlay-mask"
+    />
+  </div>
+  <div>
+    <div
+      class="snake-overlay"
+      tabindex="-1"
+    >
+      <div
+        class="snake-overlay-wrapper"
+      >
+        <div
+          class="snake-overlay-close"
+        >
+          <svg
+            class="snake-icon snake-icon-close"
+          >
+            <use
+              xlink:href="#icon-close"
+            />
+          </svg>
+        </div>
+        <div
+          class="snake-overlay-header"
+        >
+          <div>
+            头部
+          </div>
+        </div>
+        <div
+          class="snake-overlay-wrapper-inner"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`overlay test snapshot overlayHide 1`] = `
+<body>
+  <div />
+  <div />
+  <div />
+</body>
+`;
+
+exports[`overlay test snapshot overlayShow 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="snake-overlay-mask"
+    />
+  </div>
+  <div>
+    <div
+      class="snake-overlay"
+      tabindex="-1"
+    >
+      <div
+        class="snake-overlay-wrapper"
+      >
+        <div
+          class="snake-overlay-close"
+        >
+          <svg
+            class="snake-icon snake-icon-close"
+          >
+            <use
+              xlink:href="#icon-close"
+            />
+          </svg>
+        </div>
+        <div
+          class="snake-overlay-wrapper-inner"
+        >
+          内容
+        </div>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://at.alicdn.com/t/font_1127944_82mztmm5t8t.js"
+  />
+</body>
+`;
