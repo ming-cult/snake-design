@@ -4,13 +4,8 @@ import * as throttle from 'diana/lib/throttle'
 
 const { useState, useEffect, useRef } = React
 
-const defaultProps = {
-  prefixCls: 'snake-affix'
-}
-
 const Affix = (userProps: AffixProps, ref: any) => {
   const props = {
-    ...defaultProps,
     ...userProps
   }
   const { offsetTop, offsetBottom, children, target, onChange, className, style } = props
