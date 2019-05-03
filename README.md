@@ -2,7 +2,7 @@
 
 ## 介绍
 
-基于 `React hooks` 开发的下一代 `PC` 端组件库。[文档地址](https://ming-cult.github.io/snake-design)
+基于 `React hooks` 开发的 `PC` 端组件库。[文档地址](https://ming-cult.github.io/snake-design)
 
 ### 特性
 
@@ -11,6 +11,41 @@
 * 95% 以上的测试覆盖率
 
 > [组件开发进度](https://github.com/ming-cult/snake-design/projects/1)
+## 开发进度
+
+ - [x] Icon
+ - [x] Button
+ - [x] Row
+ - [x] Col
+ - [x] Affix
+ - [x] Checkbox
+ - [x] Modal
+ - [x] Overlay
+ - [x] Radio
+ - [x] Tabs
+ - [ ] Input
+ - [ ] Avatar
+ - [ ] Badge
+ - [ ] Card
+ - [ ] Collapse
+ - [ ] Divide
+ - [ ] Menu
+ - [ ] Pagination
+ - [ ] Progress
+ - [ ] Slide
+ - [ ] Step
+ - [ ] Spin
+ - [ ] Switch
+ - [ ] Tag
+ - [ ] Upload
+ - [ ] Popup
+ - [ ] Tooltip
+ - [ ] DataPicker
+ - [ ] TimePicker
+ - [ ] Cascader
+ - [ ] Select
+ - [ ] Table
+ - [ ] AutoComplete
 
 ## 命令说明
 
