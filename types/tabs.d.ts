@@ -7,7 +7,7 @@ export interface TabsProps {
   onChange?: (index: number, e: any) => void,
   onTabClick?: (index: number, e: any) => void,
   activeTab?: number,
-  tabs: TabsItemProps[],
+  options: TabsItemProps[],
   tabBarUnderlineColor?: string,
   children?: any,
   prefixCls?: string,

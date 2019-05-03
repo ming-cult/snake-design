@@ -12,28 +12,28 @@ describe('Tabs Test', () => {
   })
   it('snapshot', () => {
     const tabsRenderTop = render(
-      <Tabs tabs={tabs}>
+      <Tabs options={tabs}>
         <div>标签一的内容</div>
         <div>标签二的内容</div>
         <div>标签三的内容</div>
       </Tabs>
     )
     const tabsRenderBottom = render(
-      <Tabs tabs={tabs} tabBarPosition="bottom">
+      <Tabs options={tabs} tabBarPosition="bottom">
         <div>标签一的内容</div>
         <div>标签二的内容</div>
         <div>标签三的内容</div>
       </Tabs>
     )
     const tabsRenderLeft = render(
-      <Tabs tabs={tabs} tabBarPosition="left">
+      <Tabs options={tabs} tabBarPosition="left">
         <div>标签一的内容</div>
         <div>标签二的内容</div>
         <div>标签三的内容</div>
       </Tabs>
     )
     const tabsRenderRight = render(
-      <Tabs tabs={tabs} tabBarPosition="right">
+      <Tabs options={tabs} tabBarPosition="right">
         <div>标签一的内容</div>
         <div>标签二的内容</div>
         <div>标签三的内容</div>
@@ -48,7 +48,11 @@ describe('Tabs Test', () => {
     const TabDemo = function() {
       const [activeTab, setActiveTab] = useState(0)
       return (
-        <Tabs tabs={tabs} activeTab={activeTab} onChange={(index: number) => setActiveTab(index)}>
+        <Tabs
+          options={tabs}
+          activeTab={activeTab}
+          onChange={(index: number) => setActiveTab(index)}
+        >
           <div>标签一的内容</div>
           <div>标签二的内容</div>
           <div>标签三的内容</div>

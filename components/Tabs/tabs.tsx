@@ -22,7 +22,7 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
     tabBarPosition,
     activeTab,
     tabBarUnderlineColor,
-    tabs,
+    options,
     onChange,
     onTabClick,
     children,
@@ -112,7 +112,7 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
         className={cx(`${prefixCls}-wrap`, `${prefixCls}-wrap-${tabBarPosition}`)}
         ref={(r: any) => (tabWrap = r)}
       >
-        {tabs.map((r: TabsItemProps, index: number) => {
+        {options.map((r: TabsItemProps, index: number) => {
           return (
             <div
               className={cx(`${prefixCls}-wrap-item`, {
