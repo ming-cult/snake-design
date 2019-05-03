@@ -8,14 +8,14 @@ const defaultProps = {
   prefixCls: 'snake-affix'
 }
 
-const Affix = (userProps: AffixProps, _ref: any) => {
+const Affix = (userProps: AffixProps, ref: any) => {
   const props = {
     ...defaultProps,
     ...userProps
   }
   const { offsetTop, offsetBottom, children, target, onChange, className, style } = props
 
-  const placeholderRef = useRef(null)
+  const placeholderRef = ref || useRef(null)
   const wrapperRef = useRef(null)
 
   const [positionStyle, setPositionStyle] = useState({})
