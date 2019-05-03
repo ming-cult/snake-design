@@ -1,0 +1,7 @@
+@import '../styles/themes/default';
+
+$dropdown: 'snake-dropdown';
+
+.#{$dropdown} {
+  position: absolute;
+}
