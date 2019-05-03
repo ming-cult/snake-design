@@ -1,8 +1,6 @@
 import { Children, ReactElement } from "react";
 
 export interface AffixProps {
-  /** 组件className前缀 **/
-  prefixCls?: string
   // 距离窗口顶部达到指定偏移量后触发
   offsetTop?: number
   // 距离窗口底部达到指定偏移量后触发
