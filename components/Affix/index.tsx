@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { AffixProps } from 'types/affix.d'
-import * as throttle from 'diana/lib/throttle'
+import { throttle } from '../utils/tool'
 
 const { useState, useEffect, useRef } = React
 
