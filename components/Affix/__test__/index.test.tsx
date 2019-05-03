@@ -1,11 +1,19 @@
 import * as React from 'react'
-import { render } from 'react-testing-library'
 // import { render, fireEvent } from 'react-testing-library'
-import Button from '../index'
+import { render } from 'react-testing-library'
+import Affix from '../index'
 
-describe('render button', () => {
+describe('render Affix', () => {
   it('render default', () => {
-    const wrapper = render(<Button />)
-    expect(wrapper.container).toMatchSnapshot()
+    const { container } = render(<Affix offsetTop={0}>Affix Top</Affix>)
+    expect(container).toMatchSnapshot()
+  })
+  it('fire scroll', () => {
+    const { getByText } = render(<Affix offsetTop={0}>Affix Top</Affix>)
+    // fireEvent.scroll(window, {
+    //   top: 0
+    // })
+
+    expect(getByText('Affix Top').parentNode.parentNode).toHaveStyle('position: relative')
   })
 })
