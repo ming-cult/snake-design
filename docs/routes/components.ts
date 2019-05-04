@@ -1,21 +1,21 @@
 export default [
   {
     key: 'button',
-    name: '按钮',
+    name: 'Button 按钮',
     path: '/app/basic/button',
     component: require('../components/Button').default
   },
   {
     key: 'breadcrumb',
-    name: '面包屑',
+    name: 'Breadcrumb 面包屑',
     path: '/app/basic/breadcrumb',
     component: require('../components/Breadcrumb').default
   },
   {
     key: 'tabs',
-    name: '标签页',
+    name: 'Tabs 标签页',
     path: '/app/basic/tabs',
-    component: require('../components/Tabs').default,
+    component: require('../components/Tabs').default
   },
   {
     key: 'icon',
@@ -51,7 +51,7 @@ export default [
     key: 'affix',
     name: 'Affix 固钉',
     path: '/app/basic/affix',
-    component: require('../components/Affix').default,
+    component: require('../components/Affix').default
   },
   {
     key: 'modal',

@@ -24,6 +24,7 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
     tabBarUnderlineColor,
     options,
     onChange,
+    children,
     type,
     className,
     style
@@ -162,8 +163,8 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
   }
 
   const renderContent = () => {
-    if (activeTab >= 0 && options[activeTab].content) {
-      return options[activeTab].content
+    if (children && activeTab >= 0) {
+      return children[activeTab]
     } else {
       return null
     }

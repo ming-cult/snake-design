@@ -4,41 +4,31 @@ import Tabs from '../index'
 
 const { useState } = React
 
-const tabs = [{ title: '标签一' }, { title: '标签二' }, { title: '标签三', disabled: true }]
+const tabs = [
+  {
+    title: '标签一',
+    content: <div>标签一的内容</div>
+  },
+  {
+    title: '标签二',
+    content: <div>标签二的内容</div>
+  },
+  {
+    title: '标签三',
+    content: <div>标签三的内容</div>,
+    disabled: true
+  }
+]
 
 describe('Tabs Test', () => {
   beforeEach(() => {
     document.body.innerHTML = ''
   })
   it('snapshot', () => {
-    const tabsRenderTop = render(
-      <Tabs options={tabs}>
-        <div>标签一的内容</div>
-        <div>标签二的内容</div>
-        <div>标签三的内容</div>
-      </Tabs>
-    )
-    const tabsRenderBottom = render(
-      <Tabs options={tabs} tabBarPosition="bottom">
-        <div>标签一的内容</div>
-        <div>标签二的内容</div>
-        <div>标签三的内容</div>
-      </Tabs>
-    )
-    const tabsRenderLeft = render(
-      <Tabs options={tabs} tabBarPosition="left">
-        <div>标签一的内容</div>
-        <div>标签二的内容</div>
-        <div>标签三的内容</div>
-      </Tabs>
-    )
-    const tabsRenderRight = render(
-      <Tabs options={tabs} tabBarPosition="right">
-        <div>标签一的内容</div>
-        <div>标签二的内容</div>
-        <div>标签三的内容</div>
-      </Tabs>
-    )
+    const tabsRenderTop = render(<Tabs options={tabs} />)
+    const tabsRenderBottom = render(<Tabs options={tabs} tabBarPosition="bottom" />)
+    const tabsRenderLeft = render(<Tabs options={tabs} tabBarPosition="left" />)
+    const tabsRenderRight = render(<Tabs options={tabs} tabBarPosition="right" />)
     expect(tabsRenderTop.container.innerHTML).toMatchSnapshot()
     expect(tabsRenderBottom.container.innerHTML).toMatchSnapshot()
     expect(tabsRenderLeft.container.innerHTML).toMatchSnapshot()
@@ -52,11 +42,7 @@ describe('Tabs Test', () => {
           options={tabs}
           activeTab={activeTab}
           onChange={(index: number) => setActiveTab(index)}
-        >
-          <div>标签一的内容</div>
-          <div>标签二的内容</div>
-          <div>标签三的内容</div>
-        </Tabs>
+        />
       )
     }
 
