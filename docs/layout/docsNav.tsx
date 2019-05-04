@@ -31,28 +31,32 @@ export default class DocsNav extends React.Component<NavProps, any> {
   render() {
     const { basicCList, aboutSnakeDesignList } = this.props
     return (
-      <Affix offsetTop={0}>
-        <div className="snake-design-doc-nav">
-          <section className="each-section">
-            <header>快速开始</header>
-            <div className="sub">
-              {this.renderNavList(
-                aboutSnakeDesignList.filter(item => item.path.match(/\/guide\//))
-              )}
-            </div>
-          </section>
-          <section className="each-section">
-            <header>基础组件</header>
-            <div className="sub">{this.renderNavList(basicCList)}</div>
-          </section>
-          <section className="each-section">
-            <header>更多信息</header>
-            <div className="sub">
-              {this.renderNavList(aboutSnakeDesignList.filter(item => item.path.match(/\/more\//)))}
-            </div>
-          </section>
-        </div>
-      </Affix>
+      <div style={{ float: 'left' }}>
+        <Affix offsetTop={0}>
+          <div className="snake-design-doc-nav">
+            <section className="each-section">
+              <header>快速开始</header>
+              <div className="sub">
+                {this.renderNavList(
+                  aboutSnakeDesignList.filter(item => item.path.match(/\/guide\//))
+                )}
+              </div>
+            </section>
+            <section className="each-section">
+              <header>基础组件</header>
+              <div className="sub">{this.renderNavList(basicCList)}</div>
+            </section>
+            <section className="each-section">
+              <header>更多信息</header>
+              <div className="sub">
+                {this.renderNavList(
+                  aboutSnakeDesignList.filter(item => item.path.match(/\/more\//))
+                )}
+              </div>
+            </section>
+          </div>
+        </Affix>
+      </div>
     )
   }
 }
