@@ -23,24 +23,26 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
 
   const scrollLogic = () => {
     if (window.scrollY >= 100) {
-      if (!show) {
-        setShow(true)
-      }
+      setShow(true)
     } else {
-      if (show) {
-        setShow(false)
-      }
+      setShow(false)
     }
   }
 
-  const scroll = throttle(scrollLogic, 20)
-
   useEffect(() => {
+    const scroll = throttle(scrollLogic, 20)
     window.addEventListener('scroll', scroll)
     return () => {
       window.removeEventListener('scroll', scroll)
     }
   }, [])
+
+  const backTopFn = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
   return (
     <div
@@ -48,6 +50,7 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
       className={cx(`${prefixCls}-default`, {
         [`${prefixCls}-hide`]: !show
       })}
+      onClick={backTopFn}
     >
       <Icon type="totop" color="#fff" />
     </div>
