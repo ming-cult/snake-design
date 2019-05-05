@@ -17,12 +17,12 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
     ...defaultProps
   }
 
-  const { prefixCls } = props
+  const { prefixCls, children } = props
 
   const [show, setShow] = useState(false)
 
   const scrollLogic = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 400) {
       setShow(true)
     } else {
       setShow(false)
@@ -52,7 +52,7 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
       })}
       onClick={backTopFn}
     >
-      <Icon type="totop" color="#fff" />
+      {children ? children : <Icon type="totop" color="#fff" />}
     </div>
   )
 }
