@@ -19,8 +19,7 @@ describe('BackTop Test', () => {
 
   it('click backTop back to the top', () => {
     const { getByText } = render(<BackTop>回到顶部</BackTop>)
-    document.documentElement.scrollTop = 500
-    fireEvent.scroll(window)
+    window.scrollTo(0, 500)
     const back = getByText(/回到顶部/i) as HTMLElement
     fireEvent.click(back)
     expect(document.documentElement.scrollTop).toBe(0)
