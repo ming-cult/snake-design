@@ -27,7 +27,8 @@ function alertBabelConfig(rules) {
 module.exports = {
   port: 8001,
   hash: true,
-  // output: path.resolve(__dirname, '../build'),
+  // output: path.resolve(__dirname, '../docsDist'),
+  output: path.resolve(__dirname, '../docsDist'),
   // source: {
   //   components: './components',
   //   docs: './docs',
@@ -35,6 +36,8 @@ module.exports = {
   // },
   // theme: './site/theme',
   // htmlTemplate: './site/theme/static/template.html',
+  // htmlTemplate: '../docsDist/index.html',
+  // htmlTemplate: path.resolve(__dirname, './index.html'),
   // themeConfig: {
   //   categoryOrder: {
   //     'Ant Design': 0,
@@ -116,7 +119,7 @@ module.exports = {
 
     if (isDev) {
       // eslint-disable-next-line
-      config.devtool = 'source-map';
+      config.devtool = 'source-map'
     }
 
     alertBabelConfig(config.module.rules)

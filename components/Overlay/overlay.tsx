@@ -27,7 +27,8 @@ const defaultProps: OverlayProps = {
   maskAnimation: 'fade',
   contentAnimation: 'zoom',
   closable: true,
-  esc: true
+  esc: true,
+  afterClose: noop
 }
 
 const getBodyStyle = (bodyRef: React.MutableRefObject<React.CSSProperties>) => {
@@ -87,7 +88,8 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
     closable,
     maskClosable,
     onClose,
-    esc
+    esc,
+    afterClose
   } = props
 
   const bodyRef = React.useRef<React.CSSProperties>()
@@ -153,6 +155,7 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
           timeout={maskTimeout}
           classNames={maskCls}
           unmountOnExit={getUnmount()}
+          appear
         >
           <div className={`${prefixCls}-mask`} style={style} ref={maskRef} />
         </CSSTransition>
@@ -171,7 +174,11 @@ const Overlay: React.FC<OverlayProps> = (overlay, ref) => {
         classNames={contentCls}
         unmountOnExit={getUnmount()}
         onEnter={() => onAnimateEnter({ bodyRef, wrapperRef, maskRef, destroy })}
-        onExited={() => onAnimateExist({ bodyRef, wrapperRef, maskRef, destroy })}
+        onExited={() => {
+          afterClose()
+          onAnimateExist({ bodyRef, wrapperRef, maskRef, destroy })
+        }}
+        appear
       >
         <div
           className={getCls()}

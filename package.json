@@ -24,8 +24,8 @@
   "main": "dist/snake-design.js",
   "scripts": {
     "start": "bisheng start -c ./site/bisheng.config.js",
-    "build-docs": "webpack --config webpack/docs.config.js",
-    "publish-doc": "yarn build-docs && node ./scripts/publishdoc.js",
+    "site": "bisheng build -c ./site/bisheng.config.js",
+    "deploy": "node ./scripts/publishdoc.js",
     "build": "tsc -p tsconfig.json && webpack --config webpack/webpack.prod.conf.js",
     "test": "jest --config jest.config.js --verbose",
     "test:coverage": "jest --coverage",
@@ -55,8 +55,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "normalize.css": "^7.0.0",
-    "pipixia": "^0.0.12",
-    "react-spring": "^8.0.18",
     "react-transition-group": "^4.0.0",
     "warning": "^4.0.3"
   },
@@ -113,6 +111,7 @@
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.5.3",
     "open-browser-webpack-plugin": "^0.0.5",
+    "pipixia": "^0.1.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.16.4",

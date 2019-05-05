@@ -40,5 +40,17 @@ export default [
     name: 'Layout 布局',
     path: '/app/basic/layout',
     component: require('../components/Layout').default
+  },
+  {
+    key: 'affix',
+    name: 'Affix 固钉',
+    path: '/app/basic/affix',
+    component: require('../components/Affix').default,
+  },
+  {
+    key: 'modal',
+    name: 'Modal 模态框',
+    path: '/app/basic/modal',
+    component: require('../components/Modal').default
   }
 ]

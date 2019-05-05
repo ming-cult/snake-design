@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Affix render default 1`] = `
+<div>
+  <div
+    style="height: 0px; width: 0px;"
+  >
+    <div
+      style="position: fixed; top: 0px;"
+    >
+      Affix Top
+    </div>
+  </div>
+</div>
+`;
