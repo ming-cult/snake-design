@@ -2,7 +2,8 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import cx from 'classnames'
-import { DropDown } from 'types/dropdown'
+import { DropDownOverlay } from 'types/dropdown'
+import { useClickOutSide } from '../utils/use'
 
 import './index.scss'
 
@@ -13,10 +14,12 @@ const defaultProps = {
   wrapperComponent: 'span',
   prefixCls: 'snake-dropdown',
   hasTriangle: false,
-  timeout: 300
+  timeout: 300,
+  offset: 0,
+  mode: 'dropdown'
 }
 
-const DropOverlay: React.FC<DropDown> = dropdownProps => {
+const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
   const props = { ...defaultProps, ...dropdownProps }
   const {
     className,
@@ -33,17 +36,26 @@ const DropOverlay: React.FC<DropDown> = dropdownProps => {
     // style,
     onVisibleChange,
     hasTriangle,
-    timeout
+    timeout,
+    offset,
+    mode
   } = props
   const [visible, setVisible] = React.useState(false)
   const wrapperRef = React.useRef<HTMLElement>()
   const contentRef = React.useRef<HTMLDivElement>()
 
+  useClickOutSide([contentRef, wrapperRef], () => {
+    setVisible(false)
+  })
+
   const toggle = (triggerStr: string, toggle: boolean) => {
     if (disabled) return
     if (trigger === triggerStr) {
       setVisible(toggle)
-      onVisibleChange && onVisibleChange(toggle)
+      // 只在变化的时候回调
+      if (toggle !== visible) {
+        onVisibleChange && onVisibleChange(toggle)
+      }
     }
   }
 
@@ -59,45 +71,82 @@ const DropOverlay: React.FC<DropDown> = dropdownProps => {
     return `${prefixCls}-slide`
   }, [animationName])
 
-  const getPosition = (
-    wrapperRef: React.RefObject<HTMLElement>,
-    _contentRef: React.RefObject<HTMLDivElement>
-  ) => {
+  const getContentStyle = (top: string, left: string) => {
+    ;(contentRef.current as HTMLElement).style.top = top
+    ;(contentRef.current as HTMLElement).style.left = left
+  }
+
+  const getPosition = () => {
     const rect = (wrapperRef.current as HTMLElement).getBoundingClientRect()
     const contentRect = (contentRef.current as HTMLElement).getBoundingClientRect()
-    contentRef.current.style.minWidth = `${rect.width}px`
+    let top = `${rect.top + rect.height + offset + window.pageYOffset}px`
+    let left = `${rect.left + window.pageXOffset}px`
+    if (contentRect.width < rect.width && mode === 'dropdown') {
+      contentRef.current.style.minWidth = `${rect.width}px`
+    }
     switch (placement) {
       case 'top':
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top - 4 - contentRect.height}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.left +
-          rect.width / 2 -
-          contentRect.width / 2}px`
+        top = `${rect.top - offset - contentRect.height + window.pageYOffset}px`
+        left = `${rect.left + rect.width / 2 - contentRect.width / 2 + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       case 'topLeft':
-        ;(contentRef.current as HTMLElement).style.left = `${rect.left}px`
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top - 4 - contentRect.height}px`
+        top = `${rect.top - offset - contentRect.height + window.pageYOffset}px`
+        left = `${rect.left + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       case 'topRight':
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top - 4 - contentRect.height}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.right - contentRect.width}px`
+        top = `${rect.top - offset - contentRect.height + window.pageYOffset}px`
+        left = `${rect.right - contentRect.width + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       case 'bottom':
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top + rect.height + 4}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.left +
-          rect.width / 2 -
-          contentRect.width / 2}px`
+        top = `${rect.top + rect.height + offset + window.pageYOffset}px`
+        left = `${rect.left + rect.width / 2 - contentRect.width / 2 + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       case 'bottomLeft':
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top + rect.height + 4}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.left}px`
+        top = `${rect.top + rect.height + offset + window.pageYOffset}px`
+        left = `${rect.left + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       case 'bottomRight':
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top + rect.height + 4}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.right - contentRect.width}px`
+        top = `${rect.top + rect.height + offset + window.pageYOffset}px`
+        left = `${rect.right - contentRect.width + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'left':
+        top = `${rect.top + rect.height / 2 - contentRect.height / 2 + window.pageYOffset}px`
+        left = `${rect.left - offset - contentRect.width + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'leftTop':
+        top = `${rect.top + window.pageYOffset}px`
+        left = `${rect.left - offset - contentRect.width + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'leftBottom':
+        top = `${rect.top + rect.height - contentRect.height + window.pageYOffset}px`
+        left = `${rect.left - offset - contentRect.width + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'right':
+        top = `${rect.top + rect.height / 2 - contentRect.height / 2 + window.pageYOffset}px`
+        left = `${rect.right + offset + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'rightTop':
+        top = `${rect.top + window.pageYOffset}px`
+        left = `${rect.right + offset + window.pageXOffset}px`
+        getContentStyle(top, left)
+        break
+      case 'rightBottom':
+        top = `${rect.top + rect.height - contentRect.height + window.pageYOffset}px`
+        left = `${rect.right + offset + window.pageXOffset}px`
+        getContentStyle(top, left)
         break
       default:
-        ;(contentRef.current as HTMLElement).style.top = `${rect.top + rect.height + 4}px`
-        ;(contentRef.current as HTMLElement).style.left = `${rect.left}px`
+        getContentStyle(top, left)
         break
     }
   }
@@ -118,7 +167,8 @@ const DropOverlay: React.FC<DropDown> = dropdownProps => {
     const classStr = cx(
       prefixCls,
       {
-        [`${prefixCls}-${placement}`]: placement
+        [`${prefixCls}-${placement}`]: placement,
+        [`${prefixCls}-triangle`]: hasTriangle
       },
       className
     )
@@ -127,11 +177,13 @@ const DropOverlay: React.FC<DropDown> = dropdownProps => {
         <div
           className={classStr}
           ref={contentRef}
-          onClick={() => toggle('click', false)}
+          onClick={() => {
+            setVisible(false)
+            onVisibleChange && onVisibleChange(false)
+          }}
           onMouseEnter={() => toggle('hover', true)}
           onMouseLeave={() => toggle('hover', false)}
         >
-          {hasTriangle ? <div className={`${prefixCls}-triangle`} /> : null}
           {content}
         </div>
       </CSSTransition>
@@ -140,7 +192,7 @@ const DropOverlay: React.FC<DropDown> = dropdownProps => {
 
   React.useLayoutEffect(() => {
     if (visible) {
-      getPosition(wrapperRef, contentRef)
+      getPosition()
     }
   }, [visible])
 
