@@ -12,11 +12,15 @@ $dropdown: 'snake-dropdown';
   list-style: none;
   cursor: pointer;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  border-radius: $borderRadius;
   margin: 0;
   padding: 4px 0;
   text-align: left;
+
+  &-content {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: $borderRadius;
+    padding: 4px 0;
+  }
 
   &-slide-appear,
   &-slide-enter {

@@ -2,10 +2,9 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import cx from 'classnames'
-import { DropDownOverlay } from 'types/dropdown'
+import { Portal } from 'types/portal'
 import { useClickOutSide } from '../utils/use'
-
-import './index.scss'
+import { noop } from '../utils/tool'
 
 const defaultProps = {
   trigger: 'hover',
@@ -16,10 +15,13 @@ const defaultProps = {
   hasTriangle: false,
   timeout: 300,
   offset: 0,
-  mode: 'dropdown'
+  mode: 'dropdown',
+  visible: false,
+  onVisibleChange: noop,
+  destroy: true
 }
 
-const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
+const PortalOverlay: React.FC<Portal> = dropdownProps => {
   const props = { ...defaultProps, ...dropdownProps }
   const {
     className,
@@ -29,40 +31,37 @@ const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
     children,
     trigger,
     disabled,
-    getPopupContainer,
     prefixCls,
     animationName,
     wrapperStyle,
-    // style,
+    style,
     onVisibleChange,
     hasTriangle,
     timeout,
     offset,
-    mode
+    mode,
+    visible,
+    destroy
   } = props
-  const [visible, setVisible] = React.useState(false)
   const wrapperRef = React.useRef<HTMLElement>()
   const contentRef = React.useRef<HTMLDivElement>()
+  const timeoutRef = React.useRef<any>()
 
   useClickOutSide([contentRef, wrapperRef], () => {
-    setVisible(false)
+    onVisibleChange(false)
   })
 
   const toggle = (triggerStr: string, toggle: boolean) => {
     if (disabled) return
     if (trigger === triggerStr) {
-      setVisible(toggle)
       // 只在变化的时候回调
       if (toggle !== visible) {
-        onVisibleChange && onVisibleChange(toggle)
+        onVisibleChange(toggle)
       }
     }
   }
 
   const getContainer = () => {
-    if (getPopupContainer) {
-      return getPopupContainer()
-    }
     return document.body
   }
 
@@ -151,16 +150,28 @@ const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
     }
   }
 
+  const clearTime = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+  }
+
   const handleClick = () => {
     toggle('click', true)
   }
 
   const handleMouseEnter = () => {
-    toggle('hover', true)
+    clearTime()
+    timeoutRef.current = setTimeout(() => {
+      toggle('hover', true)
+    }, 0)
   }
 
   const handleMouseLeave = () => {
-    toggle('hover', false)
+    clearTime()
+    timeoutRef.current = setTimeout(() => {
+      toggle('hover', false)
+    }, 0)
   }
 
   const renderDropDown = () => {
@@ -173,18 +184,23 @@ const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
       className
     )
     return (
-      <CSSTransition in={visible} timeout={timeout} classNames={getOverlayClass()} unmountOnExit>
+      <CSSTransition
+        in={visible}
+        timeout={timeout}
+        classNames={getOverlayClass()}
+        unmountOnExit={destroy}
+      >
         <div
           className={classStr}
           ref={contentRef}
           onClick={() => {
-            setVisible(false)
-            onVisibleChange && onVisibleChange(false)
+            onVisibleChange(false)
           }}
-          onMouseEnter={() => toggle('hover', true)}
-          onMouseLeave={() => toggle('hover', false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={style}
         >
-          {content}
+          <div className={`${prefixCls}-content`}>{content}</div>
         </div>
       </CSSTransition>
     )
@@ -214,4 +230,4 @@ const DropOverlay: React.FC<DropDownOverlay> = dropdownProps => {
   )
 }
 
-export default DropOverlay
+export default PortalOverlay
