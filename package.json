@@ -55,7 +55,6 @@
   "module": "es/index.js",
   "dependencies": {
     "classnames": "^2.2.5",
-    "diana": "^0.5.3",
     "normalize.css": "^7.0.0",
     "react-spring": "^8.0.18",
     "react-transition-group": "^4.0.0",
