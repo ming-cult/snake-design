@@ -45,12 +45,18 @@ export default [
     key: 'affix',
     name: 'Affix 固钉',
     path: '/app/basic/affix',
-    component: require('../components/Affix').default,
+    component: require('../components/Affix').default
   },
   {
     key: 'modal',
     name: 'Modal 模态框',
     path: '/app/basic/modal',
     component: require('../components/Modal').default
+  },
+  {
+    key: 'backTop',
+    name: 'BackTop 回到顶部',
+    path: '/app/basic/backTop',
+    component: require('../components/BackTop').default
   }
 ]
