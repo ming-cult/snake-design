@@ -34,6 +34,8 @@ export interface Portal {
   destroy?: boolean
   // visible 是否可见
   visible?: boolean
+  // 获取当前的容器
+  getPopupContainer?: () => HTMLElement
 }
 
 export type Trigger = 'hover' | 'click'

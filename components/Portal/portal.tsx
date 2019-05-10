@@ -41,11 +41,13 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     offset,
     mode,
     visible,
-    destroy
+    destroy,
+    getPopupContainer
   } = props
   const wrapperRef = React.useRef<HTMLElement>()
   const contentRef = React.useRef<HTMLDivElement>()
   const timeoutRef = React.useRef<any>()
+  const [mountNode, setMountNode] = React.useState(null)
 
   useClickOutSide([contentRef, wrapperRef], () => {
     onVisibleChange(false)
@@ -62,6 +64,9 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
   }
 
   const getContainer = () => {
+    if (getPopupContainer) {
+      return getPopupContainer()
+    }
     return document.body
   }
 
@@ -212,6 +217,10 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     }
   }, [visible])
 
+  React.useEffect(() => {
+    setMountNode(getContainer())
+  }, [getContainer()])
+
   return (
     <>
       <Component
@@ -225,7 +234,7 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
           disabled: disabled
         })}
       </Component>
-      {ReactDOM.createPortal(renderDropDown(), getContainer())}
+      {mountNode ? ReactDOM.createPortal(renderDropDown(), getContainer()) : null}
     </>
   )
 }

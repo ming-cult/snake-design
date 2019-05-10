@@ -27,4 +27,6 @@ export interface DropdownProps {
   className?: string
   // style dropdown 样式
   style?: React.CSSProperties
+  // getPopupContainer
+  getPopupContainer?: () => HTMLElement
 }
