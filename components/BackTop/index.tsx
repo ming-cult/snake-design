@@ -8,7 +8,8 @@ import './index.scss'
 const { useState, useEffect } = React
 
 const defaultProps = {
-  prefixCls: 'snake-design-backtop'
+  prefixCls: 'snake-design-backtop',
+  visibilityHeight: 400
 }
 
 const BackTop = (userProps: BacktopProps, ref: any) => {
@@ -17,12 +18,12 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
     ...defaultProps
   }
 
-  const { prefixCls, children } = props
+  const { prefixCls, children, visibilityHeight } = props
 
   const [show, setShow] = useState(false)
 
   const scrollLogic = () => {
-    if (window.scrollY >= 400) {
+    if (window.scrollY >= visibilityHeight) {
       setShow(true)
     } else {
       setShow(false)
@@ -52,7 +53,7 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
       })}
       onClick={backTopFn}
     >
-      {children ? children : <Icon type="totop" color="#fff" />}
+      {children || <Icon type="totop" color="#fff" />}
     </div>
   )
 }
