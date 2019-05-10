@@ -54,6 +54,12 @@ export default [
     component: require('../components/Modal').default
   },
   {
+    key: 'dropdown',
+    name: 'Dropdown 下拉框',
+    path: '/app/basic/dropdown',
+    component: require('../components/Dropdown').default
+  },
+  {
     key: 'backTop',
     name: 'BackTop 回到顶部',
     path: '/app/basic/backTop',

@@ -1,6 +1,6 @@
 import ClassNames from 'classnames'
 
-export const noop = (..._args: any[]) => { }
+export const noop = (..._args: any[]) => {}
 
 export const tuple = <T extends string[]>(...args: T) => args
 
@@ -64,8 +64,8 @@ export const getScrollBarWidth = () => {
 
 /* 函数节流 */
 export const throttle = (fn: any, wait: number) => {
-  let inThrottle, lastFn, lastTime;
-  return function () {
+  let inThrottle, lastFn, lastTime
+  return function() {
     const context = this,
       args = arguments
     if (!inThrottle) {
@@ -74,7 +74,7 @@ export const throttle = (fn: any, wait: number) => {
       inThrottle = true
     } else {
       clearTimeout(lastFn)
-      lastFn = setTimeout(function () {
+      lastFn = setTimeout(function() {
         if (wait - (Date.now() - lastTime) <= 0) {
           fn.apply(context, args)
           lastTime = Date.now()

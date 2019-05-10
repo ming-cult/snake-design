@@ -1,0 +1,10 @@
+.drop-demo {
+  height: 200px;
+  overflow-y: scroll;
+
+  &-content {
+    height: 600px;
+    background-image: url(https://zos.alipayobjects.com/rmsportal/RmjwQiJorKyobvI.jpg);
+    padding-top: 100px;
+  }
+}
