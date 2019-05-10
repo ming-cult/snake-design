@@ -45,7 +45,7 @@ export default [
     key: 'affix',
     name: 'Affix 固钉',
     path: '/app/basic/affix',
-    component: require('../components/Affix').default,
+    component: require('../components/Affix').default
   },
   {
     key: 'modal',
@@ -58,5 +58,11 @@ export default [
     name: 'Dropdown 下拉框',
     path: '/app/basic/dropdown',
     component: require('../components/Dropdown').default
+  },
+  {
+    key: 'backTop',
+    name: 'BackTop 回到顶部',
+    path: '/app/basic/backTop',
+    component: require('../components/BackTop').default
   }
 ]

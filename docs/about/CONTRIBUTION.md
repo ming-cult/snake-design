@@ -42,7 +42,12 @@ $ git merge remote/master
 
 * 如果是修复 bug，请在 PR 中给出描述信息。
 
-## 开发环境搭建
+## 如何开发新组建
+
+采用 TDD 的形式进行开发。形式如下:
+
+1. pull request 设计的接口和测试用例给 [https://github.com/orgs/ming-cult/people](https://github.com/orgs/ming-cult/people) 中至少两人;
+2. 在步骤一通过以后 pull request 具体代码的实现给 [https://github.com/orgs/ming-cult/people](https://github.com/orgs/ming-cult/people) 中至少两人;
 
 请参考 `README` 文件
 

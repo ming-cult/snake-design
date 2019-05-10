@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackTop Test snapshot with children 1`] = `
+<div>
+  <div
+    class="snake-design-backtop-default snake-design-backtop-hide"
+  >
+    <div>
+      回到顶部
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BackTop Test snapshot without children 1`] = `
+<div>
+  <div
+    class="snake-design-backtop-default snake-design-backtop-hide"
+  >
+    <svg
+      class="snake-icon snake-icon-totop"
+      style="color: rgb(255, 255, 255);"
+    >
+      <use
+        xlink:href="#icon-totop"
+      />
+    </svg>
+  </div>
+</div>
+`;
