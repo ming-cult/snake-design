@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Test snapshot when placement is bottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-bottom"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when placement is bottomRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-bottomRight"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when placement is top 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-top"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when placement is topLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-topLeft"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when placement is topRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-topRight"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when visible is false 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+</body>
+`;
+
+exports[`Dropdown Test snapshot when visible is true 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div
+    class="snake-dropdown snake-dropdown-bottomLeft"
+    style="top: 0px; left: 0px;"
+  >
+    <div
+      class="snake-dropdown-content"
+    >
+      <div>
+        内容区
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,19 @@
+$backtop: 'snake-design-backtop';
+
+.#{$backtop} {
+  &-default {
+    position: fixed;
+    right: 100px;
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    text-align: center;
+  }
+
+  &-hide {
+    display: none;
+  }
+}
