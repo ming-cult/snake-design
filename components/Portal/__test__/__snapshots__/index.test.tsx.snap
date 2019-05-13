@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal Test snapshot when placement is bottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-bottom"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is bottomLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-bottomLeft"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is bottomRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-bottomRight"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is left 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-left"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is leftBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-leftBottom"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is leftTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-leftTop"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is right 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-right"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is rightBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-rightBottom"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is rightTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-rightTop"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is top 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-top"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is topLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-topLeft"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when placement is topRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-topRight"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Portal Test snapshot when visible is false 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div />
+</body>
+`;
+
+exports[`Portal Test snapshot when visible is true 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-dropdown snake-dropdown-bottomLeft"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-dropdown-content"
+      >
+        <div>
+          内容区
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

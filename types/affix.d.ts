@@ -1,4 +1,4 @@
-import { Children, ReactElement } from "react";
+import { ReactNode } from 'react'
 
 export interface AffixProps {
   // 距离窗口顶部达到指定偏移量后触发
@@ -6,7 +6,7 @@ export interface AffixProps {
   // 距离窗口底部达到指定偏移量后触发
   offsetBottom?: number
   // 子元素
-  children?: ReactElement | String
+  children?: ReactNode | String
   // 容器
   target?: () => HTMLElement
   // 固定状态改变时触发的回调函数

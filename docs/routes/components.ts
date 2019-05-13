@@ -58,5 +58,17 @@ export default [
     name: 'Modal 模态框',
     path: '/app/basic/modal',
     component: require('../components/Modal').default
+  },
+  {
+    key: 'dropdown',
+    name: 'Dropdown 下拉框',
+    path: '/app/basic/dropdown',
+    component: require('../components/Dropdown').default
+  },
+  {
+    key: 'backTop',
+    name: 'BackTop 回到顶部',
+    path: '/app/basic/backTop',
+    component: require('../components/BackTop').default
   }
 ]
