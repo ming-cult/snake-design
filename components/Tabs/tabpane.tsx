@@ -204,7 +204,7 @@ function Tabs(userProps: TabsProps, ref: React.RefObject<any>) {
   }
 
   function getClassName() {
-    return cx(`${prefixCls}`, className)
+    return cx(prefixCls, className)
   }
 
   return (
