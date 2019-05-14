@@ -21,8 +21,8 @@ export default function Popover(popover: PopoverProps) {
   const renderContent = () => {
     return (
       <div className={`${prefixCls}-inner`}>
-        <div className={`${prefixCls}-inner-title`}>{title}</div>
-        <div className={`${prefixCls}-inner-content`}>{content}</div>
+        {title ? <div className={`${prefixCls}-inner-title`}>{title}</div> : null}
+        {content ? <div className={`${prefixCls}-inner-content`}>{content}</div> : null}
       </div>
     )
   }
