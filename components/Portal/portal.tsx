@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import cx from 'classnames'
 import { Portal } from 'types/portal'
-import { useClickOutSide } from '../utils/use'
+import { useClickOutSide, useEnhancedEffect } from '../utils/use'
 import { noop } from '../utils/tool'
 
 const defaultProps = {
@@ -211,7 +211,7 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     )
   }
 
-  React.useLayoutEffect(() => {
+  useEnhancedEffect(() => {
     if (visible) {
       getPosition()
     }

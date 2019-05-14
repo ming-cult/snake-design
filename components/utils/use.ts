@@ -27,3 +27,5 @@ export function useClickOutSide(
     }
   }, [refs, onClickAway])
 }
+
+export const useEnhancedEffect = window !== undefined ? React.useLayoutEffect : React.useEffect
