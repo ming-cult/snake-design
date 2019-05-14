@@ -211,15 +211,15 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     )
   }
 
-  useEnhancedEffect(() => {
-    if (visible) {
-      getPosition()
-    }
-  }, [visible])
-
   React.useEffect(() => {
     setMountNode(getContainer())
   }, [getContainer()])
+
+  useEnhancedEffect(() => {
+    if (visible && mountNode) {
+      getPosition()
+    }
+  }, [visible, mountNode])
 
   return (
     <>

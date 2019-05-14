@@ -11,14 +11,6 @@ module.exports = {
   testRegex: '(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   setupFilesAfterEnv: ['react-testing-library/cleanup-after-each', 'jest-dom/extend-expect'],
-  coverageThreshold: {
-    global: {
-      statements: 80,
-      branches: 80,
-      lines: 80,
-      functions: 80
-    }
-  },
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
   setupFiles: ['<rootDir>/setup.js']
 }
