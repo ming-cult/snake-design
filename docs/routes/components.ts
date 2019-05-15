@@ -64,5 +64,11 @@ export default [
     name: 'BackTop 回到顶部',
     path: '/app/basic/backTop',
     component: require('../components/BackTop').default
+  },
+  {
+    key: 'popover',
+    name: 'Popover 气泡卡片',
+    path: '/app/basic/popover',
+    component: require('../components/Popover').default
   }
 ]
