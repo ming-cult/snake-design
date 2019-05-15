@@ -29,6 +29,7 @@
     "build-dll": "webpack --config ./webpack/webpack.dll.config.js",
     "test": "jest --config jest.config.js --verbose",
     "test:coverage": "jest --coverage",
+    "cov": "jest --coverage",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test-update": "jest --updateSnapshot",
