@@ -1,6 +1,6 @@
 import { Placement, Trigger } from './portal'
 
-interface PopoverProps {
+export interface PopoverProps {
   // 内容区
   content?: React.ReactNode
   // popover 的方向
