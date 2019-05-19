@@ -11,13 +11,13 @@ $popover: 'snake-popover';
   line-height: $lineHeight;
   list-style: none;
   cursor: pointer;
-  background-color: #fff;
   margin: 0;
   text-align: left;
 
   &-content {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     border-radius: $borderRadius;
+    background: #fff;
   }
 
   &-inner {

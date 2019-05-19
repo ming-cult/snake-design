@@ -70,5 +70,11 @@ export default [
     name: 'Popover 气泡卡片',
     path: '/app/basic/popover',
     component: require('../components/Popover').default
+  },
+  {
+    key: 'tooltip',
+    name: 'Tooltip 文字提示',
+    path: '/app/basic/tooltip',
+    component: require('../components/Tooltip').default
   }
 ]
