@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Popover, Button } from 'components'
 
 export default function SimpleDemo() {
-  const [visible, setVisible] = React.useState(true)
+  const [visible, setVisible] = React.useState(false)
   return (
     <div style={{ marginTop: 20 }}>
       <Popover

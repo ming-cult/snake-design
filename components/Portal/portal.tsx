@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 import cx from 'classnames'
 import { Portal } from 'types/portal'
 import { useClickOutSide, useEnhancedEffect } from '../utils/use'
-import { noop } from '../utils/tool'
+import { noop, getClientSize } from '../utils/tool'
 
 const defaultProps = {
   trigger: 'hover',
@@ -18,7 +18,8 @@ const defaultProps = {
   mode: 'dropdown',
   visible: false,
   onVisibleChange: noop,
-  destroy: true
+  destroy: true,
+  autoAdjustOverflow: true
 }
 
 const PortalOverlay: React.FC<Portal> = dropdownProps => {
@@ -42,12 +43,14 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     mode,
     visible,
     destroy,
-    getPopupContainer
+    getPopupContainer,
+    autoAdjustOverflow
   } = props
   const wrapperRef = React.useRef<HTMLElement>()
   const contentRef = React.useRef<HTMLDivElement>()
   const timeoutRef = React.useRef<any>()
   const [mountNode, setMountNode] = React.useState(null)
+  const [newPlacement, setPlacement] = React.useState(placement)
 
   useClickOutSide([contentRef, wrapperRef], () => {
     onVisibleChange(false)
@@ -80,15 +83,97 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     ;(contentRef.current as HTMLElement).style.left = left
   }
 
-  const getPosition = () => {
+  const getPlacement = () => {
+    let clonePlacement = placement
     const rect = (wrapperRef.current as HTMLElement).getBoundingClientRect()
     const contentRect = (contentRef.current as HTMLElement).getBoundingClientRect()
+    if (autoAdjustOverflow) {
+      const { width, height } = getClientSize()
+      switch (placement) {
+        case 'top':
+          clonePlacement = rect.top < contentRect.height ? 'bottom' : 'top'
+          clonePlacement = `${clonePlacement}${
+            rect.left + rect.width / 2 < contentRect.width / 2 ? 'Left' : ''
+          }`
+          break
+        case 'topLeft':
+          clonePlacement = rect.top < contentRect.height ? 'bottom' : 'top'
+          clonePlacement = `${clonePlacement}${
+            width - rect.left < contentRect.width / 2 ? 'Right' : 'Left'
+          }`
+          break
+        case 'topRight':
+          clonePlacement = rect.top < contentRect.height ? 'bottom' : 'top'
+          clonePlacement = `${clonePlacement}${rect.right < contentRect.width ? 'Left' : 'Right'}`
+          break
+        case 'bottom':
+          clonePlacement = height - rect.bottom < contentRect.height ? 'top' : 'bottom'
+          clonePlacement = `${clonePlacement}${
+            rect.left + rect.width / 2 < contentRect.width / 2 ? 'Left' : ''
+          }`
+          break
+        case 'bottomLeft':
+          clonePlacement = height - rect.bottom < contentRect.height ? 'top' : 'bottom'
+          clonePlacement = `${clonePlacement}${
+            width - rect.left < contentRect.width / 2 ? 'Right' : 'Left'
+          }`
+          break
+        case 'bottomRight':
+          clonePlacement = height - rect.bottom < contentRect.height ? 'top' : 'bottom'
+          clonePlacement = `${clonePlacement}${rect.right < contentRect.width ? 'Left' : 'Right'}`
+          break
+        case 'left':
+          clonePlacement = rect.left < contentRect.width ? 'right' : 'left'
+          clonePlacement = `${clonePlacement}${
+            rect.top + rect.height / 2 < contentRect.height / 2 ? 'Top' : ''
+          }`
+          break
+        case 'leftTop':
+          clonePlacement = rect.left < contentRect.width ? 'right' : 'left'
+          clonePlacement = `${clonePlacement}${
+            height - rect.top < contentRect.height ? 'Bottom' : 'Top'
+          }`
+          break
+        case 'leftBottom':
+          clonePlacement = rect.left < contentRect.width ? 'right' : 'left'
+          clonePlacement = `${clonePlacement}${rect.bottom < contentRect.height ? 'Top' : 'Bottom'}`
+          break
+        case 'right':
+          clonePlacement = width - rect.right < contentRect.width ? 'left' : 'right'
+          clonePlacement = `${clonePlacement}${
+            rect.top + rect.height / 2 < contentRect.height / 2 ? 'Top' : ''
+          }`
+          break
+        case 'rightTop':
+          clonePlacement = width - rect.right < contentRect.width ? 'left' : 'right'
+          clonePlacement = `${clonePlacement}${
+            height - rect.top < contentRect.height ? 'Bottom' : 'Top'
+          }`
+          break
+        case 'rightBottom':
+          clonePlacement = width - rect.right < contentRect.width ? 'left' : 'right'
+          clonePlacement = `${clonePlacement}${rect.bottom < contentRect.height ? 'Top' : 'Bottom'}`
+          break
+        default:
+          break
+      }
+      // 修改方向
+      if (clonePlacement !== newPlacement) {
+        setPlacement(clonePlacement)
+      }
+    }
+
+    return { rect, contentRect, clonePlacement }
+  }
+
+  const getPosition = () => {
+    const { rect, contentRect, clonePlacement } = getPlacement()
     let top = `${rect.top + rect.height + offset + window.pageYOffset}px`
     let left = `${rect.left + window.pageXOffset}px`
     if (contentRect.width < rect.width && mode === 'dropdown') {
       contentRef.current.style.minWidth = `${rect.width}px`
     }
-    switch (placement) {
+    switch (clonePlacement) {
       case 'top':
         top = `${rect.top - offset - contentRect.height + window.pageYOffset}px`
         left = `${rect.left + rect.width / 2 - contentRect.width / 2 + window.pageXOffset}px`
@@ -183,7 +268,7 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
     const classStr = cx(
       prefixCls,
       {
-        [`${prefixCls}-${placement}`]: placement,
+        [`${prefixCls}-${newPlacement}`]: newPlacement,
         [`${prefixCls}-triangle`]: hasTriangle
       },
       className
