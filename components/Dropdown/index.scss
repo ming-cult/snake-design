@@ -25,9 +25,6 @@ $dropdown: 'snake-dropdown';
   &-slide-appear,
   &-slide-enter {
     opacity: 0;
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    animation-timing-function: $easeOutQuint;
     animation-play-state: paused;
   }
 
@@ -37,6 +34,9 @@ $dropdown: 'snake-dropdown';
   &-slide-enter-active.#{$dropdown}-bottom,
   &-slide-enter-active.#{$dropdown}-bottomLeft,
   &-slide-enter-active.#{$dropdown}-bottomRight {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: $easeOutQuint;
     animation-name: slideUpIn;
     animation-play-state: running;
   }
@@ -47,6 +47,9 @@ $dropdown: 'snake-dropdown';
   &-slide-enter-active.#{$dropdown}-top,
   &-slide-enter-active.#{$dropdown}-topLeft,
   &-slide-enter-active.#{$dropdown}-topRight {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: $easeOutQuint;
     animation-name: slideDownIn;
     animation-play-state: running;
   }

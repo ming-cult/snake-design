@@ -252,6 +252,8 @@ $popover: 'snake-popover';
 
   &-pop-animate-enter-active,
   &-pop-animate-appear-active {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
     animation-name: ZoomEnter;
     animation-play-state: running;
   }
