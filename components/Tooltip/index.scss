@@ -234,6 +234,8 @@ $tooltip: 'snake-tooltip';
 
   &-tooltip-animate-enter-active,
   &-tooltip-animate-appear-active {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
     animation-name: ZoomEnter;
     animation-play-state: running;
   }
