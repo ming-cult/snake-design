@@ -1,0 +1,109 @@
+@import '../styles/themes/default';
+
+$tabs: 'snake-tabs';
+
+.#{$tabs} {
+  box-sizing: border-box;
+
+  &-wrap {
+    display: flex;
+    position: relative;
+    background: #fff;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none; // 移除滚动条
+    }
+
+    &-top {
+      height: 40px;
+      @include one-px-border(bottom, solid, #ddd);
+    }
+
+    &-bottom {
+      height: 40px;
+      @include one-px-border(top, solid, #ddd);
+    }
+
+    &-left {
+      flex-direction: column;
+      @include one-px-border(right, solid, #ddd);
+    }
+
+    &-right {
+      flex-direction: column;
+      @include one-px-border(left, solid, #ddd);
+    }
+
+    &-item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      padding: 6px 12px;
+      cursor: pointer;
+
+      /* 禁用态 */
+      &-disabled {
+        color: rgba(0, 0, 0, 0.25);
+        cursor: not-allowed;
+      }
+    }
+
+    &-scroll {
+      flex-shrink: 0;
+    }
+
+    &-active {
+      color: $brand;
+    }
+
+    &-underline {
+      position: absolute;
+      border: 1px solid $brand;
+      z-index: 10;
+
+      &-top {
+        bottom: 0;
+        transition: left 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
+
+      &-bottom {
+        top: 0;
+        transition: left 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
+
+      &-left {
+        right: 0;
+        transition: top 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
+
+      &-right {
+        left: 0;
+        transition: top 0.3s $easeInOut, width 0.3s $easeInOut;
+      }
+    }
+  }
+
+  &-left,
+  &-right {
+    display: flex;
+  }
+
+  &-card {
+    &-top {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 4px 4px 0 0;
+      border-bottom: 1px solid #fff;
+      margin-right: 2px;
+
+      &-current {
+        background: #fff;
+        border-bottom: 1px solid #fff;
+        z-index: 1;
+      }
+    }
+  }
+}
