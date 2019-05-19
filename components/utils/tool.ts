@@ -83,3 +83,12 @@ export const throttle = (fn: any, wait: number) => {
     }
   }
 }
+
+/** 获取浏览器的视窗的宽度 */
+export const getClientSize = () => {
+  return {
+    width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+    height:
+      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+  }
+}

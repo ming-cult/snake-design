@@ -36,6 +36,8 @@ export interface Portal {
   visible?: boolean
   // 获取当前的容器
   getPopupContainer?: () => HTMLElement
+  // 默认为 true
+  autoAdjustOverflow?: boolean
 }
 
 export type Trigger = 'hover' | 'click'
