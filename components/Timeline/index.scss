@@ -1,0 +1,50 @@
+@import '../styles/themes/default';
+
+$timeline: 'snake-timeline';
+
+.#{$timeline} {
+  &-item {
+    position: relative;
+    margin: 0;
+    padding: 0 0 20px;
+    font-size: 12px;
+    list-style: none;
+
+    &-last {
+      padding: initial;
+    }
+
+    &-tail {
+      position: absolute;
+      top: 0.75em;
+      left: 4px;
+      height: 100%;
+      border-left: 2px solid #e8e8e8;
+    }
+
+    &-dot {
+      position: absolute;
+
+      &-default {
+        width: 9px;
+        height: 9px;
+        border-radius: 100%;
+        background: #d8d8d8;
+
+        &-current {
+          background: #19e;
+        }
+      }
+    }
+
+    &-content {
+      position: relative;
+      margin: 0 0 0 18px;
+      top: -2px;
+
+      &-current {
+        color: #19e;
+      }
+    }
+  }
+}
