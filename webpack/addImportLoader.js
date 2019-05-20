@@ -42,10 +42,7 @@ md = md({
       }
 
       // 把代码中的{}转
-      highlightedContent = highlightedContent.replace(
-        /[{}]/g,
-        match => `{'${match}'}`
-      )
+      highlightedContent = highlightedContent.replace(/[{}]/g, match => `{'${match}'}`)
 
       // 加上 hljs
       highlightedContent = highlightedContent
@@ -100,23 +97,21 @@ const formatClosing = () => `
       </div>
     </div>`
 
-module.exports = function (source) {
+module.exports = function(source) {
   this.cacheable()
   // init options
 
   const _options = loaderUtils.getOptions(this) || {}
 
-  Object.assign(
-    options,
-    _options.markdownItReact ? _options.markdownItReact() : {}
-  )
+  Object.assign(options, _options.markdownItReact ? _options.markdownItReact() : {})
 
   const {
     body,
     attributes: { imports: importMap }
   } = frontMatter(source)
 
-  const imports = `import * as React from 'react';  import copy from 'copy-to-clipboard';${importMap}`
+  const imports = `import * as React from 'react';  import copy from 'copy-to-clipboard'; import Code from 'layout/prism/index';
+  import Block from 'layout/block'; ${importMap}`
 
   const moduleJS = []
   const state = ''

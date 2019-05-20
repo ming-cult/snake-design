@@ -54,7 +54,6 @@ jest_0
 
 # editor
 .idea/
-.vscode
 
 # eslint
 .DS_Store
@@ -73,3 +72,4 @@ dist
 lib
 
 docsDist
+.markdownlint.json

@@ -1,0 +1,295 @@
+@import '../styles/themes/default';
+
+$popover: 'snake-popover';
+
+.#{$popover} {
+  position: absolute;
+  z-index: $zindexPopover;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: $body;
+  line-height: $lineHeight;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+
+  &-content {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: $borderRadius;
+    background: #fff;
+  }
+
+  &-inner {
+    &-title {
+      min-width: 177px;
+      margin: 0;
+      padding: 5px 16px 4px;
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 500;
+      border-bottom: 1px solid #e8e8e8;
+      box-sizing: border-box;
+    }
+
+    &-content {
+      padding: 12px 16px;
+      color: rgba(0, 0, 0, 0.65);
+      box-sizing: border-box;
+    }
+  }
+
+  &-top {
+    transform-origin: 50% 100%;
+  }
+
+  &-topLeft {
+    transform-origin: 0 100%;
+  }
+
+  &-topRight {
+    transform-origin: 100% 100%;
+  }
+
+  &-bottom {
+    transform-origin: 50% 0;
+  }
+
+  &-bottomLeft {
+    transform-origin: 0 0;
+  }
+
+  &-bottomRight {
+    transform-origin: 100% 0;
+  }
+
+  &-left {
+    transform-origin: 100% 50%;
+  }
+
+  &-leftTop {
+    transform-origin: 100% 0;
+  }
+
+  &-leftBottom {
+    transform-origin: 100% 100%;
+  }
+
+  &-right {
+    transform-origin: 0 50%;
+  }
+
+  &-rightTop {
+    transform-origin: 0 0;
+  }
+
+  &-rightBottom {
+    transform-origin: 0 100%;
+  }
+
+  &-triangle {
+    .#{$popover}-content {
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 8.48528137px;
+        height: 8.48528137px;
+        background: transparent;
+        border-style: solid;
+        border-width: 4.24264069px;
+        transform: rotate(45deg);
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-top,
+  &-triangle.#{$popover}-topLeft,
+  &-triangle.#{$popover}-topRight {
+    .#{$popover}-content {
+      &::after {
+        bottom: 6.2px;
+        border-top-color: transparent;
+        border-right-color: #fff;
+        border-bottom-color: #fff;
+        border-left-color: transparent;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-top,
+  &-triangle.#{$popover}-bottom {
+    .#{$popover}-content {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-topLeft,
+  &-triangle.#{$popover}-bottomLeft {
+    .#{$popover}-content {
+      &::after {
+        left: 16px;
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-topRight,
+  &-triangle.#{$popover}-bottomRight {
+    .#{$popover}-content {
+      &::after {
+        right: 16px;
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-bottom,
+  &-triangle.#{$popover}-bottomLeft,
+  &-triangle.#{$popover}-bottomRight {
+    .#{$popover}-content {
+      &::after {
+        top: 6px;
+        border-top-color: #fff;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: #fff;
+        box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-left,
+  &-triangle.#{$popover}-leftTop,
+  &-triangle.#{$popover}-leftBottom {
+    .#{$popover}-content {
+      &::after {
+        right: 6px;
+        border-top-color: #fff;
+        border-right-color: #fff;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-right,
+  &-triangle.#{$popover}-rightTop,
+  &-triangle.#{$popover}-rightBottom {
+    .#{$popover}-content {
+      &::after {
+        left: 6px;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: #fff;
+        border-left-color: #fff;
+        box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-leftTop,
+  &-triangle.#{$popover}-rightTop {
+    .#{$popover}-content {
+      &::after {
+        top: 12px;
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-left,
+  &-triangle.#{$popover}-right {
+    .#{$popover}-content {
+      &::after {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+
+  &-triangle.#{$popover}-leftBottom,
+  &-triangle.#{$popover}-rightBottom {
+    .#{$popover}-content {
+      &::after {
+        bottom: 12px;
+      }
+    }
+  }
+
+  &-top,
+  &-topLeft,
+  &-topRight {
+    padding-bottom: 10px;
+  }
+
+  &-bottom,
+  &-bottomLeft,
+  &-bottomRight {
+    padding-top: 10px;
+  }
+
+  &-left,
+  &-leftTop,
+  &-leftBottom {
+    padding-right: 10px;
+  }
+
+  &-right,
+  &-rightTop,
+  &-rightBottom {
+    padding-left: 10px;
+  }
+
+  &-pop-animate-enter,
+  &-pop-animate-appear {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  &-pop-animate-enter-active,
+  &-pop-animate-appear-active {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-name: ZoomEnter;
+    animation-play-state: running;
+  }
+
+  &-pop-animate-exit {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  &-pop-animate-exit-active {
+    animation-name: ZoomLeave;
+    animation-play-state: running;
+    pointer-events: none;
+  }
+}
+
+@keyframes ZoomEnter {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ZoomLeave {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}

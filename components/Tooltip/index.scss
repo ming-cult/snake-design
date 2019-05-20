@@ -1,0 +1,277 @@
+@import '../styles/themes/default';
+
+$tooltip: 'snake-tooltip';
+
+.#{$tooltip} {
+  position: absolute;
+  z-index: $zindexPopover;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: $body;
+  line-height: $lineHeight;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+  visibility: visible;
+  max-width: 250px;
+
+  &-content {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: $borderRadius;
+  }
+
+  &-inner {
+    min-width: 30px;
+    padding: 6px 8px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+  }
+
+  &-top {
+    transform-origin: 50% 100%;
+  }
+
+  &-topLeft {
+    transform-origin: 0 100%;
+  }
+
+  &-topRight {
+    transform-origin: 100% 100%;
+  }
+
+  &-bottom {
+    transform-origin: 50% 0;
+  }
+
+  &-bottomLeft {
+    transform-origin: 0 0;
+  }
+
+  &-bottomRight {
+    transform-origin: 100% 0;
+  }
+
+  &-left {
+    transform-origin: 100% 50%;
+  }
+
+  &-leftTop {
+    transform-origin: 100% 0;
+  }
+
+  &-leftBottom {
+    transform-origin: 100% 100%;
+  }
+
+  &-right {
+    transform-origin: 0 50%;
+  }
+
+  &-rightTop {
+    transform-origin: 0 0;
+  }
+
+  &-rightBottom {
+    transform-origin: 0 100%;
+  }
+
+  &-triangle {
+    .#{$tooltip}-content {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-top,
+  &-triangle.#{$tooltip}-topLeft,
+  &-triangle.#{$tooltip}-topRight {
+    .#{$tooltip}-content {
+      &::after {
+        bottom: 5px;
+        border-width: 5px 5px 0;
+        border-top-color: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-top,
+  &-triangle.#{$tooltip}-bottom {
+    .#{$tooltip}-content {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-topLeft,
+  &-triangle.#{$tooltip}-bottomLeft {
+    .#{$tooltip}-content {
+      &::after {
+        left: 16px;
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-topRight,
+  &-triangle.#{$tooltip}-bottomRight {
+    .#{$tooltip}-content {
+      &::after {
+        right: 16px;
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-bottom,
+  &-triangle.#{$tooltip}-bottomLeft,
+  &-triangle.#{$tooltip}-bottomRight {
+    .#{$tooltip}-content {
+      &::after {
+        top: 5px;
+        border-width: 0 5px 5px;
+        border-bottom-color: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-left,
+  &-triangle.#{$tooltip}-leftTop,
+  &-triangle.#{$tooltip}-leftBottom {
+    .#{$tooltip}-content {
+      &::after {
+        right: 5px;
+        border-width: 5px 0 5px 5px;
+        border-left-color: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-right,
+  &-triangle.#{$tooltip}-rightTop,
+  &-triangle.#{$tooltip}-rightBottom {
+    .#{$tooltip}-content {
+      &::after {
+        left: 5px;
+        border-width: 5px 5px 5px 0;
+        border-right-color: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-leftTop,
+  &-triangle.#{$tooltip}-rightTop {
+    .#{$tooltip}-content {
+      &::after {
+        top: 8px;
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-left,
+  &-triangle.#{$tooltip}-right {
+    .#{$tooltip}-content {
+      &::after {
+        top: 50%;
+        // transform: translateY(-50%);
+        margin-top: -5px;
+      }
+    }
+  }
+
+  &-triangle.#{$tooltip}-leftBottom,
+  &-triangle.#{$tooltip}-rightBottom {
+    .#{$tooltip}-content {
+      &::after {
+        bottom: 8px;
+      }
+    }
+  }
+
+  &-top,
+  &-topLeft,
+  &-topRight {
+    padding-bottom: 10px;
+  }
+
+  &-bottom,
+  &-bottomLeft,
+  &-bottomRight {
+    padding-top: 10px;
+  }
+
+  &-left,
+  &-leftTop,
+  &-leftBottom {
+    padding-right: 10px;
+  }
+
+  &-right,
+  &-rightTop,
+  &-rightBottom {
+    padding-left: 10px;
+  }
+
+  &-tooltip-animate-enter,
+  &-tooltip-animate-appear {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  &-tooltip-animate-enter-active,
+  &-tooltip-animate-appear-active {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-name: ZoomEnter;
+    animation-play-state: running;
+  }
+
+  &-tooltip-animate-exit {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  &-tooltip-animate-exit-active {
+    animation-name: ZoomLeave;
+    animation-play-state: running;
+    pointer-events: none;
+  }
+}
+
+@keyframes ZoomEnter {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ZoomLeave {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}

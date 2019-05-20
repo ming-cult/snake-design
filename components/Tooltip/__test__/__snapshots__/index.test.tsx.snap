@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip Test snapshot when visible is false 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div />
+</body>
+`;
+
+exports[`Tooltip Test snapshot when visible is true 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-top snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is bottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-bottom snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is bottomLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-bottomLeft snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is bottomRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-bottomRight snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is left 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-left snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is leftBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-leftBottom snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is leftTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-leftTop snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is right 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-right snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is rightBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-rightBottom snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is rightTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-rightTop snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is topLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-topLeft snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Tooltip Test snapshot with placement is topRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-tooltip snake-tooltip-topRight snake-tooltip-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-tooltip-content"
+      >
+        <div
+          class="snake-tooltip-inner"
+          role="tooltip"
+        >
+          <div
+            class="snake-tooltip-inner-title"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

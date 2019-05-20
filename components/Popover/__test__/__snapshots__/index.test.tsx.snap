@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover Test snapshot when visible is false 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div />
+</body>
+`;
+
+exports[`Popover Test snapshot when visible is true 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-top snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is bottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-bottom snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is bottomLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-bottomLeft snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is bottomRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-bottomRight snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is left 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-left snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is leftBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-leftBottom snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is leftTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-leftTop snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is right 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-right snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is rightBottom 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-rightBottom snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is rightTop 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-rightTop snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is topLeft 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-topLeft snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Popover Test snapshot with placement is topRight 1`] = `
+<body>
+  <div>
+    <span>
+      <span>
+        click me
+      </span>
+    </span>
+  </div>
+  <div>
+    <div
+      class="snake-popover snake-popover-topRight snake-popover-triangle"
+      style="top: 0px; left: 0px;"
+    >
+      <div
+        class="snake-popover-content"
+      >
+        <div
+          class="snake-popover-inner"
+        >
+          <div
+            class="snake-popover-inner-content"
+          >
+            <div>
+              内容区
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
