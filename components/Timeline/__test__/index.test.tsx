@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { render } from 'react-test-renderer'
-import Timeline from '../Timeline'
+import { render } from 'react-testing-library'
+import Timeline from '../index'
 
 // how to remove any
-// const TimelineItem = (Timeline as any).Item
+const TimelineItem = (Timeline as any).Item
 
 it('renders correctly', () => {
   const options = [
@@ -18,7 +18,7 @@ it('renders correctly', () => {
     {
       content: (
         <>
-          <p>上海徐汇古北营业部派件员 顺丰速运 95</p>
+          <p>收件人已签收，阿乙</p>
           <p>2018-08-03 13:34:23</p>
         </>
       )
@@ -26,15 +26,30 @@ it('renders correctly', () => {
     {
       content: (
         <>
-          <p>上海徐汇古北营业部派件员 顺丰速运 95</p>
+          <p>收件人已签收，阿乙</p>
           <p>2018-08-03 13:34:23</p>
         </>
       ),
       lineHeight: 0
     }
   ]
-  const { container: TimelineContainer1 } = render(
-    <Timeline options={options} highlightColor="#2ca5f1" />
+  const { container: Timeline1 } = render(<Timeline options={options} highlightColor="#2ca5f1" />)
+  expect(Timeline1).toMatchSnapshot()
+  const { container: Timeline2 } = render(
+    <Timeline>
+      <TimelineItem>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+      <TimelineItem>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+      <TimelineItem lineHeight={0}>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+    </Timeline>
   )
-  expect(TimelineContainer1).toMatchSnapshot()
+  expect(Timeline2).toMatchSnapshot()
 })

@@ -1,17 +1,27 @@
 ---
 imports: import TimelineDemoCode from '!raw-loader!./simpleTimeline.tsx';
   import TimelineDemo from './simpleTimeline.tsx';
+  import TimelineChildCode from '!raw-loader!./timelineChild.tsx';
+  import TimelineChild from './timelineChild.tsx';
 ---
 
 # Timeline 时间轴
 
 时间轴。
 
-## 简单示例
+## 简单示例(配置化写法)
 
 :::demo
 <Block des="Timeline 示例" code={TimelineDemoCode}>
 <TimelineDemo />
+</Block>
+:::
+
+## 简单示例(children 写法)
+
+:::demo
+<Block des="Timeline 示例" code={TimelineChildCode}>
+<TimelineChild />
 </Block>
 :::
 

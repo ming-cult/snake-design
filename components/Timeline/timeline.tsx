@@ -1,6 +1,6 @@
 import * as React from 'react'
 import cx from 'classnames'
-import TimelineItem from './TimelineItem'
+import TimelineItem from './timelineItem'
 import { TimelineProps } from 'types/timeline.d'
 import './index.scss'
 
@@ -10,7 +10,8 @@ const defaultProps = {
   highlightColor: '#1199EE'
 }
 
-function Timeline(userProps: TimelineProps, ref: React.RefObject<any>) {
+// 此处因为使用 React.ref 进行包裹, 所以没办法直接直接将 Timeline.Item = TimelineItem
+const Timeline: React.FC<TimelineProps> = (userProps, ref) => {
   const props = {
     ...defaultProps,
     ...userProps
