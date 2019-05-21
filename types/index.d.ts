@@ -8,3 +8,4 @@
 /// <reference path="overlay.d.ts" />
 /// <reference path="layout.d.tsx" />
 /// <reference path="modal.d.ts" />
+/// <reference path="timeline.d.ts" />
