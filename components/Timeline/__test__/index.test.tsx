@@ -1,56 +1,40 @@
 import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
-import Tabs from '../index'
+import { render } from 'react-test-renderer'
+import Timeline from '../Timeline'
 
-const { useState } = React
+// how to remove any
+// const TimelineItem = (Timeline as any).Item
 
-const tabs = [
-  {
-    title: '标签一',
-    content: <div>标签一的内容</div>
-  },
-  {
-    title: '标签二',
-    content: <div>标签二的内容</div>
-  },
-  {
-    title: '标签三',
-    content: <div>标签三的内容</div>,
-    disabled: true
-  }
-]
-
-describe('Tabs Test', () => {
-  beforeEach(() => {
-    document.body.innerHTML = ''
-  })
-  it('snapshot', () => {
-    const tabsRenderTop = render(<Tabs options={tabs} />)
-    const tabsRenderBottom = render(<Tabs options={tabs} tabBarPosition="bottom" />)
-    const tabsRenderLeft = render(<Tabs options={tabs} tabBarPosition="left" />)
-    const tabsRenderRight = render(<Tabs options={tabs} tabBarPosition="right" />)
-    expect(tabsRenderTop.container.innerHTML).toMatchSnapshot()
-    expect(tabsRenderBottom.container.innerHTML).toMatchSnapshot()
-    expect(tabsRenderLeft.container.innerHTML).toMatchSnapshot()
-    expect(tabsRenderRight.container.innerHTML).toMatchSnapshot()
-  })
-  it('dispatch change tab', async () => {
-    const TabDemo = function() {
-      const [activeTab, setActiveTab] = useState(0)
-      return (
-        <Tabs
-          options={tabs}
-          activeTab={activeTab}
-          onChange={(index: number) => setActiveTab(index)}
-        />
+it('renders correctly', () => {
+  const options = [
+    {
+      content: (
+        <>
+          <p>收件人已签收，阿乙</p>
+          <p>2018-08-03 13:34:23</p>
+        </>
       )
+    },
+    {
+      content: (
+        <>
+          <p>上海徐汇古北营业部派件员 顺丰速运 95</p>
+          <p>2018-08-03 13:34:23</p>
+        </>
+      )
+    },
+    {
+      content: (
+        <>
+          <p>上海徐汇古北营业部派件员 顺丰速运 95</p>
+          <p>2018-08-03 13:34:23</p>
+        </>
+      ),
+      lineHeight: 0
     }
-
-    const { getByText } = render(<TabDemo />)
-    expect(getByText('标签一的内容')).toBeTruthy()
-    fireEvent.click(getByText('标签二'))
-    expect(getByText('标签二的内容')).toBeTruthy()
-    fireEvent.click(getByText('标签三'))
-    expect(getByText('标签二的内容')).toBeTruthy()
-  })
+  ]
+  const { container: TimelineContainer1 } = render(
+    <Timeline options={options} highlightColor="#2ca5f1" />
+  )
+  expect(TimelineContainer1).toMatchSnapshot()
 })

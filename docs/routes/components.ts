@@ -82,5 +82,11 @@ export default [
     name: 'Tooltip 文字提示',
     path: '/app/basic/tooltip',
     component: require('../components/Tooltip').default
+  },
+  {
+    key: 'timeline',
+    name: 'Timeline 时间轴',
+    path: '/app/basic/timeline',
+    component: require('../components/Timeline').default
   }
 ]

@@ -46,9 +46,7 @@ function Timeline(userProps: TimelineProps, ref: React.RefObject<any>) {
     })
   }
 
-  return <ul>{renderTimeline()}</ul>
+  return <ul ref={ref}>{renderTimeline()}</ul>
 }
-
-Timeline.Item = TimelineItem
 
 export default React.forwardRef(Timeline)

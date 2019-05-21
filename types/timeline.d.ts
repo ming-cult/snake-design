@@ -1,12 +1,12 @@
 export interface TimelineProps {
   /* 当前高亮的节点 */
-  current: number
+  current?: number
   /* 高亮节点的颜色 */
-  highlightColor: string
+  highlightColor?: string
   /* 可以使用 options 或者 Item 两种方式 */
   options?: TimelineItemConfig[]
   /* 子节点 */
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 interface TimelineItemConfig {
