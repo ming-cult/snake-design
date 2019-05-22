@@ -1,15 +1,21 @@
 export default [
   {
     key: 'button',
-    name: '按钮',
+    name: 'Button 按钮',
     path: '/app/basic/button',
     component: require('../components/Button').default
   },
   {
     key: 'breadcrumb',
-    name: '面包屑',
+    name: 'Breadcrumb 面包屑',
     path: '/app/basic/breadcrumb',
     component: require('../components/Breadcrumb').default
+  },
+  {
+    key: 'tabs',
+    name: 'Tabs 标签页',
+    path: '/app/basic/tabs',
+    component: require('../components/Tabs').default
   },
   {
     key: 'icon',
@@ -54,9 +60,27 @@ export default [
     component: require('../components/Modal').default
   },
   {
+    key: 'dropdown',
+    name: 'Dropdown 下拉框',
+    path: '/app/basic/dropdown',
+    component: require('../components/Dropdown').default
+  },
+  {
     key: 'backTop',
     name: 'BackTop 回到顶部',
     path: '/app/basic/backTop',
     component: require('../components/BackTop').default
+  },
+  {
+    key: 'popover',
+    name: 'Popover 气泡卡片',
+    path: '/app/basic/popover',
+    component: require('../components/Popover').default
+  },
+  {
+    key: 'tooltip',
+    name: 'Tooltip 文字提示',
+    path: '/app/basic/tooltip',
+    component: require('../components/Tooltip').default
   }
 ]
