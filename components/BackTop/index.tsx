@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { BacktopProps } from 'types/backtop'
 import cx from 'classnames'
+import { scrollToY } from '../utils/scrollTo'
 import Icon from '../Icon'
 import { throttle } from '../utils/tool'
 import './index.scss'
@@ -39,10 +40,11 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
   }, [])
 
   const backTopFn = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth'
+    // })
+    scrollToY(0)
   }
 
   return (
