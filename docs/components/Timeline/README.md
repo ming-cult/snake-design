@@ -27,11 +27,12 @@ imports: import TimelineDemoCode from '!raw-loader!./simpleTimeline.tsx';
 
 ## Timeline Api
 
-| 属性         |              说明              |         类型          |    默认值 |
-| ------------ | :----------------------------: | :-------------------: | --------: |
-| current      |         当前高亮的节点         |        number         |         0 |
-| currentColor |         高亮节点的颜色         |        string         | '#1199EE' |
-| options      | 支持配置模式或者 children 模式 | TimeLineConfigProps[] |        -- |
+| 属性         |        说明         |         类型          |    默认值 |
+| ------------ | :-----------------: | :-------------------: | --------: |
+| current      |   当前高亮的节点    |        number         |         0 |
+| currentColor |   高亮节点的颜色    |        string         | '#1199EE' |
+| options      |   配置模式下传入    | TimeLineConfigProps[] |        -- |
+| children     | children 模式下传入 |    React.ReactNode    |        -- |
 
 ## TimeLineItemProps Api
 
@@ -39,6 +40,7 @@ imports: import TimelineDemoCode from '!raw-loader!./simpleTimeline.tsx';
 | ---------- | :------------------: | :-------------: | -----: |
 | dot        |    自定义时间轴点    | React.ReactNode |     -- |
 | lineHeight | 线条高度, 单位百分比 |     Number      |    100 |
+| children   |      子节点内容      | React.ReactNode |     -- |
 
 ## TimeLineConfigProps Api
 
