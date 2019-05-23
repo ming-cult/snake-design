@@ -1,7 +1,7 @@
 import * as React from 'react'
 import cx from 'classnames'
 import TimelineItem from './timelineItem'
-import { TimelineProps } from 'types/timeline.d'
+import { TimelineProps, TimeLineItemProps } from 'types/timeline.d'
 import './index.scss'
 
 const defaultProps = {
@@ -10,8 +10,7 @@ const defaultProps = {
   highlightColor: '#1199EE'
 }
 
-// 此处因为使用 React.ref 进行包裹, 所以没办法直接直接将 Timeline.Item = TimelineItem
-const Timeline: React.FC<TimelineProps> = (userProps, ref) => {
+const TimelineComponent: React.FC<TimelineProps> = (userProps, ref) => {
   const props = {
     ...defaultProps,
     ...userProps
@@ -50,4 +49,10 @@ const Timeline: React.FC<TimelineProps> = (userProps, ref) => {
   return <ul ref={ref}>{renderTimeline()}</ul>
 }
 
-export default React.forwardRef(Timeline)
+const Timeline: React.ForwardRefExoticComponent<TimelineProps & React.RefAttributes<{}>> & {
+  Item?: React.FC<TimeLineItemProps> & { ifCurrent?: boolean; highlightColor?: string }
+} = React.forwardRef(TimelineComponent)
+
+Timeline.Item = TimelineItem
+
+export default Timeline

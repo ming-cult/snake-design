@@ -7,7 +7,9 @@ const defaultProps = {
   prefixCls: 'snake-timeline-item'
 }
 
-function TimeLineItem(userProps: TimeLineItemProps) {
+function TimeLineItem(
+  userProps: TimeLineItemProps & { ifCurrent?: boolean; highlightColor?: string }
+) {
   const props = {
     ...defaultProps,
     ...userProps

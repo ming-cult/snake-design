@@ -163,3 +163,167 @@ exports[`renders correctly 2`] = `
   </ul>
 </div>
 `;
+
+exports[`renders correctly 3`] = `
+<div>
+  <ul>
+    <li
+      class="snake-timeline-item"
+    >
+      <div
+        class="snake-timeline-item-tail"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+    <li
+      class="snake-timeline-item"
+    >
+      <div
+        class="snake-timeline-item-tail"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default snake-timeline-item-dot-default-current"
+          style="background: rgb(17, 153, 238);"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content snake-timeline-item-content-current"
+        style="color: rgb(17, 153, 238);"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+    <li
+      class="snake-timeline-item snake-timeline-item-last"
+    >
+      <div
+        class="snake-timeline-item-tail"
+        style="height: 0%;"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders correctly 4`] = `
+<div>
+  <ul>
+    <li
+      class="snake-timeline-item"
+    >
+      <div
+        class="snake-timeline-item-tail"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+    <li
+      class="snake-timeline-item"
+    >
+      <div
+        class="snake-timeline-item-tail"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default snake-timeline-item-dot-default-current"
+          style="background: rgb(17, 153, 238);"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content snake-timeline-item-content-current"
+        style="color: rgb(17, 153, 238);"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+    <li
+      class="snake-timeline-item snake-timeline-item-last"
+    >
+      <div
+        class="snake-timeline-item-tail"
+        style="height: 0%;"
+      />
+      <div
+        class="snake-timeline-item-dot"
+      >
+        <div
+          class="snake-timeline-item-dot-default"
+        />
+      </div>
+      <div
+        class="snake-timeline-item-content"
+      >
+        <p>
+          收件人已签收，阿乙
+        </p>
+        <p>
+          2018-08-03 13:34:23
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

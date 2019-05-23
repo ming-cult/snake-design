@@ -9,24 +9,19 @@ export interface TimelineProps {
   children?: React.ReactNode
 }
 
-interface TimelineItemConfig {
+interface TimelineItem {
   /* 自定义时间轴点 */
   dot?: React.ReactNode
   /* 线条高度, 单位百分比, 默认 100 */
   lineHeight?: number
+}
+
+interface TimelineItemConfig extends TimelineItem {
   /* 时间线内容 */
   content?: React.ReactNode
 }
 
-export interface TimeLineItemProps {
-  /* 自定义时间轴点 */
-  dot?: React.ReactNode
-  /* 线条高度, 单位百分比, 默认 100 */
-  lineHeight?: number
+export interface TimeLineItemProps extends TimelineItem {
   /* 子节点 */
   children?: React.ReactNode
-  /* 是否是当前项, 非对外暴露属性  */
-  ifCurrent?: boolean
-  /* 高亮节点的颜色, 非对外暴露属性 */
-  highlightColor?: string
 }

@@ -2,8 +2,7 @@ import * as React from 'react'
 import { render } from 'react-testing-library'
 import Timeline from '../index'
 
-// how to remove any
-const TimelineItem = (Timeline as any).Item
+const TimelineItem = Timeline.Item
 
 it('renders correctly', () => {
   const options = [
@@ -52,4 +51,23 @@ it('renders correctly', () => {
     </Timeline>
   )
   expect(Timeline2).toMatchSnapshot()
+  const { container: Timeline3 } = render(<Timeline options={options} current={1} />)
+  expect(Timeline3).toMatchSnapshot()
+  const { container: Timeline4 } = render(
+    <Timeline current={1}>
+      <TimelineItem>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+      <TimelineItem>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+      <TimelineItem lineHeight={0}>
+        <p>收件人已签收，阿乙</p>
+        <p>2018-08-03 13:34:23</p>
+      </TimelineItem>
+    </Timeline>
+  )
+  expect(Timeline4).toMatchSnapshot()
 })
