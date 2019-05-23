@@ -82,5 +82,11 @@ export default [
     name: 'Tooltip 文字提示',
     path: '/app/basic/tooltip',
     component: require('../components/Tooltip').default
+  },
+  {
+    key: 'spin',
+    name: 'Spin 文字提示',
+    path: '/app/basic/spin',
+    component: require('../components/Spin').default
   }
 ]
