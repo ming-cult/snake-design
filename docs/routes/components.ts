@@ -85,8 +85,14 @@ export default [
   },
   {
     key: 'spin',
-    name: 'Spin 文字提示',
+    name: 'Spin 加载器',
     path: '/app/basic/spin',
     component: require('../components/Spin').default
+  },
+  {
+    key: 'table',
+    name: 'Table 表格',
+    path: '/app/basic/table',
+    component: require('../components/Table').default
   }
 ]

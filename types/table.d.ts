@@ -1,18 +1,44 @@
-export interface TableCell {}
+export interface TableCellProps<T> {
+  tag?: 'th' | 'td'
+  children?: React.ReactNode
+  className?: string
+  column?: Column<T>
+  prefixCls?: string
+}
 
-export interface TableBody {}
+export interface TableBodyProps<T> {
+  prefixCls?: string
+  columns?: Column<T>[]
+  dataSource?: T[]
+  rowKey?: (record: T) => string
+  className?: string
+  rowClassName?: (record: T, index: number) => string
+}
 
-export interface TableHead {}
+export interface TableHeadProps<T> {
+  columns?: Column<T>[]
+  prefixCls?: string
+}
 
-export interface TableRow {}
+export interface ColGroupProps<T> {
+  columns: Column<T>[]
+  prefixCls?: string
+}
 
-export interface TablePagination {}
+export interface TableRowProps<T> {
+  data: T
+  columns: Column<T>[]
+  prefixCls?: string
+  className?: string
+}
 
-export interface Table<T> {
+export interface TablePaginationProps {}
+
+export interface TableProps<T> {
   // 数据源
   dataSource?: T[]
   // column 渲染列
-  columns: Column<T>[]
+  columns?: Column<T>[]
   // expandedRowKeys 用来控制展开的行, 不需要default
   expandedRowKeys?: number[]
   // expandedRowRender 额外的展开行, 渲染复杂的数据结构
@@ -45,6 +71,10 @@ export interface Table<T> {
   onRow?: (record: T, index: number) => object
 }
 
+export type Align = 'left' | 'center' | 'right'
+
+export type Fixed = 'left' | 'right'
+
 /** 每一列 */
 export interface Column<T> {
   // key 每一列单独的`key`
@@ -52,7 +82,7 @@ export interface Column<T> {
   // title 标题
   title?: React.ReactNode
   // 内容的对齐方式 默认 left
-  align?: 'left' | 'center' | 'right'
+  align?: Align
   // className 每一列的列名
   className?: string
   // colSpan 列合并
@@ -64,7 +94,7 @@ export interface Column<T> {
   // onFilter 本地的筛选函数，服务端进行筛选的时候，可以不加这个函数, value为选中的value的数组
   onFilter?: (value: Array<string | number>, record: T) => boolean
   // fixed 是否固定 固定在左边或者右边
-  fixed?: 'left' | 'right'
+  fixed?: Fixed
   // render 用于复杂数据的渲染 record: 当前行的dataSource的数据, text: 当前Data的value, index: 当前行的下标
   render?: (record: T, text?: string, index?: number) => React.ReactNode
   // width 列宽度
