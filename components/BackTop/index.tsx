@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { BacktopProps } from 'types/backtop'
 import cx from 'classnames'
+import { scrollToY } from '../utils/scrollTo'
 import Icon from '../Icon'
 import { throttle } from '../utils/tool'
 import './index.scss'
@@ -8,7 +9,8 @@ import './index.scss'
 const { useState, useEffect } = React
 
 const defaultProps = {
-  prefixCls: 'snake-design-backtop'
+  prefixCls: 'snake-design-backtop',
+  visibilityHeight: 400
 }
 
 const BackTop = (userProps: BacktopProps, ref: any) => {
@@ -17,12 +19,12 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
     ...defaultProps
   }
 
-  const { prefixCls, children } = props
+  const { prefixCls, children, visibilityHeight } = props
 
   const [show, setShow] = useState(false)
 
   const scrollLogic = () => {
-    if (window.scrollY >= 400) {
+    if (window.scrollY >= visibilityHeight) {
       setShow(true)
     } else {
       setShow(false)
@@ -38,10 +40,11 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
   }, [])
 
   const backTopFn = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth'
+    // })
+    scrollToY(0)
   }
 
   return (
@@ -52,7 +55,7 @@ const BackTop = (userProps: BacktopProps, ref: any) => {
       })}
       onClick={backTopFn}
     >
-      {children ? children : <Icon type="totop" color="#fff" />}
+      {children || <Icon type="totop" color="#fff" />}
     </div>
   )
 }
