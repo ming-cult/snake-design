@@ -139,7 +139,7 @@
     "url-loader": "^0.5.9",
     "validate-commit-msg": "^2.12.1",
     "webpack": "^4.29.6",
-    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
     "webpack-parallel-uglify-plugin": "^1.0.0"
