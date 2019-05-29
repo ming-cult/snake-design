@@ -1,13 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
-const projectRootPath = path.resolve(__dirname, '../');
+const projectRootPath = path.resolve(__dirname, '../')
 // const dllPath = path.resolve(projectRootPath, './build/vendor');
 
-const dllPath = process.env.NODE_ENV === 'production' ?
-path.join(__dirname, '../server/static/build/vendor') :
-path.join(__dirname, '../build/vendor')
+const dllPath =
+  process.env.NODE_ENV === 'production'
+    ? path.join(__dirname, '../server/static/build/vendor')
+    : path.join(__dirname, '../build/vendor')
 
 const plugins = [
   new webpack.DllPlugin({
@@ -32,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
     new CleanPlugin([dllPath], { root: projectRootPath }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"',
+        NODE_ENV: '"production"'
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -54,11 +55,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   mode: 'development',
   entry: {
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-    ]
+    vendor: ['react', 'react-dom', 'react-router-dom']
   },
   output: {
     path: dllPath,
