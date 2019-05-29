@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -6,10 +6,10 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const config = require('../config')
 
-const publicPath = "/"
+const publicPath = '/'
 
 function resolve() {
-  return path.resolve(__dirname,'..')
+  return path.resolve(__dirname, '..')
 }
 
 module.exports = {
@@ -17,19 +17,17 @@ module.exports = {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
-    'main': [
-      "./docs/app.tsx",
-    ],
+    main: ['./docs/app.tsx']
   },
   output: {
-    path: path.resolve(__dirname, "../build"),
-    filename: "[name].js",
-    publicPath: publicPath,
+    path: path.resolve(__dirname, '../build'),
+    filename: '[name].js',
+    publicPath: publicPath
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      components: resolve()  + '/components',
+      components: resolve() + '/components',
       types: resolve() + '/types',
       layout: resolve() + '/docs/layout',
       routes: resolve() + '/docs/routes',
@@ -44,10 +42,6 @@ module.exports = {
         loader: 'awesome-typescript-loader',
         exclude: /node_modules/
       },
-      // {
-      //   test: /\.md$/,
-      //   loader: require.resolve('raw-loader')
-      // },
       {
         test: /\.md$/,
         loader: `babel-loader!${path.join(__dirname, './addImportLoader.js')}`
@@ -56,11 +50,15 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader']
       },
-      { test: /\.scss$/,
+      {
+        test: /\.scss$/,
         use: ['style-loader', 'css-loader?importLoaders=2', 'postcss-loader', 'sass-loader']
       },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10240' }
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
+      },
+      { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=10240' }
     ]
   },
   plugins: [
@@ -75,12 +73,12 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       inject: true,
-      chunks: ['vendor', 'main'],
+      chunks: ['vendor', 'main']
     }),
     new FriendlyErrorsPlugin(),
     new OpenBrowserPlugin({
-      url: `http://${config.host}:${config.port}`,
-    }),
+      url: `http://${config.host}:${config.port}`
+    })
   ],
   devServer: {
     host: config.host,
@@ -92,7 +90,7 @@ module.exports = {
     lazy: false,
     publicPath,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    stats: { color: true, assets: true, assetsSort: "field", chunks: false },
+    stats: { color: true, assets: true, assetsSort: 'field', chunks: false },
     historyApiFallback: true
   },
   // 将一些在浏览器不起作用，但是引用到的库置空
@@ -100,6 +98,6 @@ module.exports = {
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',
-    tls: 'empty',
+    tls: 'empty'
   }
-};
+}
