@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/ming-cult/snake-design.png)](https://travis-ci.org/ming-cult/snake-design)
 
 <div align="center">
-  <img src="">
+  <img src="https://github.com/ming-cult/snake-design/tree/master/docs/images/snake.png">
 </div>
 
 ## 介绍
