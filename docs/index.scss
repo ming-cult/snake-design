@@ -70,9 +70,10 @@ body {
     }
 
     .logo {
-      padding: 20px;
       color: $brand;
       font-size: 1.5rem;
+      margin-left: 80px;
+      position: absolute;
     }
 
     .tabs {

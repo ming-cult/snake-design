@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/ming-cult/snake-design.png)](https://travis-ci.org/ming-cult/snake-design)
 
+<div align="center">
+  <img src="">
+</div>
+
 ## 介绍
 
 基于 `React hooks` 开发的 `PC` 端组件库。[文档地址](https://ming-cult.github.io/snake-design)
@@ -14,16 +18,21 @@
 
 ## 开发进度
 
-- [x] Icon
-- [x] Button
-- [x] Row
-- [x] Col
-- [x] Affix
-- [x] Checkbox
-- [x] Modal
-- [x] Overlay
-- [x] Radio
-- [x] Tabs
+- [x] Icon 图标
+- [x] Breadcrumb 面包屑
+- [x] Button 按钮
+- [x] BackTop 回到顶部
+- [x] Affix 固钉
+- [x] Radio 单选框
+- [x] Checkbox 复选框
+- [x] Overlay 弹出层
+- [x] Tabs 标签页
+- [x] Layout(Row, Col) 布局
+- [x] Modal 模态框
+- [x] DropDown 下拉框
+- [x] Popover 气泡卡片
+- [x] Tooltip 文字提示
+- [x] Spin 加载
 - [ ] Input
 - [ ] Avatar
 - [ ] Badge
