@@ -44,12 +44,6 @@ export default function DocsNav(props: NavProps) {
             <header>基础组件</header>
             <div className="sub">{renderNavList(basicCList)}</div>
           </section>
-          <section className="each-section">
-            <header>更多信息</header>
-            <div className="sub">
-              {renderNavList(aboutSnakeDesignList.filter(item => item.path.match(/\/more\//)))}
-            </div>
-          </section>
         </div>
       </Affix>
     </div>
