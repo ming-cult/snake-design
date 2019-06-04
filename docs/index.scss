@@ -70,9 +70,10 @@ body {
     }
 
     .logo {
-      padding: 20px;
       color: $brand;
       font-size: 1.5rem;
+      margin-left: 120px;
+      position: absolute;
     }
 
     .tabs {
@@ -171,6 +172,7 @@ body {
       min-width: 240px;
       padding: 20px 5px 0 20px;
       position: relative;
+      max-height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
 

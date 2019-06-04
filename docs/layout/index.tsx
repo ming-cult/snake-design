@@ -4,13 +4,13 @@ import DocsNav from './docsNav'
 import './docs.scss'
 
 export default class App extends React.Component<any, any> {
-
   // 渲染PC端页面
   renderPCContainer() {
     const { children } = this.props
     return [
       <header key="header" className="snake-design-doc-header">
         <div className="container">
+          <img src={require('../images/snake.png')} className="snake-design-img" />
           <div className="logo">snake-design</div>
           <div className="tabs">
             <Link to="/guide/usage">
@@ -33,8 +33,6 @@ export default class App extends React.Component<any, any> {
   }
 
   render() {
-    return (
-      this.renderPCContainer()
-    )
+    return this.renderPCContainer()
   }
 }

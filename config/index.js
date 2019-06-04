@@ -4,8 +4,8 @@ const os = require('os')
 const localIp = () => {
   const ip = []
   const allNwIntf = os.networkInterfaces()
-  Object.keys(allNwIntf).map((intf) => {
-    allNwIntf[intf].map((it) => {
+  Object.keys(allNwIntf).map(intf => {
+    allNwIntf[intf].map(it => {
       if (it.family === 'IPv4' && !it.internal) {
         ip.push(it.address)
       }
@@ -16,7 +16,7 @@ const localIp = () => {
 
 function getHost() {
   return {
-    localdev: localIp()[0],
+    localdev: '127.0.0.1',
     development: localIp()[0] // 开发环境
   }[ENV]
 }
