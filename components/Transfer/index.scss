@@ -45,6 +45,19 @@
       }
     }
 
+    &-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-top: 1px solid #e8e8e8;
+      border-radius: 0 0 4px 4px;
+    }
+
+    &-with-footer {
+      padding-bottom: 34px;
+    }
+
     &-content {
       position: relative;
       height: 100%;
@@ -81,5 +94,9 @@
     margin: 0 8px;
     overflow: hidden;
     vertical-align: middle;
+
+    .snake-button-default {
+      padding: 0 10px;
+    }
   }
 }

@@ -72,7 +72,9 @@ function Transfer({
     moveKeys = direction === 'right' ? rightSelectedKeys.slice() : leftSelectedKeys.slice()
     onChange(cloneTargetKeys, direction as Direction, moveKeys)
     // 变化后重置 keys
-    onSelectChange([], [])
+    direction === 'left'
+      ? onSelectChange(leftSelectedKeys, [])
+      : onSelectChange([], rightSelectedKeys)
   }
 
   return (

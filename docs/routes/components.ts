@@ -91,7 +91,7 @@ export default [
   },
   {
     key: 'transfer',
-    name: 'Transfer 加载指示器',
+    name: 'Transfer 穿梭框',
     path: '/app/basic/transfer',
     component: require('../components/Transfer').default
   }

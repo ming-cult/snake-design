@@ -77,7 +77,8 @@ function TransferItem({
   return (
     <div
       className={cx(prefixCls, {
-        [`${prefixCls}-disabled`]: disabled
+        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-with-footer`]: footer
       })}
       style={listStyle}
     >
