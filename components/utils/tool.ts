@@ -92,3 +92,15 @@ export const getClientSize = () => {
       window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
   }
 }
+
+/** isFunction */
+export const isFunction = (value: any) => typeof value === 'function'
+
+export const partition = (arr: any[], fn: (val: any, i: number, arr: any) => boolean) =>
+  arr.reduce(
+    (acc, val, i, arr) => {
+      acc[fn(val, i, arr) ? 0 : 1].push(val)
+      return acc
+    },
+    [[], []]
+  )
