@@ -1,5 +1,4 @@
 @import '../styles/themes/default';
-
 $checkbox: 'snake-checkbox-item';
 
 .#{$checkbox} {
@@ -135,6 +134,14 @@ $checkbox: 'snake-checkbox-item';
         height: 8px;
         background-color: $brand;
         opacity: 1;
+      }
+    }
+
+    &.#{$checkbox}-disabled {
+      .#{$checkbox}-select-inner {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
       }
     }
   }
