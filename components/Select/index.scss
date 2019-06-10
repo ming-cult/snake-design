@@ -1,0 +1,50 @@
+@import '../styles/themes/default';
+
+$select: 'snake-select';
+
+.#{$select} {
+  &-header {
+    border: 1px solid #eee;
+    border-radius: 3px;
+    position: relative;
+    padding: 0 8px;
+    color: #333;
+    height: 28px;
+    line-height: 28px;
+  }
+
+  &-arrow {
+    position: absolute;
+    right: 8px;
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+
+    .snake-icon-down {
+      font-size: 12px;
+      color: #b7b7b7;
+    }
+  }
+
+  &-option {
+    color: #666;
+    cursor: pointer;
+    padding: 5px 8px;
+
+    &:hover {
+      background-color: #ebf5ff;
+    }
+  }
+
+  &-dropdown {
+    padding: 0;
+
+    .snake-dropdown-content {
+      padding: 0;
+    }
+  }
+
+  // &-panel {
+  // }
+}

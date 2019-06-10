@@ -6,6 +6,12 @@ export default [
     component: require('../components/Button').default
   },
   {
+    key: 'select',
+    name: 'Select 下拉选择',
+    path: '/app/basic/select',
+    component: require('../components/Select').default
+  },
+  {
     key: 'breadcrumb',
     name: 'Breadcrumb 面包屑',
     path: '/app/basic/breadcrumb',
