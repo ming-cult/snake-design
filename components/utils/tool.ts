@@ -92,3 +92,8 @@ export const getClientSize = () => {
       window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
   }
 }
+
+export function pick<T, K extends keyof T>(obj: T, arr: K[]) {
+  const newObj: { [key in K]?: T[key] } = {}
+  return arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), newObj)
+}

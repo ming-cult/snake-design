@@ -283,9 +283,9 @@ const PortalOverlay: React.FC<Portal> = dropdownProps => {
         <div
           className={classStr}
           ref={contentRef}
-          onClick={() => {
-            onVisibleChange(false)
-          }}
+          // onClick={() => {
+          //   onVisibleChange(false)
+          // }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           style={style}
