@@ -88,5 +88,11 @@ export default [
     name: 'Spin 文字提示',
     path: '/app/basic/spin',
     component: require('../components/Spin').default
+  },
+  {
+    key: 'progress',
+    name: 'Progress 进度条',
+    path: '/app/basic/progress',
+    component: require('../components/Progress').default
   }
 ]

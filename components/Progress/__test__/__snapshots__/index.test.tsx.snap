@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress Test snapshot with circle progress 1`] = `"<div class=\\"snake-progress snake-progress-circle snake-progress-medium snake-progress-normal snake-progress-show-info\\"><svg class=\\"snake-progress-circle-container\\" viewBox=\\"0 0 100 100\\"><path class=\\"snake-progress-circle-outer\\" d=\\"M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92\\" fill-opacity=\\"0\\"></path><path class=\\"snake-progress-circle-inner\\" d=\\"M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92\\" fill-opacity=\\"0\\" stroke-dasharray=\\"289 289\\" stroke-dashoffset=\\"289\\"></path></svg><div class=\\"snake-progress-circle-text\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with color progress 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-medium snake-progress-normal snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%; background-color: red;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with error progress 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-medium snake-progress-error snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with progress normal 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-medium snake-progress-normal snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with size large progress 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-large snake-progress-normal snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with size small progress 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-small snake-progress-normal snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
+
+exports[`Progress Test snapshot with success progress 1`] = `"<div class=\\"snake-progress snake-progress-line snake-progress-medium snake-progress-success snake-progress-show-info\\"><div class=\\"snake-progress-container\\"><div class=\\"snake-progress-outer\\"><div class=\\"snake-progress-inner\\" style=\\"width: 0%;\\"></div></div></div><div class=\\"snake-progress-info\\">0%</div></div>"`;
