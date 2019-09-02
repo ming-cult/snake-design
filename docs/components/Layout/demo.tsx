@@ -45,7 +45,6 @@ export default function Demo() {
           flexWrap: 'wrap'
         }}
         colProps={{
-          cosdlor: 'sd',
           margin: '0 0 10px 0'
         }}
       >
